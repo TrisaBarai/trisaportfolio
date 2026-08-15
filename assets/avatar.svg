@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EEF2FF"/>
+      <stop offset="50%" stop-color="#E0E7FF"/>
+      <stop offset="100%" stop-color="#C7D2FE"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#312E81"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#4F46E5" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas Card -->
+  <rect width="500" height="500" rx="32" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle decorative code grid / circles -->
+  <circle cx="250" cy="250" r="190" fill="none" stroke="#6366F1" stroke-width="2" stroke-dasharray="6 6" opacity="0.4"/>
+  <circle cx="250" cy="250" r="140" fill="#FFFFFF" opacity="0.6"/>
+
+  <!-- Developer Character Illustration -->
+  <!-- Laptop base & screen in background -->
+  <rect x="130" y="320" width="240" height="130" rx="12" fill="#1E293B" filter="url(#cardShadow)"/>
+  <rect x="142" y="332" width="216" height="106" rx="8" fill="#0F172A"/>
+  <!-- Code on screen -->
+  <line x1="160" y1="355" x2="220" y2="355" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="230" y1="355" x2="280" y2="355" stroke="#A855F7" stroke-width="4" stroke-linecap="round"/>
+  <line x1="160" y1="375" x2="250" y2="375" stroke="#34D399" stroke-width="4" stroke-linecap="round"/>
+  <line x1="160" y1="395" x2="210" y2="395" stroke="#F43F5E" stroke-width="4" stroke-linecap="round"/>
+  <line x1="220" y1="395" x2="300" y2="395" stroke="#FCD34D" stroke-width="4" stroke-linecap="round"/>
+  <line x1="160" y1="415" x2="270" y2="415" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Character Body / Outfit -->
+  <path d="M170 410 C170 330, 330 330, 330 410 Z" fill="url(#accentGrad)"/>
+  
+  <!-- Neck -->
+  <rect x="232" y="240" width="36" height="45" rx="8" fill="#FBBF24"/>
+
+  <!-- Head -->
+  <ellipse cx="250" cy="200" rx="55" ry="60" fill="#FDE68A"/>
+
+  <!-- Hair -->
+  <path d="M195 190 C190 120, 310 120, 305 190 C305 210, 315 250, 315 270 C300 280, 280 250, 280 230 C270 240, 230 240, 220 230 C220 250, 200 280, 185 270 C185 250, 195 210, 195 190 Z" fill="url(#hairGrad)"/>
+  
+  <!-- Glasses -->
+  <rect x="212" y="185" width="32" height="24" rx="6" fill="none" stroke="#1E1B4B" stroke-width="3.5"/>
+  <rect x="256" y="185" width="32" height="24" rx="6" fill="none" stroke="#1E1B4B" stroke-width="3.5"/>
+  <line x1="244" y1="197" x2="256" y2="197" stroke="#1E1B4B" stroke-width="3.5"/>
+
+  <!-- Eyes & Smile -->
+  <circle cx="228" cy="197" r="3" fill="#1E1B4B"/>
+  <circle cx="272" cy="197" r="3" fill="#1E1B4B"/>
+  <path d="M238 228 Q250 240 262 228" fill="none" stroke="#92400E" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Floating Tech Badges around avatar -->
+  <!-- Badge 1: C++ / DSA -->
+  <g transform="translate(45, 110)">
+    <rect width="105" height="42" rx="21" fill="#FFFFFF" filter="url(#cardShadow)"/>
+    <circle cx="21" cy="21" r="13" fill="#3B82F6"/>
+    <text x="21" y="26" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">C++</text>
+    <text x="62" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#1E293B">DSA</text>
+  </g>
+
+  <!-- Badge 2: Java / Core -->
+  <g transform="translate(350, 95)">
+    <rect width="105" height="42" rx="21" fill="#FFFFFF" filter="url(#cardShadow)"/>
+    <circle cx="21" cy="21" r="13" fill="#EF4444"/>
+    <text x="21" y="26" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">☕</text>
+    <text x="62" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#1E293B">Java</text>
+  </g>
+
+  <!-- Badge 3: Web / Full Stack -->
+  <g transform="translate(360, 260)">
+    <rect width="115" height="42" rx="21" fill="#FFFFFF" filter="url(#cardShadow)"/>
+    <circle cx="21" cy="21" r="13" fill="#10B981"/>
+    <text x="21" y="25" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">&lt;/&gt;</text>
+    <text x="65" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#1E293B">Web Dev</text>
+  </g>
+
+  <!-- Badge 4: SQL & DBMS -->
+  <g transform="translate(30, 250)">
+    <rect width="110" height="42" rx="21" fill="#FFFFFF" filter="url(#cardShadow)"/>
+    <circle cx="21" cy="21" r="13" fill="#8B5CF6"/>
+    <text x="21" y="26" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">🗄️</text>
+    <text x="63" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#1E293B">DBMS</text>
+  </g>
+</svg>

@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trisa Barai | Computer Science & Software Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Trisa Barai - Computer Science and Software Engineering student skilled in C, C++, Java, Python, JavaScript, Data Structures, DAA, DBMS, and Web Development.">
+  <meta name="keywords" content="Trisa Barai, Software Engineer, Computer Science Student, Web Developer, Portfolio, Data Structures, Algorithms, Java, C++, Python">
+  <meta name="author" content="Trisa Barai">
+  <meta name="theme-color" content="#4F46E5">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Trisa Barai | Computer Science & Software Engineering Portfolio">
+  <meta property="og:description" content="Explore projects, skills, certifications and education of Trisa Barai.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="navbar-header" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Trisa Barai Home">
+        <div class="brand-monogram">TB</div>
+        <div class="brand-text">
+          <span class="brand-name">Trisa Barai</span>
+          <span class="brand-sub">CSE / Software Dev</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+          <li class="nav-item"><a href="#certifications" class="nav-link">Achievements</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav CTA & Mobile Hamburger -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-nav-cta">
+          <span>Let's Talk</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-monogram">TB</div>
+      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+      <li><a href="#about" class="mobile-nav-link">About Me</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+      <li><a href="#education" class="mobile-nav-link">Education</a></li>
+      <li><a href="#certifications" class="mobile-nav-link">Certifications</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <a href="#contact" class="btn btn-primary btn-block">Get in Touch</a>
+      <div class="mobile-socials">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:trisa.barai@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="backdrop" id="backdrop"></div>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="section hero-section" id="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <!-- Status Pill -->
+        <div class="status-badge reveal-fade">
+          <span class="pulse-dot"></span>
+          <span>Open for Software Engineering & Internships</span>
+        </div>
+
+        <h1 class="hero-title reveal-fade">
+          Hi, I'm <span class="gradient-text">Trisa Barai</span>
+        </h1>
+
+        <p class="hero-subtitle reveal-fade">
+          <span class="typing-prefix">Aspiring </span>
+          <span class="highlight-badge">Computer Science & Software Engineering Student</span>
+        </p>
+
+        <p class="hero-description reveal-fade">
+          Passionate about building scalable software, solving algorithmic challenges, and crafting clean web applications. Skilled in <strong>C++</strong>, <strong>Java</strong>, <strong>Python</strong>, <strong>Data Structures</strong>, <strong>DBMS</strong>, and modern <strong>Web Technologies</strong>.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group reveal-fade">
+          <a href="#projects" class="btn btn-primary">
+            <span>View My Projects</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span>Contact Me</span>
+            <i class="fa-regular fa-comment-dots"></i>
+          </a>
+          <a href="#about" class="btn btn-outline">
+            <span>Download CV</span>
+            <i class="fa-solid fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="hero-socials reveal-fade">
+          <span class="socials-label">Connect:</span>
+          <div class="social-icons">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:trisa.barai@example.com" class="social-icon-btn" aria-label="Send Email" title="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LeetCode Profile" title="LeetCode / Problem Solving">
+              <i class="fa-solid fa-code"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card -->
+      <div class="hero-visual reveal-fade">
+        <div class="visual-card-wrapper">
+          <div class="glow-backdrop"></div>
+          <div class="avatar-card">
+            <img src="assets/avatar.svg" alt="Trisa Barai - Software Engineering Student Illustration" class="hero-avatar-img">
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="floating-pill pill-top-left">
+            <div class="pill-icon cse-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <div class="pill-info">
+              <span class="pill-title">CSE Student</span>
+              <span class="pill-sub">Problem Solver</span>
+            </div>
+          </div>
+
+          <div class="floating-pill pill-bottom-right">
+            <div class="pill-icon dsa-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="pill-info">
+              <span class="pill-title">Data Structures</span>
+              <span class="pill-sub">&amp; Algorithms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <a href="#about" class="scroll-down-btn" aria-label="Scroll to About Section">
+      <span class="scroll-text">Scroll Down</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ==================== ABOUT ME SECTION ==================== -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <span class="section-tag"><i class="fa-solid fa-user"></i> Introduction</span>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Dedicated computer science student with a solid foundation in software development and problem solving.</p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Bio Card -->
+        <div class="about-bio-card reveal-fade">
+          <h3 class="about-bio-title">Hello! I'm Trisa Barai</h3>
+          <p class="about-paragraph">
+            I am a passionate <strong>Computer Science & Software Engineering student</strong> who thrives on turning logical challenges into elegant, efficient, and reliable software solutions. My journey is rooted in deep curiosity for how computer systems operate and how software empowers real-world productivity.
+          </p>
+          <p class="about-paragraph">
+            My core focus spans <strong>Object-Oriented Programming</strong> (C++, Java), <strong>Data Structures &amp; Algorithms (DAA)</strong>, <strong>Database Management Systems (DBMS/SQL)</strong>, and modern <strong>Web Development</strong>. I take pride in writing clean, readable, and modular code while continuously expanding my technical horizon.
+          </p>
+          <p class="about-paragraph">
+            Whether it is designing optimized database schemas, visualizing algorithms, building interactive user interfaces, or exploring emerging engineering tools, I bring diligence, adaptability, and high enthusiasm to every project.
+          </p>
+
+          <!-- Core Focus Pillars -->
+          <div class="focus-pillars">
+            <div class="pillar-item">
+              <i class="fa-solid fa-code-branch pillar-icon"></i>
+              <div>
+                <h4>Problem Solving &amp; DSA</h4>
+                <p>Consistent practice in algorithmic thinking, data structures, and time-space optimization.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <i class="fa-solid fa-cubes pillar-icon"></i>
+              <div>
+                <h4>Software Development</h4>
+                <p>Building maintainable applications with clean architectural patterns and modern best practices.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <i class="fa-solid fa-database pillar-icon"></i>
+              <div>
+                <h4>Database &amp; Systems</h4>
+                <p>Solid grasp of relational databases, normalization, SQL queries, and operating system principles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats & Highlights Card -->
+        <div class="about-stats-wrapper reveal-fade">
+          <div class="stats-card">
+            <div class="stat-icon-wrap"><i class="fa-solid fa-code"></i></div>
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Coding Problems Solved</div>
+            <div class="stat-desc">Across LeetCode, HackerRank &amp; Coursework</div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stat-icon-wrap"><i class="fa-solid fa-folder-tree"></i></div>
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Academic &amp; Side Projects</div>
+            <div class="stat-desc">From Web Applications to Core CSE Tools</div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stat-icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="stat-number">8.8+</div>
+            <div class="stat-label">Current CGPA</div>
+            <div class="stat-desc">Strong Academic Standing in B.Tech CSE</div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stat-icon-wrap"><i class="fa-solid fa-bolt"></i></div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Commitment to Growth</div>
+            <div class="stat-desc">Always Learning New Frameworks &amp; Technologies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS SECTION ==================== -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <span class="section-tag"><i class="fa-solid fa-layer-group"></i> Technical Arsenal</span>
+        <h2 class="section-title">Skills &amp; Competencies</h2>
+        <p class="section-subtitle">A balanced toolkit combining core computer science fundamentals, programming languages, and modern development tools.</p>
+      </div>
+
+      <div class="skills-categories-grid">
+        
+        <!-- Category 1: Programming Languages -->
+        <div class="skill-category-card reveal-fade">
+          <div class="category-header">
+            <div class="cat-icon-badge cat-lang"><i class="fa-solid fa-code"></i></div>
+            <div>
+              <h3 class="cat-title">Programming Languages</h3>
+              <p class="cat-subtitle">Core &amp; Scripting Languages</p>
+            </div>
+          </div>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot c-dot"></span>
+                  <span class="skill-name">C</span>
+                </div>
+                <span class="skill-level-tag">Advanced</span>
+              </div>
+              <p class="skill-summary">Memory management, pointers, low-level data structures</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot cpp-dot"></span>
+                  <span class="skill-name">C++</span>
+                </div>
+                <span class="skill-level-tag">Advanced</span>
+              </div>
+              <p class="skill-summary">OOP, STL containers, competitive problem solving</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot java-dot"></span>
+                  <span class="skill-name">Java</span>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+              <p class="skill-summary">Object-Oriented Design, Collections Framework, Multithreading</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot python-dot"></span>
+                  <span class="skill-name">Python</span>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+              <p class="skill-summary">Scripting, automation, algorithms, data handling</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot js-dot"></span>
+                  <span class="skill-name">JavaScript</span>
+                </div>
+                <span class="skill-level-tag">Intermediate</span>
+              </div>
+              <p class="skill-summary">ES6+, DOM manipulation, asynchronous programming, APIs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Core Computer Science -->
+        <div class="skill-category-card reveal-fade">
+          <div class="category-header">
+            <div class="cat-icon-badge cat-core"><i class="fa-solid fa-brain"></i></div>
+            <div>
+              <h3 class="cat-title">Core Computer Science</h3>
+              <p class="cat-subtitle">Theoretical &amp; Applied CS</p>
+            </div>
+          </div>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot dsa-dot"></span>
+                  <span class="skill-name">Data Structures</span>
+                </div>
+                <span class="skill-level-tag">Advanced</span>
+              </div>
+              <p class="skill-summary">Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Hash Tables</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot daa-dot"></span>
+                  <span class="skill-name">DAA (Algorithms)</span>
+                </div>
+                <span class="skill-level-tag">Advanced</span>
+              </div>
+              <p class="skill-summary">Divide &amp; Conquer, Dynamic Programming, Greedy, Graph traversals</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot os-dot"></span>
+                  <span class="skill-name">Operating Systems</span>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+              <p class="skill-summary">Processes, Threads, CPU Scheduling, Synchronization, Memory Paging</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot oop-dot"></span>
+                  <span class="skill-name">Object-Oriented Programming</span>
+                </div>
+                <span class="skill-level-tag">Advanced</span>
+              </div>
+              <p class="skill-summary">Inheritance, Polymorphism, Encapsulation, Abstraction, Design Patterns</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Web & Database Technologies -->
+        <div class="skill-category-card reveal-fade">
+          <div class="category-header">
+            <div class="cat-icon-badge cat-web"><i class="fa-solid fa-database"></i></div>
+            <div>
+              <h3 class="cat-title">Web &amp; Database</h3>
+              <p class="cat-subtitle">Frontend &amp; Data Storage</p>
+            </div>
+          </div>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot sql-dot"></span>
+                  <span class="skill-name">SQL &amp; DBMS</span>
+                </div>
+                <span class="skill-level-tag">Advanced</span>
+              </div>
+              <p class="skill-summary">Relational modeling, ER diagrams, Normalization (1NF-BCNF), Complex Queries</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot html-dot"></span>
+                  <span class="skill-name">HTML5</span>
+                </div>
+                <span class="skill-level-tag">Advanced</span>
+              </div>
+              <p class="skill-summary">Semantic markup, accessibility, SEO, modern layout structures</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot css-dot"></span>
+                  <span class="skill-name">CSS3</span>
+                </div>
+                <span class="skill-level-tag">Advanced</span>
+              </div>
+              <p class="skill-summary">Flexbox, CSS Grid, Custom Properties, Responsive Media Queries, Animations</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot db-dot"></span>
+                  <span class="skill-name">MySQL / Relational DBs</span>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+              <p class="skill-summary">Schema design, Joins, Indexing, Transactions &amp; ACID properties</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: Tools & Version Control -->
+        <div class="skill-category-card reveal-fade">
+          <div class="category-header">
+            <div class="cat-icon-badge cat-tools"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+            <div>
+              <h3 class="cat-title">Tools &amp; Workflow</h3>
+              <p class="cat-subtitle">Developer Utilities</p>
+            </div>
+          </div>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot git-dot"></span>
+                  <span class="skill-name">Git &amp; GitHub</span>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+              <p class="skill-summary">Version control, branching, PRs, commit hygiene, open-source workflow</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot vscode-dot"></span>
+                  <span class="skill-name">VS Code &amp; IDEs</span>
+                </div>
+                <span class="skill-level-tag">Advanced</span>
+              </div>
+              <p class="skill-summary">Debugging, extensions, snippet management, terminal workflow</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot postman-dot"></span>
+                  <span class="skill-name">Postman &amp; REST APIs</span>
+                </div>
+                <span class="skill-level-tag">Intermediate</span>
+              </div>
+              <p class="skill-summary">API testing, JSON payloads, endpoint integration, HTTP methods</p>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name-wrap">
+                  <span class="tech-dot linux-dot"></span>
+                  <span class="skill-name">Linux / Bash</span>
+                </div>
+                <span class="skill-level-tag">Intermediate</span>
+              </div>
+              <p class="skill-summary">Command-line utilities, shell scripting, file permissions, compilation</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS SECTION ==================== -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <span class="section-tag"><i class="fa-solid fa-laptop-code"></i> Portfolio Showcase</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Practical software engineering projects applying data structures, algorithms, databases, and modern web development.</p>
+      </div>
+
+      <!-- Project Category Filters -->
+      <div class="projects-filter-bar reveal-fade">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="algorithms">Algorithms &amp; Core CS</button>
+        <button class="filter-btn" data-filter="dbms">DBMS &amp; Systems</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card reveal-fade" data-category="algorithms web">
+          <div class="project-card-header">
+            <div class="project-type-badge"><i class="fa-solid fa-route"></i> Algorithm Visualizer</div>
+            <div class="project-date">Featured Project</div>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Interactive Pathfinding &amp; Graph Algorithm Visualizer</h3>
+            <p class="project-desc">
+              A responsive interactive web tool to visualize graph traversal and shortest-path algorithms in real-time. Allows users to draw walls, adjust speed, and observe algorithm execution step-by-step.
+            </p>
+            <ul class="project-features">
+              <li><i class="fa-solid fa-check"></i> Implemented Dijkstra's, A* Search, BFS, and DFS graph traversal.</li>
+              <li><i class="fa-solid fa-check"></i> Real-time animation with heuristic visualization and dynamic grid editing.</li>
+            </ul>
+            <div class="project-tech-stack">
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Data Structures</span>
+              <span class="tech-pill">Algorithms</span>
+              <span class="tech-pill">HTML5 Canvas</span>
+              <span class="tech-pill">CSS3</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+              <i class="fa-brands fa-github"></i>
+              <span>Source Code</span>
+            </a>
+            <a href="#projects" class="btn btn-sm btn-primary project-demo-btn" data-project="Pathfinding Visualizer">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Live Demo</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card reveal-fade" data-category="dbms web">
+          <div class="project-card-header">
+            <div class="project-type-badge"><i class="fa-solid fa-school"></i> Full-Stack &amp; DBMS</div>
+            <div class="project-date">Core Application</div>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Student Academic &amp; Campus Portal System</h3>
+            <p class="project-desc">
+              A comprehensive campus management portal for course registration, student grade tracking, attendance analytics, and role-based access for students and faculty.
+            </p>
+            <ul class="project-features">
+              <li><i class="fa-solid fa-check"></i> 3NF normalized relational schema preventing data redundancy.</li>
+              <li><i class="fa-solid fa-check"></i> Dynamic student performance dashboards with SQL aggregation queries.</li>
+            </ul>
+            <div class="project-tech-stack">
+              <span class="tech-pill">Java</span>
+              <span class="tech-pill">SQL</span>
+              <span class="tech-pill">DBMS</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">HTML/CSS</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+              <i class="fa-brands fa-github"></i>
+              <span>Source Code</span>
+            </a>
+            <a href="#projects" class="btn btn-sm btn-primary project-demo-btn" data-project="Student Campus Portal">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Live Demo</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card reveal-fade" data-category="dbms algorithms">
+          <div class="project-card-header">
+            <div class="project-type-badge"><i class="fa-solid fa-database"></i> Database Engine</div>
+            <div class="project-date">System Software</div>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">SQL Query Simulator &amp; Relational Algebra Engine</h3>
+            <p class="project-desc">
+              An educational query optimizer that parses relational queries, converts them into query execution trees, and demonstrates indexing effects on search latency.
+            </p>
+            <ul class="project-features">
+              <li><i class="fa-solid fa-check"></i> Demonstrates B-Tree index lookup vs. Full Table Scans.</li>
+              <li><i class="fa-solid fa-check"></i> Supports nested joins, grouping, and schema constraints validation.</li>
+            </ul>
+            <div class="project-tech-stack">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">SQL</span>
+              <span class="tech-pill">DBMS Architecture</span>
+              <span class="tech-pill">Data Structures</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+              <i class="fa-brands fa-github"></i>
+              <span>Source Code</span>
+            </a>
+            <a href="#projects" class="btn btn-sm btn-primary project-demo-btn" data-project="SQL Query Simulator">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Live Demo</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card reveal-fade" data-category="algorithms">
+          <div class="project-card-header">
+            <div class="project-type-badge"><i class="fa-solid fa-microchip"></i> Operating Systems</div>
+            <div class="project-date">Systems &amp; C++</div>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">CPU Scheduling &amp; Memory Allocation Simulator</h3>
+            <p class="project-desc">
+              A high-performance C++ simulator demonstrating process management, CPU scheduling algorithms, and virtual memory paging with deadlock detection.
+            </p>
+            <ul class="project-features">
+              <li><i class="fa-solid fa-check"></i> Compares FCFS, SJF, Round Robin, and Priority Scheduling metrics.</li>
+              <li><i class="fa-solid fa-check"></i> Implemented Banker's Algorithm for deadlock avoidance and LRU page replacement.</li>
+            </ul>
+            <div class="project-tech-stack">
+              <span class="tech-pill">C++</span>
+              <span class="tech-pill">Operating Systems</span>
+              <span class="tech-pill">Multithreading</span>
+              <span class="tech-pill">Algorithms</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+              <i class="fa-brands fa-github"></i>
+              <span>Source Code</span>
+            </a>
+            <a href="#projects" class="btn btn-sm btn-primary project-demo-btn" data-project="OS Simulator">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Live Demo</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card reveal-fade" data-category="web">
+          <div class="project-card-header">
+            <div class="project-type-badge"><i class="fa-solid fa-code"></i> Developer Utilities</div>
+            <div class="project-date">Web Application</div>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">CodeSnippet Hub &amp; Markdown Note Vault</h3>
+            <p class="project-desc">
+              A productivity web app for developers to store, categorize, tag, and search syntax-highlighted code snippets with instant preview and export.
+            </p>
+            <ul class="project-features">
+              <li><i class="fa-solid fa-check"></i> Instant fuzzy search and multi-tag filtering across languages.</li>
+              <li><i class="fa-solid fa-check"></i> Client-side local storage synchronization with one-click copy.</li>
+            </ul>
+            <div class="project-tech-stack">
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">LocalStorage API</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+              <i class="fa-brands fa-github"></i>
+              <span>Source Code</span>
+            </a>
+            <a href="#projects" class="btn btn-sm btn-primary project-demo-btn" data-project="CodeSnippet Hub">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Live Demo</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card reveal-fade" data-category="web">
+          <div class="project-card-header">
+            <div class="project-type-badge"><i class="fa-solid fa-gem"></i> Portfolio &amp; UX</div>
+            <div class="project-date">Current Site</div>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Modern Professional Engineer Portfolio</h3>
+            <p class="project-desc">
+              An elegant, ultra-responsive developer portfolio website built from scratch with semantic HTML5, modern CSS3 custom properties, and vanilla JavaScript.
+            </p>
+            <ul class="project-features">
+              <li><i class="fa-solid fa-check"></i> Glassmorphic navigation, dynamic filtering, and interactive contact form.</li>
+              <li><i class="fa-solid fa-check"></i> 100% accessible, recruiter-friendly, and mobile-optimized architecture.</li>
+            </ul>
+            <div class="project-tech-stack">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">Vanilla CSS3</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">UI/UX</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+              <i class="fa-brands fa-github"></i>
+              <span>Source Code</span>
+            </a>
+            <a href="#hero" class="btn btn-sm btn-primary">
+              <i class="fa-solid fa-eye"></i>
+              <span>Active Site</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EDUCATION SECTION ==================== -->
+  <section class="section education-section" id="education">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <span class="section-tag"><i class="fa-solid fa-graduation-cap"></i> Academic Journey</span>
+        <h2 class="section-title">Education &amp; Background</h2>
+        <p class="section-subtitle">My academic milestones and technical coursework in Computer Science and Engineering.</p>
+      </div>
+
+      <div class="timeline-wrapper">
+        
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item reveal-fade">
+          <div class="timeline-marker">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <span class="timeline-badge current">Current Degree</span>
+                <h3 class="timeline-degree">Bachelor of Technology (B.Tech)</h3>
+                <h4 class="timeline-institution">Computer Science &amp; Engineering</h4>
+              </div>
+              <div class="timeline-period">
+                <span class="period-pill"><i class="fa-regular fa-calendar"></i> 2022 - 2026</span>
+                <span class="grade-pill"><i class="fa-solid fa-star"></i> CGPA: 8.8 / 10.0</span>
+              </div>
+            </div>
+            <p class="timeline-description">
+              Focused on core computer science foundations, software engineering methodologies, data structures, algorithms, and practical software development.
+            </p>
+            <div class="coursework-section">
+              <span class="coursework-title">Relevant Core Coursework:</span>
+              <div class="coursework-tags">
+                <span class="course-tag">Data Structures &amp; Algorithms</span>
+                <span class="course-tag">Database Management Systems</span>
+                <span class="course-tag">Operating Systems</span>
+                <span class="course-tag">Design &amp; Analysis of Algorithms</span>
+                <span class="course-tag">Object-Oriented Programming</span>
+                <span class="course-tag">Computer Organization &amp; Architecture</span>
+                <span class="course-tag">Computer Networks</span>
+                <span class="course-tag">Software Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item reveal-fade">
+          <div class="timeline-marker">
+            <i class="fa-solid fa-school"></i>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <span class="timeline-badge">Higher Secondary</span>
+                <h3 class="timeline-degree">Higher Secondary Education (Class XII)</h3>
+                <h4 class="timeline-institution">Science Stream (Physics, Chemistry, Mathematics, CS)</h4>
+              </div>
+              <div class="timeline-period">
+                <span class="period-pill"><i class="fa-regular fa-calendar"></i> Completed</span>
+                <span class="grade-pill"><i class="fa-solid fa-award"></i> First Class Distinction</span>
+              </div>
+            </div>
+            <p class="timeline-description">
+              Developed strong mathematical analytical skills, logical reasoning, and introductory programming foundations in C/C++.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item reveal-fade">
+          <div class="timeline-marker">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <span class="timeline-badge">Secondary</span>
+                <h3 class="timeline-degree">Secondary School Certificate (Class X)</h3>
+                <h4 class="timeline-institution">General Sciences &amp; Mathematics</h4>
+              </div>
+              <div class="timeline-period">
+                <span class="period-pill"><i class="fa-regular fa-calendar"></i> Completed</span>
+                <span class="grade-pill"><i class="fa-solid fa-award"></i> High Distinction</span>
+              </div>
+            </div>
+            <p class="timeline-description">
+              Built foundational academic excellence in science, mathematics, and extracurricular logical problem solving.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CERTIFICATIONS & ACHIEVEMENTS ==================== -->
+  <section class="section certs-section" id="certifications">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <span class="section-tag"><i class="fa-solid fa-trophy"></i> Recognition</span>
+        <h2 class="section-title">Certifications &amp; Achievements</h2>
+        <p class="section-subtitle">Validated credentials, technical workshops, and competitive programming milestones.</p>
+      </div>
+
+      <div class="certs-grid">
+        
+        <!-- Cert 1 -->
+        <div class="cert-card reveal-fade">
+          <div class="cert-icon-box cert-dsa">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">Coursera / Authorized Provider</span>
+            <h3 class="cert-title">Data Structures &amp; Algorithms Specialization</h3>
+            <p class="cert-summary">Covered algorithmic design paradigms, asymptotic analysis, graph search, dynamic programming, and greedy algorithms.</p>
+            <div class="cert-footer">
+              <span class="cert-tag"><i class="fa-solid fa-circle-check"></i> Verified Credential</span>
+              <span class="cert-date">Issued 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="cert-card reveal-fade">
+          <div class="cert-icon-box cert-java">
+            <i class="fa-brands fa-java"></i>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">Oracle / Course Specialization</span>
+            <h3 class="cert-title">Java &amp; Object-Oriented Software Engineering</h3>
+            <p class="cert-summary">In-depth training on OOP design principles, exception handling, Java Collections Framework, and unit testing.</p>
+            <div class="cert-footer">
+              <span class="cert-tag"><i class="fa-solid fa-circle-check"></i> Verified Credential</span>
+              <span class="cert-date">Issued 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="cert-card reveal-fade">
+          <div class="cert-icon-box cert-db">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">HackerRank / Meta Learning</span>
+            <h3 class="cert-title">SQL &amp; Relational Database Mastery (Advanced)</h3>
+            <p class="cert-summary">Mastery in complex SQL joins, nested subqueries, indexing strategies, and database normalization techniques.</p>
+            <div class="cert-footer">
+              <span class="cert-tag"><i class="fa-solid fa-circle-check"></i> Verified Credential</span>
+              <span class="cert-date">Issued 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cert 4 -->
+        <div class="cert-card reveal-fade">
+          <div class="cert-icon-box cert-web">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">FreeCodeCamp / Technical Certification</span>
+            <h3 class="cert-title">Responsive Web Design &amp; Modern Frontend</h3>
+            <p class="cert-summary">Comprehensive certification covering semantic HTML5, CSS3 Grid/Flexbox, accessibility standards, and responsive web apps.</p>
+            <div class="cert-footer">
+              <span class="cert-tag"><i class="fa-solid fa-circle-check"></i> Verified Credential</span>
+              <span class="cert-date">Issued 2023</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievement 1 -->
+        <div class="cert-card reveal-fade">
+          <div class="cert-icon-box cert-trophy">
+            <i class="fa-solid fa-medal"></i>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">Competitive Programming</span>
+            <h3 class="cert-title">500+ Algorithmic Challenges Solved</h3>
+            <p class="cert-summary">Consistent problem solver on LeetCode &amp; HackerRank, maintaining top percentile badges in Problem Solving and Data Structures.</p>
+            <div class="cert-footer">
+              <span class="cert-tag"><i class="fa-solid fa-star"></i> Top Rank Badge</span>
+              <span class="cert-date">Active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievement 2 -->
+        <div class="cert-card reveal-fade">
+          <div class="cert-icon-box cert-hackathon">
+            <i class="fa-solid fa-rocket"></i>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">College / University Hackathon</span>
+            <h3 class="cert-title">Hackathon Finalist &amp; Tech Presenter</h3>
+            <p class="cert-summary">Developed an automated campus service optimization prototype with team members during an intensive 36-hour hackathon.</p>
+            <div class="cert-footer">
+              <span class="cert-tag"><i class="fa-solid fa-award"></i> Finalist Certificate</span>
+              <span class="cert-date">2024</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <span class="section-tag"><i class="fa-solid fa-envelope"></i> Get In Touch</span>
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-subtitle">Interested in collaborating, hiring for an internship, or discussing technical projects? Let's connect!</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Contact Cards / Info -->
+        <div class="contact-info-wrapper reveal-fade">
+          <div class="contact-card">
+            <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-card-content">
+              <span class="contact-card-label">Email Address</span>
+              <a href="mailto:trisa.barai@example.com" class="contact-card-value" id="email-link">trisa.barai@example.com</a>
+            </div>
+            <button class="copy-btn" id="copy-email-btn" title="Copy email address" aria-label="Copy email address">
+              <i class="fa-regular fa-copy"></i>
+              <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
+            </button>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div class="contact-card-content">
+              <span class="contact-card-label">LinkedIn Profile</span>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-card-value">linkedin.com/in/trisabarai</a>
+            </div>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="visit-link-btn" aria-label="Open LinkedIn">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon"><i class="fa-brands fa-github"></i></div>
+            <div class="contact-card-content">
+              <span class="contact-card-label">GitHub Profile</span>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-card-value">github.com/trisabarai</a>
+            </div>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="visit-link-btn" aria-label="Open GitHub">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-card-content">
+              <span class="contact-card-label">Location &amp; Availability</span>
+              <span class="contact-card-value">India (Open to Remote &amp; Relocation)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Contact Form -->
+        <div class="contact-form-card reveal-fade">
+          <h3 class="form-title">Send a Direct Message</h3>
+          <p class="form-sub">Fill out the form below and I will respond promptly.</p>
+          
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name <span class="required">*</span></label>
+              <div class="input-icon-wrap">
+                <i class="fa-regular fa-user input-icon"></i>
+                <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Alex Johnson" required autocomplete="name">
+              </div>
+              <span class="form-error-msg" id="name-error">Please enter your name.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+              <div class="input-icon-wrap">
+                <i class="fa-regular fa-envelope input-icon"></i>
+                <input type="email" id="email" name="email" class="form-input" placeholder="e.g. alex@example.com" required autocomplete="email">
+              </div>
+              <span class="form-error-msg" id="email-error">Please enter a valid email address.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <div class="input-icon-wrap">
+                <i class="fa-regular fa-bookmark input-icon"></i>
+                <input type="text" id="subject" name="subject" class="form-input" placeholder="e.g. Internship Opportunity / Collaboration">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message <span class="required">*</span></label>
+              <div class="input-icon-wrap textarea-wrap">
+                <i class="fa-regular fa-comment-dots input-icon"></i>
+                <textarea id="message" name="message" class="form-input form-textarea" rows="4" placeholder="Type your message here..." required></textarea>
+              </div>
+              <span class="form-error-msg" id="message-error">Please enter a message (at least 10 characters).</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-monogram">TB</div>
+          <div>
+            <h3 class="footer-name">Trisa Barai</h3>
+            <p class="footer-tagline">Computer Science &amp; Software Engineering Student</p>
+          </div>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certifications">Achievements</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="footer-socials">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:trisa.barai@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2026 Trisa Barai. All rights reserved.
+        </p>
+        <p class="footer-built">
+          Built with <span class="heart-icon">❤️</span> HTML, CSS &amp; JavaScript
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCROLL TO TOP BUTTON ==================== -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top of page">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div class="toast-notification" id="toast">
+    <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+    <div class="toast-content">
+      <div class="toast-title" id="toast-title">Message Sent!</div>
+      <div class="toast-desc" id="toast-desc">Thank you for reaching out. I'll get back to you soon.</div>
+    </div>
+    <button class="toast-close" id="toast-close" aria-label="Close notification"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
