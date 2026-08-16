@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Vibrant Blue Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+    
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA" />
+      <stop offset="100%" stop-color="#93C5FD" />
+    </linearGradient>
+
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <linearGradient id="hoodieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D4ED8" />
+      <stop offset="100%" stop-color="#1E40AF" />
+    </linearGradient>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#1E3A8A" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background Circle Glow -->
+  <circle cx="200" cy="200" r="175" fill="url(#bgGrad)" filter="url(#cardShadow)" />
+  <circle cx="200" cy="200" r="160" fill="none" stroke="url(#accentGrad)" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.6" />
+
+  <!-- Code Matrix Geometric Accents -->
+  <g opacity="0.25">
+    <text x="60" y="90" fill="#FFFFFF" font-family="monospace" font-size="14" font-weight="bold">&lt;dev&gt;</text>
+    <text x="300" y="110" fill="#FFFFFF" font-family="monospace" font-size="14" font-weight="bold">{ code }</text>
+    <text x="50" y="320" fill="#FFFFFF" font-family="monospace" font-size="14" font-weight="bold">&lt;/ai&gt;</text>
+    <text x="310" y="310" fill="#FFFFFF" font-family="monospace" font-size="14" font-weight="bold">const tb;</text>
+  </g>
+
+  <!-- Developer Silhouette / Character Illustration -->
+  <g transform="translate(0, 10)">
+    <!-- Shoulders & Hoodie -->
+    <path d="M110,340 C110,270 145,245 200,245 C255,245 290,270 290,340 Z" fill="url(#hoodieGrad)" />
+    <!-- Inner Collar -->
+    <path d="M165,245 C165,275 235,275 235,245 Z" fill="#2563EB" opacity="0.8" />
+    <path d="M175,245 C175,268 225,268 225,245 Z" fill="#FFFFFF" />
+
+    <!-- Neck -->
+    <rect x="182" y="210" width="36" height="40" rx="8" fill="#FCD34D" opacity="0.9" />
+
+    <!-- Head / Face -->
+    <ellipse cx="200" cy="180" rx="44" ry="52" fill="#FDE68A" />
+
+    <!-- Stylish Hair -->
+    <path d="M148,175 C145,130 165,110 200,110 C235,110 255,130 252,175 C242,160 220,150 200,150 C180,150 158,160 148,175 Z" fill="url(#hairGrad)" />
+    <!-- Hair Strands Front/Sides -->
+    <path d="M152,170 C150,215 160,230 162,235 C164,215 156,180 158,165 Z" fill="url(#hairGrad)" />
+    <path d="M248,170 C250,215 240,230 238,235 C236,215 244,180 242,165 Z" fill="url(#hairGrad)" />
+
+    <!-- Glasses Frame (Tech / Engineering look) -->
+    <g stroke="#1E293B" stroke-width="3.5" fill="none">
+      <rect x="164" y="165" width="30" height="22" rx="6" fill="#FFFFFF" fill-opacity="0.3" />
+      <rect x="206" y="165" width="30" height="22" rx="6" fill="#FFFFFF" fill-opacity="0.3" />
+      <line x1="194" y1="175" x2="206" y2="175" />
+      <!-- Glasses sides -->
+      <line x1="164" y1="174" x2="152" y2="170" />
+      <line x1="236" y1="174" x2="248" y2="170" />
+    </g>
+
+    <!-- Eyes (friendly) -->
+    <circle cx="179" cy="176" r="3.5" fill="#0F172A" />
+    <circle cx="221" cy="176" r="3.5" fill="#0F172A" />
+    <circle cx="180.5" cy="174.5" r="1" fill="#FFFFFF" />
+    <circle cx="222.5" cy="174.5" r="1" fill="#FFFFFF" />
+
+    <!-- Eyebrows -->
+    <path d="M168,160 Q179,157 188,160" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <path d="M212,160 Q221,157 232,160" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+    <!-- Smile -->
+    <path d="M188,205 Q200,216 212,205" stroke="#B45309" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Laptop In Front -->
+    <g transform="translate(130, 275)">
+      <!-- Laptop Screen / Lid -->
+      <rect x="15" y="0" width="110" height="68" rx="7" fill="#0F172A" stroke="#38BDF8" stroke-width="2" />
+      <!-- Code on Screen -->
+      <rect x="23" y="10" width="40" height="4" rx="2" fill="#38BDF8" />
+      <rect x="23" y="18" width="65" height="4" rx="2" fill="#60A5FA" />
+      <rect x="30" y="26" width="55" height="4" rx="2" fill="#93C5FD" />
+      <rect x="30" y="34" width="70" height="4" rx="2" fill="#34D399" />
+      <rect x="23" y="42" width="45" height="4" rx="2" fill="#F472B6" />
+      <circle cx="70" cy="55" r="4" fill="#38BDF8" opacity="0.8" />
+      <!-- Laptop Base -->
+      <path d="M0,68 L140,68 L130,76 L10,76 Z" fill="#334155" />
+      <line x1="55" y1="72" x2="85" y2="72" stroke="#64748B" stroke-width="2" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- Glowing Badge Sparkles -->
+  <circle cx="85" cy="180" r="4" fill="#60A5FA" filter="url(#softGlow)" />
+  <circle cx="320" cy="190" r="5" fill="#38BDF8" filter="url(#softGlow)" />
+</svg>
