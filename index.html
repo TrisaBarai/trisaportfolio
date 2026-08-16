@@ -5,66 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO & Page Metadata -->
-  <title>Trisa Barai | Computer Science &amp; Aspiring Software Developer Portfolio</title>
-  <meta name="description" content="Personal portfolio of Trisa Barai - Computer Science & Software Engineering student skilled in Python, Java, C/C++, Data Structures & Algorithms, DBMS, SQL, and Web Development.">
-  <meta name="keywords" content="Trisa Barai, Computer Science Student, Software Engineering, Fake Review Detection System, Python, Java, C++, DSA, DBMS, Web Development, Portfolio">
+  <title>Trisa Barai | Computer Science Student &amp; Aspiring Software Developer</title>
+  <meta name="description" content="Portfolio of Trisa Barai - Computer Science Student passionate about software development, web technologies, and machine learning.">
+  <meta name="keywords" content="Trisa Barai, Computer Science, Software Developer, Fake Review Detection System, Python, Java, C, C++, Web Development">
   <meta name="author" content="Trisa Barai">
-  <meta name="theme-color" content="#2563EB">
+  <meta name="theme-color" content="#0a192f">
 
-  <!-- Open Graph / Social Sharing Meta Tags -->
-  <meta property="og:title" content="Trisa Barai | Portfolio">
-  <meta property="og:description" content="Explore software engineering projects, skills, education, and resume of Trisa Barai.">
-  <meta property="og:type" content="website">
-
-  <!-- Google Fonts: Plus Jakarta Sans (UI) & JetBrains Mono (Code) -->
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome 6 Icons -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Main Stylesheet (Vanilla CSS) -->
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- ========================================================================= -->
-  <!-- 1. HEADER / NAVIGATION BAR                                                -->
+  <!-- 1. NAVIGATION BAR                                                         -->
   <!-- ========================================================================= -->
-  <header class="navbar-header" id="navbar">
+  <header class="navbar" id="navbar">
     <div class="container nav-container">
       
-      <!-- Brand Logo / Monogram -->
-      <a href="#hero" class="nav-brand" aria-label="Trisa Barai Home">
+      <!-- Brand Logo -->
+      <a href="#home" class="nav-brand" aria-label="Trisa Barai Home">
         <div class="brand-monogram">TB</div>
-        <div class="brand-text">
-          <span class="brand-name">Trisa Barai</span>
-          <span class="brand-sub">Computer Science &amp; Engineering</span>
-        </div>
+        <span class="brand-name">Trisa Barai</span>
       </a>
 
       <!-- Desktop Navigation Menu -->
       <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
         <ul class="nav-list">
-          <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
           <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
           <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-          <li class="nav-item"><a href="#featured-project" class="nav-link">Featured Project</a></li>
-          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
-          <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+          <li class="nav-item"><a href="#project" class="nav-link">Project</a></li>
           <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <!-- Nav CTA & Mobile Hamburger Button -->
       <div class="nav-actions">
-        <a href="#contact" class="btn btn-primary btn-nav-cta">
-          <span>Let's Talk</span>
-          <i class="fa-solid fa-paper-plane"></i>
-        </a>
-        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <a href="#contact" class="btn btn-sm btn-outline nav-cta">Let's Connect</a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
@@ -74,146 +60,115 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu (Visible only on Mobile & Tablet when toggled) -->
+  <!-- Mobile Drawer Menu (Visible on Mobile & Tablet) -->
   <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
     <div class="mobile-drawer-header">
-      <div class="brand-monogram">TB</div>
-      <span class="drawer-title">Navigation</span>
-      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close navigation menu">
+      <div class="brand-wrap">
+        <div class="brand-monogram">TB</div>
+        <span class="drawer-title">Trisa Barai</span>
+      </div>
+      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
     
     <ul class="mobile-nav-list">
-      <li><a href="#hero" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
-      <li><a href="#about" class="mobile-nav-link"><i class="fa-solid fa-user"></i> About Me</a></li>
+      <li><a href="#home" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="#about" class="mobile-nav-link"><i class="fa-solid fa-user"></i> About</a></li>
       <li><a href="#skills" class="mobile-nav-link"><i class="fa-solid fa-code"></i> Skills</a></li>
-      <li><a href="#featured-project" class="mobile-nav-link"><i class="fa-solid fa-star"></i> Featured Project</a></li>
-      <li><a href="#projects" class="mobile-nav-link"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
-      <li><a href="#education" class="mobile-nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
-      <li><a href="#resume" class="mobile-nav-link"><i class="fa-solid fa-file-pdf"></i> Resume</a></li>
+      <li><a href="#project" class="mobile-nav-link"><i class="fa-solid fa-laptop-code"></i> Project</a></li>
       <li><a href="#contact" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
     </ul>
 
     <div class="mobile-drawer-footer">
-      <a href="resume/resume.pdf" download="Trisa_Barai_Resume.pdf" class="btn btn-outline btn-block">
-        <i class="fa-solid fa-download"></i> Download Resume
+      <a href="mailto:baraitrisa@gmail.com" class="drawer-contact-item">
+        <i class="fa-solid fa-envelope"></i> baraitrisa@gmail.com
       </a>
-      <div class="mobile-socials">
-        <!-- EDIT YOUR SOCIAL LINKS HERE -->
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fa-brands fa-github"></i></a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="mailto:trisa.barai@example.com" aria-label="Send Email"><i class="fa-solid fa-envelope"></i></a>
-      </div>
+      <a href="tel:8653024020" class="drawer-contact-item">
+        <i class="fa-solid fa-phone"></i> +91 8653024020
+      </a>
     </div>
   </aside>
 
-  <!-- Mobile Drawer Backdrop Overlay -->
+  <!-- Backdrop Overlay for Mobile Drawer -->
   <div class="backdrop" id="backdrop"></div>
 
 
   <!-- ========================================================================= -->
-  <!-- 2. HERO SECTION (HOME)                                                    -->
+  <!-- 2. HOME (HERO) SECTION                                                    -->
   <!-- ========================================================================= -->
-  <section class="section hero-section" id="hero">
+  <section class="hero-section" id="home">
     <div class="container hero-container">
       
-      <!-- Left Column: Hero Intro Text -->
+      <!-- Hero Text Content -->
       <div class="hero-content">
-        
-        <!-- Status Pill -->
-        <div class="status-badge">
+        <div class="hero-badge">
           <span class="pulse-dot"></span>
-          <span>Open for Software Engineering &amp; Internship Opportunities</span>
+          <span>Welcome to my Portfolio</span>
         </div>
 
         <h1 class="hero-title">
-          Hi, I'm <span class="gradient-text">Trisa Barai</span>
+          Hi, I'm <span class="highlight-text">Trisa Barai</span>
         </h1>
 
-        <p class="hero-subtitle">
-          <span class="highlight-badge">Computer Science Student &amp; Aspiring Software Developer</span>
+        <h2 class="hero-role">
+          Computer Science Student &amp; Aspiring Software Developer
+        </h2>
+
+        <p class="hero-intro">
+          I am a Computer Science student passionate about software development, web technologies, programming and problem solving.
         </p>
 
-        <p class="hero-description">
-          I am a passionate Computer Science student dedicated to building scalable software, solving complex algorithmic problems, and developing clean, intuitive web applications. Welcome to my personal portfolio!
-        </p>
-
-        <!-- CTA Buttons -->
+        <!-- CTA Action Buttons -->
         <div class="hero-cta-group">
-          <a href="#featured-project" class="btn btn-primary">
-            <span>View My Projects</span>
+          <a href="#project" class="btn btn-primary">
+            <span>View My Project</span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>
-          <a href="#contact" class="btn btn-secondary">
+          <a href="#contact" class="btn btn-outline">
             <span>Contact Me</span>
-            <i class="fa-regular fa-comment-dots"></i>
-          </a>
-          <a href="resume/resume.pdf" download="Trisa_Barai_Resume.pdf" class="btn btn-outline">
-            <span>Download Resume</span>
-            <i class="fa-solid fa-download"></i>
+            <i class="fa-solid fa-paper-plane"></i>
           </a>
         </div>
 
-        <!-- Social Icons Bar -->
-        <div class="hero-socials">
-          <span class="socials-label">Connect with me:</span>
-          <div class="social-icons">
-            <!-- EDIT YOUR LINKS HERE -->
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile" title="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile" title="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="mailto:trisa.barai@example.com" class="social-icon-btn" aria-label="Send Email" title="Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LeetCode Profile" title="LeetCode / Problem Solving">
-              <i class="fa-solid fa-code"></i>
-            </a>
-          </div>
+        <!-- Quick Contact Info Bar -->
+        <div class="hero-contact-strip">
+          <a href="mailto:baraitrisa@gmail.com" class="strip-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>baraitrisa@gmail.com</span>
+          </a>
+          <a href="tel:8653024020" class="strip-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>+91 8653024020</span>
+          </a>
         </div>
-
       </div>
 
-      <!-- Right Column: Hero Visual Illustration -->
+      <!-- Hero Visual Card -->
       <div class="hero-visual">
-        <div class="visual-card-wrapper">
-          <div class="glow-backdrop"></div>
-          
-          <!-- Avatar Card -->
-          <div class="avatar-card">
-            <!-- TO REPLACE WITH YOUR OWN PHOTO: Change src="images/avatar.svg" to src="images/your-photo.jpg" -->
-            <img src="images/avatar.svg" alt="Trisa Barai - Software Engineering Student" class="hero-avatar-img">
+        <div class="hero-card">
+          <div class="hero-avatar-box">
+            <!-- TO ADD YOUR OWN PHOTO: Change src="images/avatar.svg" to src="images/yourphoto.jpg" -->
+            <img src="images/avatar.svg" alt="Trisa Barai" class="hero-avatar">
           </div>
-
-          <!-- Floating Badges -->
-          <div class="floating-pill pill-top-left">
-            <div class="pill-icon cse-icon"><i class="fa-solid fa-laptop-code"></i></div>
-            <div class="pill-info">
-              <span class="pill-title">CSE Student</span>
-              <span class="pill-sub">Problem Solver</span>
+          <div class="hero-floating-tag tag-left">
+            <i class="fa-solid fa-laptop-code"></i>
+            <div>
+              <strong>Software Dev</strong>
+              <span>Problem Solver</span>
             </div>
           </div>
-
-          <div class="floating-pill pill-bottom-right">
-            <div class="pill-icon dsa-icon"><i class="fa-solid fa-brain"></i></div>
-            <div class="pill-info">
-              <span class="pill-title">Data Structures</span>
-              <span class="pill-sub">&amp; Algorithms</span>
+          <div class="hero-floating-tag tag-right">
+            <i class="fa-solid fa-brain"></i>
+            <div>
+              <strong>AI &amp; Algorithms</strong>
+              <span>Innovator</span>
             </div>
           </div>
         </div>
       </div>
 
     </div>
-
-    <!-- Scroll Down Link -->
-    <a href="#about" class="scroll-down-btn" aria-label="Scroll down to About section">
-      <span class="scroll-text">Scroll Down</span>
-      <i class="fa-solid fa-chevron-down"></i>
-    </a>
   </section>
 
 
@@ -224,90 +179,38 @@
     <div class="container">
       
       <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-user"></i> Introduction</span>
+        <span class="section-tag">Introduction</span>
         <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">A brief overview of my background, technical passions, and engineering journey.</p>
+        <div class="title-underline"></div>
       </div>
 
-      <div class="about-grid">
-        
-        <!-- Left: Bio Story & Areas of Interest -->
-        <div class="about-bio-card">
-          <h3 class="about-bio-title">Hello! I'm Trisa Barai</h3>
-          
+      <div class="about-card">
+        <div class="about-text-content">
           <p class="about-paragraph">
-            I am a motivated <strong>Computer Science &amp; Software Engineering student</strong> with a strong foundation in core computer science concepts and modern software development practices. I enjoy solving algorithmic challenges, designing efficient databases, and building responsive web applications.
+            Hello! I am <strong>Trisa Barai</strong>, a dedicated Computer Science student with a strong passion for software engineering and modern web development. I love turning ideas into functional, responsive, and user-friendly digital solutions.
           </p>
-
           <p class="about-paragraph">
-            I have a keen enthusiasm for continuous learning and exploring how cutting-edge technologies like <strong>Artificial Intelligence</strong> and machine learning can solve real-world problems.
+            I continuously practice problem-solving, building modular backend architectures, designing optimized databases, and exploring machine learning algorithms that solve real-world problems.
           </p>
-
-          <!-- Explicitly Mentioned Areas of Interest -->
-          <div class="interests-block">
-            <h4 class="interests-heading"><i class="fa-solid fa-compass"></i> Core Areas of Interest:</h4>
-            <div class="interests-grid">
-              <div class="interest-badge"><i class="fa-solid fa-code"></i> Software Development</div>
-              <div class="interest-badge"><i class="fa-solid fa-globe"></i> Web Development</div>
-              <div class="interest-badge"><i class="fa-brands fa-python"></i> Python</div>
-              <div class="interest-badge"><i class="fa-brands fa-java"></i> Java</div>
-              <div class="interest-badge"><i class="fa-solid fa-terminal"></i> C / C++</div>
-              <div class="interest-badge"><i class="fa-solid fa-brain"></i> Data Structures &amp; Algorithms</div>
-              <div class="interest-badge"><i class="fa-solid fa-database"></i> Database Management (DBMS)</div>
-              <div class="interest-badge"><i class="fa-solid fa-robot"></i> Artificial Intelligence (AI / ML)</div>
-            </div>
-          </div>
-
-          <!-- Key Highlights -->
-          <div class="focus-pillars">
-            <div class="pillar-item">
-              <i class="fa-solid fa-code-branch pillar-icon"></i>
-              <div>
-                <h4>Problem Solving &amp; DSA</h4>
-                <p>Consistently practicing algorithmic efficiency, complexity analysis, and modular code writing.</p>
-              </div>
-            </div>
-            <div class="pillar-item">
-              <i class="fa-solid fa-layer-group pillar-icon"></i>
-              <div>
-                <h4>Full-Stack &amp; Systems</h4>
-                <p>Developing responsive frontends connected to robust backends and optimized relational database schemas.</p>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <!-- Right: Academic & Project Highlights Grid -->
-        <div class="about-stats-wrapper">
-          <div class="stats-card">
-            <div class="stat-icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Coding Problems Solved</div>
-            <div class="stat-desc">Across LeetCode, HackerRank &amp; Coursework</div>
-          </div>
-
-          <div class="stats-card">
-            <div class="stat-icon-wrap"><i class="fa-solid fa-folder-tree"></i></div>
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Academic &amp; Side Projects</div>
-            <div class="stat-desc">Spanning AI, Web Development &amp; Core Systems</div>
-          </div>
-
-          <div class="stats-card">
-            <div class="stat-icon-wrap"><i class="fa-solid fa-graduation-cap"></i></div>
-            <div class="stat-number">8.8+</div>
-            <div class="stat-label">Current CGPA</div>
-            <div class="stat-desc">Strong Academic Standing in B.Tech CSE</div>
-          </div>
-
-          <div class="stats-card">
-            <div class="stat-icon-wrap"><i class="fa-solid fa-bolt"></i></div>
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Continuous Learning</div>
-            <div class="stat-desc">Passionate about new tools, algorithms &amp; frameworks</div>
+        <!-- Areas of Interest Badges -->
+        <div class="interests-container">
+          <h3 class="interests-title"><i class="fa-solid fa-compass"></i> My Core Interests:</h3>
+          <div class="interests-grid">
+            <div class="interest-pill"><i class="fa-solid fa-code"></i> Software Development</div>
+            <div class="interest-pill"><i class="fa-solid fa-globe"></i> Web Development</div>
+            <div class="interest-pill"><i class="fa-brands fa-python"></i> Python</div>
+            <div class="interest-pill"><i class="fa-brands fa-java"></i> Java</div>
+            <div class="interest-pill"><i class="fa-solid fa-terminal"></i> C</div>
+            <div class="interest-pill"><i class="fa-solid fa-code-branch"></i> C++</div>
+            <div class="interest-pill"><i class="fa-solid fa-diagram-project"></i> Data Structures</div>
+            <div class="interest-pill"><i class="fa-solid fa-brain"></i> Algorithms</div>
+            <div class="interest-pill"><i class="fa-solid fa-database"></i> DBMS</div>
+            <div class="interest-pill"><i class="fa-solid fa-table"></i> SQL</div>
+            <div class="interest-pill"><i class="fa-solid fa-robot"></i> Artificial Intelligence</div>
           </div>
         </div>
-
       </div>
 
     </div>
@@ -321,116 +224,110 @@
     <div class="container">
       
       <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-layer-group"></i> Technical Toolkit</span>
+        <span class="section-tag">Technical Toolkit</span>
         <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">Key programming languages, core computer science concepts, and tools I use to build software.</p>
+        <div class="title-underline"></div>
       </div>
 
-      <!-- Skills Cards Grid -->
-      <div class="skills-cards-container">
+      <!-- Skills Cards Grid (14 Skills) -->
+      <div class="skills-grid">
         
         <!-- Skill 1: C -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-solid fa-c"></i></div>
-          <h3 class="skill-title">C</h3>
-          <span class="skill-badge">Programming</span>
-          <p class="skill-desc">Memory management, pointers, structures, low-level algorithms.</p>
+          <div class="skill-icon"><i class="fa-solid fa-c"></i></div>
+          <h3 class="skill-name">C</h3>
+          <span class="skill-category">Programming</span>
         </div>
 
         <!-- Skill 2: C++ -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-solid fa-code"></i></div>
-          <h3 class="skill-title">C++</h3>
-          <span class="skill-badge">OOP &amp; STL</span>
-          <p class="skill-desc">Object-Oriented Programming, Standard Template Library (STL), competitive coding.</p>
+          <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+          <h3 class="skill-name">C++</h3>
+          <span class="skill-category">OOP &amp; STL</span>
         </div>
 
         <!-- Skill 3: Java -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-brands fa-java"></i></div>
-          <h3 class="skill-title">Java</h3>
-          <span class="skill-badge">OOP &amp; Apps</span>
-          <p class="skill-desc">Collections framework, multithreading, modular application architecture.</p>
+          <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
+          <h3 class="skill-name">Java</h3>
+          <span class="skill-category">OOP &amp; Backend</span>
         </div>
 
         <!-- Skill 4: Python -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-brands fa-python"></i></div>
-          <h3 class="skill-title">Python</h3>
-          <span class="skill-badge">AI / ML &amp; Scripting</span>
-          <p class="skill-desc">Flask, Scikit-Learn, data processing, automation, rapid prototyping.</p>
+          <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+          <h3 class="skill-name">Python</h3>
+          <span class="skill-category">AI / ML &amp; Scripting</span>
         </div>
 
         <!-- Skill 5: HTML -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-brands fa-html5"></i></div>
-          <h3 class="skill-title">HTML5</h3>
-          <span class="skill-badge">Frontend</span>
-          <p class="skill-desc">Semantic markup, web accessibility (a11y), SEO-friendly structure.</p>
+          <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+          <h3 class="skill-name">HTML</h3>
+          <span class="skill-category">Frontend Structure</span>
         </div>
 
         <!-- Skill 6: CSS -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-brands fa-css3-alt"></i></div>
-          <h3 class="skill-title">CSS3</h3>
-          <span class="skill-badge">Styling &amp; Design</span>
-          <p class="skill-desc">Responsive layouts, Flexbox, CSS Grid, custom animations, modern variables.</p>
+          <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
+          <h3 class="skill-name">CSS</h3>
+          <span class="skill-category">Responsive Design</span>
         </div>
 
         <!-- Skill 7: JavaScript -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-brands fa-js"></i></div>
-          <h3 class="skill-title">JavaScript</h3>
-          <span class="skill-badge">Frontend Logic</span>
-          <p class="skill-desc">ES6+ syntax, DOM manipulation, asynchronous programming, APIs.</p>
+          <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
+          <h3 class="skill-name">JavaScript</h3>
+          <span class="skill-category">Interactive Logic</span>
         </div>
 
         <!-- Skill 8: SQL -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-solid fa-table"></i></div>
-          <h3 class="skill-title">SQL</h3>
-          <span class="skill-badge">Database Queries</span>
-          <p class="skill-desc">Complex queries, multi-table joins, subqueries, indexing &amp; aggregations.</p>
+          <div class="skill-icon"><i class="fa-solid fa-table"></i></div>
+          <h3 class="skill-name">SQL</h3>
+          <span class="skill-category">Queries &amp; Relational Data</span>
         </div>
 
         <!-- Skill 9: DBMS -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-solid fa-database"></i></div>
-          <h3 class="skill-title">DBMS</h3>
-          <span class="skill-badge">Database Design</span>
-          <p class="skill-desc">Relational schema design, Normalization (1NF - BCNF), ACID properties, transactions.</p>
+          <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+          <h3 class="skill-name">DBMS</h3>
+          <span class="skill-category">Database Management</span>
         </div>
 
         <!-- Skill 10: Data Structures -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-solid fa-diagram-project"></i></div>
-          <h3 class="skill-title">Data Structures</h3>
-          <span class="skill-badge">Core CS</span>
-          <p class="skill-desc">Arrays, Linked Lists, Stacks, Queues, Binary Trees, Graphs, Hash Maps.</p>
+          <div class="skill-icon"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3 class="skill-name">Data Structures</h3>
+          <span class="skill-category">Core Computer Science</span>
         </div>
 
         <!-- Skill 11: DAA -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-solid fa-brain"></i></div>
-          <h3 class="skill-title">DAA</h3>
-          <span class="skill-badge">Algorithms</span>
-          <p class="skill-desc">Divide &amp; Conquer, Dynamic Programming, Greedy approaches, graph traversals.</p>
+          <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3 class="skill-name">DAA</h3>
+          <span class="skill-category">Design &amp; Analysis of Algorithms</span>
         </div>
 
         <!-- Skill 12: Operating Systems -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-solid fa-microchip"></i></div>
-          <h3 class="skill-title">Operating Systems</h3>
-          <span class="skill-badge">Core CS</span>
-          <p class="skill-desc">Process management, CPU scheduling, synchronization, virtual memory &amp; paging.</p>
+          <div class="skill-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3 class="skill-name">Operating Systems</h3>
+          <span class="skill-category">Systems &amp; Memory</span>
         </div>
 
-        <!-- Skill 13: Git & GitHub -->
+        <!-- Skill 13: Git -->
         <div class="skill-card">
-          <div class="skill-card-icon"><i class="fa-brands fa-github"></i></div>
-          <h3 class="skill-title">Git &amp; GitHub</h3>
-          <span class="skill-badge">Version Control</span>
-          <p class="skill-desc">Repository management, branching, commit hygiene, pull requests, collaboration.</p>
+          <div class="skill-icon"><i class="fa-solid fa-code-branch"></i></div>
+          <h3 class="skill-name">Git</h3>
+          <span class="skill-category">Version Control</span>
+        </div>
+
+        <!-- Skill 14: GitHub -->
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-brands fa-github"></i></div>
+          <h3 class="skill-name">GitHub</h3>
+          <span class="skill-category">Collaboration &amp; Hosting</span>
         </div>
 
       </div>
@@ -440,102 +337,121 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 5. FEATURED PROJECT: FAKE REVIEW DETECTION SYSTEM                         -->
+  <!-- 5. PROJECT SECTION (SINGLE FEATURED PROJECT ONLY)                        -->
   <!-- ========================================================================= -->
-  <section class="section featured-project-section" id="featured-project">
+  <section class="section project-section" id="project">
     <div class="container">
       
       <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-star"></i> Featured Flagship Project</span>
-        <h2 class="section-title">Fake Review Detection System</h2>
-        <p class="section-subtitle">An intelligent AI-based machine learning solution designed to identify and classify deceptive online reviews.</p>
+        <span class="section-tag">Featured Project</span>
+        <h2 class="section-title">Main Project</h2>
+        <div class="title-underline"></div>
       </div>
 
-      <!-- Main Large Featured Project Card -->
-      <div class="featured-project-card">
+      <!-- Single Main Project Card -->
+      <div class="main-project-card">
         
-        <div class="featured-card-grid">
+        <div class="project-card-grid">
           
-          <!-- Left: Details & Architecture -->
-          <div class="featured-details">
+          <!-- Project Left: Details -->
+          <div class="project-info">
             
-            <div class="featured-badge-row">
-              <span class="badge-flagship"><i class="fa-solid fa-robot"></i> AI &amp; Machine Learning</span>
-              <span class="badge-status">Full-Stack Application</span>
+            <div class="project-badge">
+              <i class="fa-solid fa-star"></i> AI &amp; Machine Learning Project
             </div>
 
-            <h3 class="featured-title">Fake Review Detection System</h3>
+            <h3 class="project-title">Fake Review Detection System</h3>
 
-            <p class="featured-description">
-              This project is an AI-based system designed to identify whether an online review is genuine or fake. It analyzes review information and uses machine learning techniques to classify suspicious reviews.
+            <p class="project-desc">
+              Fake Review Detection System is an AI-based project designed to identify whether an online review is genuine or fake. The system analyzes review information and uses machine learning techniques to classify suspicious reviews.
             </p>
 
-            <!-- Key Features List -->
-            <div class="featured-features">
-              <h4 class="features-heading">Key Project Features:</h4>
+            <!-- Features List -->
+            <div class="project-features">
+              <h4 class="features-title"><i class="fa-solid fa-list-check"></i> Key Features:</h4>
               <ul class="features-list">
-                <li><i class="fa-solid fa-circle-check"></i> <strong>NLP Preprocessing:</strong> Cleans text, removes noise/stopwords, and extracts term frequency features.</li>
-                <li><i class="fa-solid fa-circle-check"></i> <strong>Machine Learning Classifier:</strong> Classifies reviews into Genuine vs. Fake with confidence percentages.</li>
-                <li><i class="fa-solid fa-circle-check"></i> <strong>Flask REST API:</strong> High-performance Python backend managing review classification requests.</li>
-                <li><i class="fa-solid fa-circle-check"></i> <strong>SQL Database Integration:</strong> Stores analyzed logs, prediction results, and user feedback.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Review input:</strong> Seamless text input interface for any user-submitted review.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Fake/Genuine review prediction:</strong> Immediate AI classification with calculated confidence score.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Machine learning based detection:</strong> NLP algorithms analyzing word patterns, capitalization, and trigger phrases.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Simple user interface:</strong> Clean, responsive, and intuitive design for effortless interaction.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Result display:</strong> Clear breakdown of verification status and metrics.</li>
               </ul>
             </div>
 
-            <!-- Tech Stack Pills -->
-            <div class="featured-tech-stack">
-              <span class="tech-pill tech-python"><i class="fa-brands fa-python"></i> Python</span>
-              <span class="tech-pill tech-ml"><i class="fa-solid fa-brain"></i> Machine Learning</span>
-              <span class="tech-pill tech-flask"><i class="fa-solid fa-server"></i> Flask</span>
-              <span class="tech-pill tech-sql"><i class="fa-solid fa-database"></i> SQL</span>
-              <span class="tech-pill tech-html"><i class="fa-brands fa-html5"></i> HTML</span>
-              <span class="tech-pill tech-css"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-              <span class="tech-pill tech-js"><i class="fa-brands fa-js"></i> JavaScript</span>
+            <!-- Tech Stack Tags -->
+            <div class="project-tech-tags">
+              <span class="tech-tag"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="tech-tag"><i class="fa-solid fa-brain"></i> Machine Learning</span>
+              <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML</span>
+              <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+              <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="tech-tag"><i class="fa-solid fa-server"></i> Flask</span>
+              <span class="tech-tag"><i class="fa-solid fa-database"></i> SQL</span>
             </div>
 
-            <!-- Action Buttons -->
-            <div class="featured-actions">
-              <!-- EDIT WITH YOUR GITHUB REPO LINK -->
+            <!-- Project Action Buttons -->
+            <div class="project-actions">
+              <!-- EDIT YOUR GITHUB LINK HERE -->
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 <i class="fa-brands fa-github"></i>
-                <span>View on GitHub</span>
+                <span>GitHub</span>
               </a>
-              <button class="btn btn-secondary" id="open-demo-btn">
+              <!-- Live Demo / Interactive Tester Button -->
+              <button class="btn btn-outline" id="open-demo-btn">
                 <i class="fa-solid fa-play"></i>
-                <span>Interactive Live Demo</span>
+                <span>Live Demo</span>
               </button>
             </div>
 
           </div>
 
-          <!-- Right: Visual Illustration & Interactive Demo Teaser -->
-          <div class="featured-visual-col">
-            <div class="featured-illustration-card">
-              <img src="images/fake-review-demo.svg" alt="Fake Review Detection AI System Architecture" class="featured-img">
-            </div>
-
-            <!-- Quick Live Tester Box -->
-            <div class="quick-tester-card">
-              <div class="tester-header">
-                <span class="tester-dot"></span>
-                <span class="tester-title">Instant Review Tester (Quick Try)</span>
-              </div>
-              <p class="tester-sub">Click a sample to test the AI detection logic instantly:</p>
+          <!-- Project Right: Interactive Live Tester Card -->
+          <div class="project-interactive-box">
+            <div class="tester-container">
               
-              <div class="sample-btn-group">
-                <button class="sample-btn" data-sample="genuine">
-                  <i class="fa-solid fa-check text-success"></i> Genuine Review Sample
+              <div class="tester-header">
+                <span class="tester-indicator"></span>
+                <h4 class="tester-title">Live Review Classifier Demo</h4>
+              </div>
+              
+              <p class="tester-note">
+                Test the detection logic directly below or click sample buttons:
+              </p>
+
+              <!-- Quick Sample Buttons -->
+              <div class="sample-actions">
+                <button type="button" class="sample-btn" id="sample-genuine-btn">
+                  <i class="fa-solid fa-circle-check"></i> Genuine Sample
                 </button>
-                <button class="sample-btn" data-sample="fake">
-                  <i class="fa-solid fa-triangle-exclamation text-danger"></i> Fake/Bot Review Sample
+                <button type="button" class="sample-btn" id="sample-fake-btn">
+                  <i class="fa-solid fa-triangle-exclamation"></i> Fake Sample
                 </button>
               </div>
 
-              <!-- Result Output Display -->
-              <div class="tester-result" id="quick-tester-result">
-                <div class="result-placeholder">Select a sample or click <strong>Interactive Live Demo</strong> to test custom reviews.</div>
+              <!-- Input Area -->
+              <div class="tester-input-wrap">
+                <textarea id="live-review-input" class="tester-textarea" rows="3" placeholder="Type or paste a review here to test..."></textarea>
               </div>
-            </div>
 
+              <div class="tester-btn-row">
+                <button type="button" class="btn btn-primary btn-sm btn-block" id="run-analysis-btn">
+                  <i class="fa-solid fa-magnifying-glass"></i> Analyze Review
+                </button>
+                <button type="button" class="btn btn-outline btn-sm" id="clear-analysis-btn">
+                  <i class="fa-solid fa-rotate-left"></i> Clear
+                </button>
+              </div>
+
+              <!-- Result Display Box -->
+              <div class="tester-result-box" id="tester-result-box" style="display: none;">
+                <div class="result-top">
+                  <span class="verdict-pill" id="verdict-pill">Genuine Review</span>
+                  <span class="confidence-text" id="confidence-text">Confidence: 96%</span>
+                </div>
+                <div class="result-reasons" id="result-reasons"></div>
+              </div>
+
+            </div>
           </div>
 
         </div>
@@ -547,475 +463,107 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 6. OTHER PROJECTS SECTION                                                 -->
-  <!-- ========================================================================= -->
-  <section class="section projects-section" id="projects">
-    <div class="container">
-      
-      <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-code-fork"></i> More Works</span>
-        <h2 class="section-title">Other Projects</h2>
-        <p class="section-subtitle">Academic and personal projects demonstrating data structures, algorithms, database architecture, and web development.</p>
-      </div>
-
-      <!-- Project Filter Buttons -->
-      <div class="projects-filter-bar">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="web">Web Development</button>
-        <button class="filter-btn" data-filter="algorithms">Algorithms &amp; Core CS</button>
-        <button class="filter-btn" data-filter="dbms">DBMS &amp; Systems</button>
-      </div>
-
-      <!-- Projects Grid -->
-      <div class="projects-grid" id="projects-grid">
-
-        <!-- Project 1: Pathfinding Visualizer -->
-        <article class="project-card" data-category="algorithms web">
-          <div class="project-card-header">
-            <div class="project-type-badge"><i class="fa-solid fa-route"></i> Algorithm Visualizer</div>
-            <div class="project-date">Core CS Project</div>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-title">Interactive Pathfinding &amp; Graph Algorithm Visualizer</h3>
-            <p class="project-desc">
-              An interactive web application to visualize graph traversal and shortest-path algorithms (Dijkstra's, A*, BFS, DFS) with obstacle drawing and real-time step animations.
-            </p>
-            <div class="project-tech-stack">
-              <span class="tech-pill">JavaScript</span>
-              <span class="tech-pill">Data Structures</span>
-              <span class="tech-pill">Algorithms</span>
-              <span class="tech-pill">HTML5 Canvas</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </a>
-            <a href="#projects" class="btn btn-sm btn-primary project-demo-alert-btn" data-project="Pathfinding Visualizer">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Live Demo</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 2: Student Academic Portal -->
-        <article class="project-card" data-category="dbms web">
-          <div class="project-card-header">
-            <div class="project-type-badge"><i class="fa-solid fa-school"></i> Full-Stack &amp; DBMS</div>
-            <div class="project-date">Campus System</div>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-title">Student Academic &amp; Campus Management Portal</h3>
-            <p class="project-desc">
-              A complete database-backed academic management system for course enrollment, grade reporting, attendance analytics, and role-based student &amp; faculty access.
-            </p>
-            <div class="project-tech-stack">
-              <span class="tech-pill">Java</span>
-              <span class="tech-pill">SQL</span>
-              <span class="tech-pill">DBMS</span>
-              <span class="tech-pill">HTML / CSS</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </a>
-            <a href="#projects" class="btn btn-sm btn-primary project-demo-alert-btn" data-project="Student Portal">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Live Demo</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 3: SQL Query Simulator -->
-        <article class="project-card" data-category="dbms algorithms">
-          <div class="project-card-header">
-            <div class="project-type-badge"><i class="fa-solid fa-database"></i> Database Engine</div>
-            <div class="project-date">System Software</div>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-title">SQL Query Simulator &amp; Relational Engine</h3>
-            <p class="project-desc">
-              An educational relational query optimizer simulating table joins, B-Tree index lookups, and execution plans for understanding query complexity.
-            </p>
-            <div class="project-tech-stack">
-              <span class="tech-pill">Python</span>
-              <span class="tech-pill">SQL</span>
-              <span class="tech-pill">DBMS</span>
-              <span class="tech-pill">Algorithms</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </a>
-            <a href="#projects" class="btn btn-sm btn-primary project-demo-alert-btn" data-project="SQL Query Simulator">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Live Demo</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 4: CPU Scheduling Simulator -->
-        <article class="project-card" data-category="algorithms">
-          <div class="project-card-header">
-            <div class="project-type-badge"><i class="fa-solid fa-microchip"></i> Operating Systems</div>
-            <div class="project-date">Systems &amp; C++</div>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-title">CPU Scheduling &amp; Memory Allocation Simulator</h3>
-            <p class="project-desc">
-              A high-performance C++ simulator comparing FCFS, SJF, Round Robin, and Priority scheduling metrics alongside Banker's deadlock avoidance.
-            </p>
-            <div class="project-tech-stack">
-              <span class="tech-pill">C++</span>
-              <span class="tech-pill">Operating Systems</span>
-              <span class="tech-pill">Algorithms</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </a>
-            <a href="#projects" class="btn btn-sm btn-primary project-demo-alert-btn" data-project="OS Simulator">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Live Demo</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 5: CodeSnippet Hub -->
-        <article class="project-card" data-category="web">
-          <div class="project-card-header">
-            <div class="project-type-badge"><i class="fa-solid fa-code"></i> Web Application</div>
-            <div class="project-date">Developer Tool</div>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-title">CodeSnippet Hub &amp; Note Vault</h3>
-            <p class="project-desc">
-              A productivity web app for developers to store, tag, and search syntax-highlighted code snippets with local storage and one-click copy.
-            </p>
-            <div class="project-tech-stack">
-              <span class="tech-pill">JavaScript</span>
-              <span class="tech-pill">HTML5</span>
-              <span class="tech-pill">CSS3</span>
-              <span class="tech-pill">LocalStorage</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </a>
-            <a href="#projects" class="btn btn-sm btn-primary project-demo-alert-btn" data-project="CodeSnippet Hub">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Live Demo</span>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 6: Future Project Placeholder Card (Easily editable) -->
-        <article class="project-card placeholder-card" data-category="web algorithms dbms">
-          <div class="project-card-header">
-            <div class="project-type-badge"><i class="fa-solid fa-plus"></i> New Project Slot</div>
-            <div class="project-date">In Progress</div>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-title">Your Next Engineering Project</h3>
-            <p class="project-desc">
-              Placeholder card where you can easily add your next machine learning model, mobile application, or web tool.
-            </p>
-            <div class="project-tech-stack">
-              <span class="tech-pill">Python / Java</span>
-              <span class="tech-pill">Web / Mobile</span>
-              <span class="tech-pill">SQL</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </a>
-            <a href="#projects" class="btn btn-sm btn-primary">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Live Demo</span>
-            </a>
-          </div>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ========================================================================= -->
-  <!-- 7. EDUCATION SECTION                                                      -->
-  <!-- ========================================================================= -->
-  <section class="section education-section" id="education">
-    <div class="container">
-      
-      <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-graduation-cap"></i> Academic Background</span>
-        <h2 class="section-title">Education &amp; Qualifications</h2>
-        <p class="section-subtitle">My academic trajectory, university coursework, and foundational schooling.</p>
-      </div>
-
-      <div class="timeline-wrapper">
-        
-        <!-- Timeline Item 1: B.Tech Degree (EDIT WITH YOUR UNIVERSITY NAME) -->
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <i class="fa-solid fa-user-graduate"></i>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <span class="timeline-badge current">Current Degree</span>
-                <h3 class="timeline-degree">Bachelor of Technology (B.Tech)</h3>
-                <h4 class="timeline-institution">Computer Science &amp; Engineering — [Your College / University Name]</h4>
-              </div>
-              <div class="timeline-period">
-                <span class="period-pill"><i class="fa-regular fa-calendar"></i> 2022 - 2026</span>
-                <span class="grade-pill"><i class="fa-solid fa-star"></i> CGPA: 8.8 / 10.0</span>
-              </div>
-            </div>
-            
-            <p class="timeline-description">
-              Focused on core computer science fundamentals, software engineering paradigms, object-oriented design, algorithmic problem solving, and hands-on system building.
-            </p>
-            
-            <div class="coursework-section">
-              <span class="coursework-title">Relevant Subjects &amp; Coursework:</span>
-              <div class="coursework-tags">
-                <span class="course-tag">Data Structures &amp; Algorithms</span>
-                <span class="course-tag">Database Management Systems (DBMS)</span>
-                <span class="course-tag">Design &amp; Analysis of Algorithms (DAA)</span>
-                <span class="course-tag">Operating Systems</span>
-                <span class="course-tag">Object-Oriented Programming (Java / C++)</span>
-                <span class="course-tag">Computer Organization &amp; Architecture</span>
-                <span class="course-tag">Computer Networks</span>
-                <span class="course-tag">Software Engineering</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Timeline Item 2: Class XII (EDIT WITH YOUR SCHOOL / COLLEGE NAME) -->
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <i class="fa-solid fa-school"></i>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <span class="timeline-badge">Higher Secondary</span>
-                <h3 class="timeline-degree">Higher Secondary Certificate (Class XII)</h3>
-                <h4 class="timeline-institution">Science Stream (Physics, Chemistry, Mathematics, CS) — [Your School / College Name]</h4>
-              </div>
-              <div class="timeline-period">
-                <span class="period-pill"><i class="fa-regular fa-calendar"></i> Completed</span>
-                <span class="grade-pill"><i class="fa-solid fa-award"></i> First Class Distinction</span>
-              </div>
-            </div>
-            <p class="timeline-description">
-              Built strong analytical skills, mathematical foundations, and early programming logic in C and C++.
-            </p>
-          </div>
-        </div>
-
-        <!-- Timeline Item 3: Class X (EDIT WITH YOUR SCHOOL NAME) -->
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <i class="fa-solid fa-book-open"></i>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <span class="timeline-badge">Secondary School</span>
-                <h3 class="timeline-degree">Secondary School Certificate (Class X)</h3>
-                <h4 class="timeline-institution">General Sciences &amp; Mathematics — [Your School Name]</h4>
-              </div>
-              <div class="timeline-period">
-                <span class="period-pill"><i class="fa-regular fa-calendar"></i> Completed</span>
-                <span class="grade-pill"><i class="fa-solid fa-award"></i> High Distinction</span>
-              </div>
-            </div>
-            <p class="timeline-description">
-              Excellence across mathematics, computer basics, and science fundamentals.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ========================================================================= -->
-  <!-- 8. RESUME SECTION                                                         -->
-  <!-- ========================================================================= -->
-  <section class="section resume-section" id="resume">
-    <div class="container">
-      
-      <div class="resume-cta-card">
-        <div class="resume-cta-content">
-          <div class="resume-icon-badge">
-            <i class="fa-solid fa-file-pdf"></i>
-          </div>
-          <div class="resume-text-wrap">
-            <span class="resume-pill">Updated for 2026</span>
-            <h2 class="resume-title">Curriculum Vitae / Resume</h2>
-            <p class="resume-desc">
-              Looking for my complete educational background, technical projects, certifications, and skill set? Download my official resume in PDF format.
-            </p>
-          </div>
-        </div>
-
-        <!-- Download Action Buttons -->
-        <div class="resume-actions">
-          <!-- Main Download Button -->
-          <a href="resume/resume.pdf" download="Trisa_Barai_Resume.pdf" class="btn btn-primary btn-lg">
-            <i class="fa-solid fa-download"></i>
-            <span>Download Resume (PDF)</span>
-          </a>
-          <!-- View Online Button -->
-          <a href="resume/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
-            <i class="fa-solid fa-eye"></i>
-            <span>View Resume Online</span>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ========================================================================= -->
-  <!-- 9. CONTACT SECTION                                                        -->
+  <!-- 6. CONTACT SECTION ("Let's Work Together")                                -->
   <!-- ========================================================================= -->
   <section class="section contact-section" id="contact">
     <div class="container">
       
       <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-envelope"></i> Get In Touch</span>
-        <h2 class="section-title">Contact Me</h2>
-        <p class="section-subtitle">Feel free to reach out for software engineering opportunities, internships, collaboration, or questions.</p>
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-subtitle">Have a project idea or want to connect? Feel free to contact me.</p>
+        <div class="title-underline"></div>
       </div>
 
       <div class="contact-grid">
         
-        <!-- Left: Contact Cards / Info -->
-        <div class="contact-info-wrapper">
+        <!-- Left: Contact Details Cards -->
+        <div class="contact-info-col">
           
-          <!-- Email Card with Copy Button -->
+          <!-- Email Card -->
           <div class="contact-card">
-            <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div class="contact-card-content">
-              <span class="contact-card-label">Email Address</span>
-              <!-- EDIT YOUR EMAIL HERE -->
-              <a href="mailto:trisa.barai@example.com" class="contact-card-value" id="email-link">trisa.barai@example.com</a>
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-details">
+              <span class="contact-label">Email</span>
+              <a href="mailto:baraitrisa@gmail.com" class="contact-value" id="email-text">baraitrisa@gmail.com</a>
             </div>
-            <button class="copy-btn" id="copy-email-btn" title="Copy email address" aria-label="Copy email address">
+            <button class="copy-btn" id="copy-email-btn" title="Copy Email" aria-label="Copy Email">
               <i class="fa-regular fa-copy"></i>
               <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
             </button>
           </div>
 
-          <!-- LinkedIn Card -->
+          <!-- Phone Card -->
           <div class="contact-card">
-            <div class="contact-card-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-            <div class="contact-card-content">
-              <span class="contact-card-label">LinkedIn Profile</span>
-              <!-- EDIT YOUR LINKEDIN HERE -->
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-card-value">linkedin.com/in/trisabarai</a>
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="contact-details">
+              <span class="contact-label">Phone</span>
+              <a href="tel:8653024020" class="contact-value">+91 8653024020</a>
             </div>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="visit-link-btn" aria-label="Visit LinkedIn">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <a href="tel:8653024020" class="phone-call-btn" title="Call Now" aria-label="Call Now">
+              <i class="fa-solid fa-phone-flip"></i>
             </a>
           </div>
 
-          <!-- GitHub Card -->
+          <!-- Additional Socials / GitHub -->
           <div class="contact-card">
-            <div class="contact-card-icon"><i class="fa-brands fa-github"></i></div>
-            <div class="contact-card-content">
-              <span class="contact-card-label">GitHub Profile</span>
-              <!-- EDIT YOUR GITHUB HERE -->
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-card-value">github.com/trisabarai</a>
+            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+            <div class="contact-details">
+              <span class="contact-label">GitHub</span>
+              <!-- EDIT YOUR GITHUB LINK HERE -->
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-value">github.com/TrisaBarai</a>
             </div>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="visit-link-btn" aria-label="Visit GitHub">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="phone-call-btn" aria-label="Open GitHub">
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
-          </div>
-
-          <!-- Location Card -->
-          <div class="contact-card">
-            <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div class="contact-card-content">
-              <span class="contact-card-label">Location &amp; Availability</span>
-              <span class="contact-card-value">Open to Remote &amp; On-Site Opportunities</span>
-            </div>
           </div>
 
         </div>
 
-        <!-- Right: Interactive Contact Form -->
-        <div class="contact-form-card">
-          <h3 class="form-title">Send a Message</h3>
-          <p class="form-sub">Fill out the form below and I will get back to you as soon as possible.</p>
-          
-          <form class="contact-form" id="contact-form" novalidate>
+        <!-- Right: Contact Form -->
+        <div class="contact-form-col">
+          <div class="form-card">
+            <h3 class="form-title">Send a Message</h3>
             
-            <!-- Name Input -->
-            <div class="form-group">
-              <label for="name" class="form-label">Your Name <span class="required">*</span></label>
-              <div class="input-icon-wrap">
-                <i class="fa-regular fa-user input-icon"></i>
-                <input type="text" id="name" name="name" class="form-input" placeholder="e.g. John Doe" required autocomplete="name">
+            <form class="contact-form" id="contact-form" novalidate>
+              
+              <!-- Name Input -->
+              <div class="form-group">
+                <label for="name" class="form-label">Your Name <span class="required">*</span></label>
+                <div class="input-wrap">
+                  <i class="fa-regular fa-user form-icon"></i>
+                  <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Rahul Sharma" required autocomplete="name">
+                </div>
+                <span class="error-msg" id="name-error">Please enter your name.</span>
               </div>
-              <span class="form-error-msg" id="name-error">Please enter your name.</span>
-            </div>
 
-            <!-- Email Input -->
-            <div class="form-group">
-              <label for="email" class="form-label">Your Email <span class="required">*</span></label>
-              <div class="input-icon-wrap">
-                <i class="fa-regular fa-envelope input-icon"></i>
-                <input type="email" id="email" name="email" class="form-input" placeholder="e.g. john@example.com" required autocomplete="email">
+              <!-- Email Input -->
+              <div class="form-group">
+                <label for="email" class="form-label">Your Email <span class="required">*</span></label>
+                <div class="input-wrap">
+                  <i class="fa-regular fa-envelope form-icon"></i>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="e.g. name@example.com" required autocomplete="email">
+                </div>
+                <span class="error-msg" id="email-error">Please enter a valid email address.</span>
               </div>
-              <span class="form-error-msg" id="email-error">Please enter a valid email address.</span>
-            </div>
 
-            <!-- Subject Input -->
-            <div class="form-group">
-              <label for="subject" class="form-label">Subject</label>
-              <div class="input-icon-wrap">
-                <i class="fa-regular fa-bookmark input-icon"></i>
-                <input type="text" id="subject" name="subject" class="form-input" placeholder="e.g. Internship Opportunity / Inquiry">
+              <!-- Message Input -->
+              <div class="form-group">
+                <label for="message" class="form-label">Message <span class="required">*</span></label>
+                <div class="input-wrap textarea-wrap">
+                  <i class="fa-regular fa-comment-dots form-icon"></i>
+                  <textarea id="message" name="message" class="form-input form-textarea" rows="4" placeholder="Write your message here..." required></textarea>
+                </div>
+                <span class="error-msg" id="message-error">Please enter a message (at least 8 characters).</span>
               </div>
-            </div>
 
-            <!-- Message Input -->
-            <div class="form-group">
-              <label for="message" class="form-label">Message <span class="required">*</span></label>
-              <div class="input-icon-wrap textarea-wrap">
-                <i class="fa-regular fa-comment-dots input-icon"></i>
-                <textarea id="message" name="message" class="form-input form-textarea" rows="4" placeholder="Write your message here..." required></textarea>
-              </div>
-              <span class="form-error-msg" id="message-error">Please enter a message (at least 10 characters).</span>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
-              <span>Send Message</span>
-              <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </form>
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+                <span>Send Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
         </div>
 
       </div>
@@ -1025,44 +573,32 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 10. FOOTER                                                                -->
+  <!-- 7. FOOTER                                                                 -->
   <!-- ========================================================================= -->
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="container footer-container">
       
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="brand-monogram">TB</div>
-          <div>
-            <h3 class="footer-name">Trisa Barai</h3>
-            <p class="footer-tagline">Computer Science &amp; Software Engineering Student</p>
-          </div>
+      <div class="footer-brand">
+        <div class="brand-monogram">TB</div>
+        <div class="footer-info">
+          <h3 class="footer-name">Trisa Barai</h3>
+          <p class="footer-role">Computer Science Student &amp; Aspiring Software Developer</p>
         </div>
+      </div>
 
-        <ul class="footer-nav">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#featured-project">Featured Project</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <div class="footer-socials">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="mailto:trisa.barai@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        </div>
+      <div class="footer-contact-details">
+        <a href="mailto:baraitrisa@gmail.com" class="footer-link">
+          <i class="fa-solid fa-envelope"></i> baraitrisa@gmail.com
+        </a>
+        <span class="footer-divider">•</span>
+        <a href="tel:8653024020" class="footer-link">
+          <i class="fa-solid fa-phone"></i> +91 8653024020
+        </a>
       </div>
 
       <div class="footer-bottom">
         <p class="footer-copyright">
           &copy; 2026 Trisa Barai. All Rights Reserved.
-        </p>
-        <p class="footer-built">
-          Built with <span class="heart-icon">❤️</span> HTML, CSS &amp; JavaScript
         </p>
       </div>
 
@@ -1071,105 +607,21 @@
 
 
   <!-- ========================================================================= -->
-  <!-- INTERACTIVE MODAL: FAKE REVIEW DETECTION SYSTEM LIVE DEMO                 -->
+  <!-- UTILITY: SCROLL TO TOP BUTTON & TOAST NOTIFICATION                        -->
   <!-- ========================================================================= -->
-  <div class="modal-overlay" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-card">
-      
-      <div class="modal-header">
-        <div class="modal-title-wrap">
-          <i class="fa-solid fa-robot modal-icon"></i>
-          <div>
-            <h3 class="modal-title" id="modal-title">Fake Review Detection AI — Live Analyzer</h3>
-            <p class="modal-sub">Test online reviews to classify them as Genuine or Fake using NLP heuristics &amp; AI score.</p>
-          </div>
-        </div>
-        <button class="modal-close-btn" id="close-modal-btn" aria-label="Close modal">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <div class="modal-body">
-        
-        <!-- Preset Sample Quick-Fill Buttons -->
-        <div class="modal-presets">
-          <span class="preset-label">Load Test Example:</span>
-          <button class="preset-pill" id="load-sample-genuine">Sample: Genuine Product Review</button>
-          <button class="preset-pill" id="load-sample-fake">Sample: Suspicious / Bot Review</button>
-        </div>
-
-        <!-- Text Input Area -->
-        <div class="modal-input-group">
-          <label for="review-input-text" class="modal-label">Enter Review Text to Analyze:</label>
-          <textarea id="review-input-text" class="modal-textarea" rows="4" placeholder="Paste an e-commerce or app review here to analyze..."></textarea>
-        </div>
-
-        <!-- Action Button -->
-        <div class="modal-actions-row">
-          <button class="btn btn-primary" id="analyze-review-btn">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-            <span>Analyze Review</span>
-          </button>
-          <button class="btn btn-outline btn-sm" id="clear-review-btn">
-            <i class="fa-solid fa-rotate-left"></i>
-            <span>Clear</span>
-          </button>
-        </div>
-
-        <!-- Live Classification Results Box -->
-        <div class="modal-result-box" id="modal-result-box" style="display: none;">
-          <div class="result-header-row">
-            <span class="result-status-tag" id="result-status-tag">Classification Verdict</span>
-            <span class="result-confidence" id="result-confidence">Confidence: 95%</span>
-          </div>
-
-          <div class="result-metrics-grid">
-            <div class="metric-box">
-              <span class="metric-name">Verdict</span>
-              <span class="metric-val" id="metric-verdict">--</span>
-            </div>
-            <div class="metric-box">
-              <span class="metric-name">Spam Probability</span>
-              <span class="metric-val" id="metric-spam-prob">--</span>
-            </div>
-            <div class="metric-box">
-              <span class="metric-name">NLP Structure</span>
-              <span class="metric-val" id="metric-sentiment">Organic</span>
-            </div>
-          </div>
-
-          <div class="result-reasons-list">
-            <h5 class="reasons-heading">AI Analysis Breakdown:</h5>
-            <ul id="reasons-ul"></ul>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- ========================================================================= -->
-  <!-- UTILITY BUTTONS & TOAST NOTIFICATION                                      -->
-  <!-- ========================================================================= -->
-  
-  <!-- Scroll To Top Button -->
-  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll back to top of page">
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll back to top">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- Toast Notification Box -->
-  <div class="toast-notification" id="toast" role="status" aria-live="polite">
-    <div class="toast-icon" id="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+  <div class="toast-box" id="toast" role="status" aria-live="polite">
+    <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
     <div class="toast-content">
-      <div class="toast-title" id="toast-title">Message Sent!</div>
-      <div class="toast-desc" id="toast-desc">Thank you for reaching out. I'll get back to you soon.</div>
+      <h4 class="toast-title" id="toast-title">Success</h4>
+      <p class="toast-message" id="toast-message">Your message has been sent!</p>
     </div>
-    <button class="toast-close" id="toast-close" aria-label="Close notification"><i class="fa-solid fa-xmark"></i></button>
   </div>
 
-  <!-- Main JavaScript File -->
+  <!-- JavaScript File -->
   <script src="script.js"></script>
 </body>
 </html>

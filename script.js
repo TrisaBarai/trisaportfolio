@@ -6,11 +6,10 @@
  * Features Included:
  * 1. Sticky Navigation Bar & Dynamic Active Nav Link Observer
  * 2. Mobile Drawer Menu Open/Close Controls & Backdrop
- * 3. Project Filter Tabs (Web, Algorithms, DBMS, All)
- * 4. Fake Review Detection AI Live Interactive Analyzer & Modal
- * 5. One-Click Copy Email to Clipboard with Tooltip
- * 6. Contact Form Validation with Instant Toast Alert
- * 7. Scroll-to-Top Button
+ * 3. Fake Review Detection AI Live Interactive Analyzer & Heuristic Engine
+ * 4. One-Click Copy Email to Clipboard with Tooltip
+ * 5. Contact Form Validation with Instant Toast Alert
+ * 6. Scroll-to-Top Button
  * 
  * All code is written in clean, modern vanilla JavaScript with no dependencies.
  */
@@ -25,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
 
-  // Add shadow and reduce padding on scroll
+  // Add shadow and reduce background opacity on scroll
   const handleScrollHeader = () => {
-    if (window.scrollY > 30) {
+    if (window.scrollY > 20) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Highlight active link based on currently visible section
   const observerOptions = {
     root: null,
-    rootMargin: '-25% 0px -45% 0px',
+    rootMargin: '-20% 0px -40% 0px',
     threshold: 0
   };
 
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 2. MOBILE NAVIGATION DRAWER
+  // 2. MOBILE NAVIGATION DRAWER (FOR ANDROID PHONES & TABLETS)
   // ==========================================================================
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const drawerCloseBtn = document.getElementById('drawer-close-btn');
@@ -103,35 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 3. PROJECT FILTER TABS
-  // ==========================================================================
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.projects-grid .project-card');
-
-  filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      // Set active filter button style
-      filterBtns.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      projectCards.forEach((card) => {
-        const category = card.getAttribute('data-category') || '';
-        
-        if (filterValue === 'all' || category.includes(filterValue)) {
-          card.style.display = 'flex';
-          card.style.animation = 'fadeIn 0.4s ease';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-
-
-  // ==========================================================================
-  // 4. FAKE REVIEW DETECTION AI - NLP & CLASSIFICATION ENGINE
+  // 3. FAKE REVIEW DETECTION AI - NLP & CLASSIFICATION ENGINE
   // ==========================================================================
   
   /**
@@ -140,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const evaluateReviewText = (text) => {
     const raw = (text || '').trim();
-    if (!raw || raw.length < 5) {
+    if (!raw || raw.length < 4) {
       return null;
     }
 
@@ -151,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const capsRatio = upperChars / totalChars;
     const exclamationCount = (raw.match(/[!?]/g) || []).length;
 
-    // Spam / bot review trigger phrases
+    // Common promotional spam / fake bot patterns
     const spamKeywords = [
       '100% recommended', 'best ever', 'buy now', 'click here', 
       'guaranteed', 'must buy', 'free gift', 'discount code',
@@ -170,33 +141,33 @@ document.addEventListener('DOMContentLoaded', () => {
     let reasons = [];
 
     // Rule 1: High Caps Ratio (Shouting pattern)
-    if (capsRatio > 0.28 && totalChars > 15) {
-      spamScore += 0.32;
-      reasons.push('Excessive capitalization detected (often used in bot spam).');
+    if (capsRatio > 0.3 && totalChars > 15) {
+      spamScore += 0.35;
+      reasons.push('Excessive capitalization detected.');
     }
 
     // Rule 2: Excessive Punctuation
     if (exclamationCount >= 3) {
-      spamScore += 0.28;
-      reasons.push(`Multiple exclamation / question marks (${exclamationCount} found).`);
+      spamScore += 0.3;
+      reasons.push(`Multiple exclamation marks (${exclamationCount} found).`);
     }
 
     // Rule 3: Promotional Keyword Matches
     if (detectedKeywords.length > 0) {
       spamScore += Math.min(0.45, detectedKeywords.length * 0.22);
-      reasons.push(`Contained spam trigger phrases: "${detectedKeywords.join('", "')}".`);
+      reasons.push(`Promotional spam phrase: "${detectedKeywords.join('", "')}".`);
     }
 
-    // Rule 4: Length check (extremely short reviews have low information density)
-    if (wordCount < 6) {
+    // Rule 4: Length check
+    if (wordCount < 5) {
       spamScore += 0.2;
-      reasons.push('Review is overly brief and lacks specific product details.');
+      reasons.push('Review is overly brief and lacks specifics.');
     }
 
-    // Rule 5: Natural sentence bonus (organic human reviews have balanced structure)
-    if (wordCount >= 18 && detectedKeywords.length === 0 && capsRatio < 0.12) {
+    // Rule 5: Natural sentence bonus (organic human reviews)
+    if (wordCount >= 16 && detectedKeywords.length === 0 && capsRatio < 0.15) {
       spamScore = Math.max(0.04, spamScore - 0.35);
-      reasons.push('Natural sentence structure with organic descriptive vocabulary.');
+      reasons.push('Natural sentence structure with balanced descriptive vocabulary.');
     }
 
     spamScore = Math.max(0.04, Math.min(0.96, spamScore));
@@ -210,175 +181,130 @@ document.addEventListener('DOMContentLoaded', () => {
       isFake,
       verdict,
       confidence,
-      spamProbability: Math.round(spamScore * 100),
-      reasons: reasons.length > 0 ? reasons : ['Normal review characteristics.']
+      reasons: reasons.length > 0 ? reasons.join(' ') : 'Normal organic review characteristics.'
     };
   };
 
-  // --- Quick Tester in Featured Card ---
-  const sampleGenuineText = "I have been using this laptop for the past 3 weeks for coding and web browsing. The battery easily lasts around 8 hours on a single charge and the keyboard is very comfortable for long sessions. Satisfied with the purchase.";
+  // Sample texts for testing
+  const sampleGenuineText = "I have been using this laptop for the past 3 weeks for coding and study. The battery easily lasts around 8 hours on a single charge and the keyboard is very comfortable. Good value for money.";
   const sampleFakeText = "BEST PRODUCT EVER IN THE WORLD!!!! EVERYONE MUST BUY NOW 100% RECOMMENDED CLICK LINK FOR DISCOUNT 5 STARS FOR SURE BUY NOW!!!";
 
-  const quickResultBox = document.getElementById('quick-tester-result');
-  const sampleBtns = document.querySelectorAll('.sample-btn');
-
-  sampleBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const type = btn.getAttribute('data-sample');
-      const textToTest = type === 'genuine' ? sampleGenuineText : sampleFakeText;
-      const res = evaluateReviewText(textToTest);
-
-      if (res && quickResultBox) {
-        const tagClass = res.isFake ? 'fake' : 'genuine';
-        const iconClass = res.isFake ? 'fa-triangle-exclamation text-danger' : 'fa-circle-check text-success';
-        
-        quickResultBox.innerHTML = `
-          <div class="quick-verdict-box">
-            <div>
-              <span class="verdict-tag ${tagClass}">
-                <i class="fa-solid ${iconClass}"></i> ${res.verdict}
-              </span>
-            </div>
-            <span class="verdict-score">Confidence: ${res.confidence}%</span>
-          </div>
-        `;
-      }
-    });
-  });
-
-  // --- Interactive Demo Modal ---
-  const demoModal = document.getElementById('demo-modal');
+  const liveReviewInput = document.getElementById('live-review-input');
+  const sampleGenuineBtn = document.getElementById('sample-genuine-btn');
+  const sampleFakeBtn = document.getElementById('sample-fake-btn');
+  const runAnalysisBtn = document.getElementById('run-analysis-btn');
+  const clearAnalysisBtn = document.getElementById('clear-analysis-btn');
+  const testerResultBox = document.getElementById('tester-result-box');
+  const verdictPill = document.getElementById('verdict-pill');
+  const confidenceText = document.getElementById('confidence-text');
+  const resultReasons = document.getElementById('result-reasons');
   const openDemoBtn = document.getElementById('open-demo-btn');
-  const closeModalBtn = document.getElementById('close-modal-btn');
-  const loadGenuineBtn = document.getElementById('load-sample-genuine');
-  const loadFakeBtn = document.getElementById('load-sample-fake');
-  const reviewInput = document.getElementById('review-input-text');
-  const analyzeBtn = document.getElementById('analyze-review-btn');
-  const clearReviewBtn = document.getElementById('clear-review-btn');
-  const modalResultBox = document.getElementById('modal-result-box');
 
-  const openModal = () => {
-    if (demoModal) {
-      demoModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  };
+  // Trigger analysis function
+  const runAnalysis = () => {
+    if (!liveReviewInput) return;
+    const text = liveReviewInput.value;
+    const result = evaluateReviewText(text);
 
-  const closeModal = () => {
-    if (demoModal) {
-      demoModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  };
-
-  if (openDemoBtn) openDemoBtn.addEventListener('click', openModal);
-  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-  if (demoModal) {
-    demoModal.addEventListener('click', (e) => {
-      if (e.target === demoModal) closeModal();
-    });
-  }
-
-  // Load sample texts in modal
-  if (loadGenuineBtn && reviewInput) {
-    loadGenuineBtn.addEventListener('click', () => {
-      reviewInput.value = sampleGenuineText;
-      runModalAnalysis();
-    });
-  }
-
-  if (loadFakeBtn && reviewInput) {
-    loadFakeBtn.addEventListener('click', () => {
-      reviewInput.value = sampleFakeText;
-      runModalAnalysis();
-    });
-  }
-
-  if (clearReviewBtn && reviewInput) {
-    clearReviewBtn.addEventListener('click', () => {
-      reviewInput.value = '';
-      if (modalResultBox) modalResultBox.style.display = 'none';
-      reviewInput.focus();
-    });
-  }
-
-  const runModalAnalysis = () => {
-    if (!reviewInput) return;
-    const text = reviewInput.value;
-    const res = evaluateReviewText(text);
-
-    if (!res) {
-      alert('Please enter or paste at least 5 characters of review text.');
+    if (!result) {
+      alert('Please enter at least 4 characters of review text to analyze.');
       return;
     }
 
-    if (modalResultBox) {
-      modalResultBox.style.display = 'flex';
+    if (testerResultBox) {
+      testerResultBox.style.display = 'flex';
       
-      const tag = document.getElementById('result-status-tag');
-      const conf = document.getElementById('result-confidence');
-      const metricVerdict = document.getElementById('metric-verdict');
-      const metricSpam = document.getElementById('metric-spam-prob');
-      const metricSentiment = document.getElementById('metric-sentiment');
-      const reasonsUl = document.getElementById('reasons-ul');
-
-      if (tag) {
-        tag.className = `result-status-tag ${res.isFake ? 'fake' : 'genuine'}`;
-        tag.textContent = res.verdict;
+      if (verdictPill) {
+        verdictPill.className = `verdict-pill ${result.isFake ? 'fake' : 'genuine'}`;
+        verdictPill.innerHTML = result.isFake 
+          ? '<i class="fa-solid fa-triangle-exclamation"></i> Suspicious / Fake' 
+          : '<i class="fa-solid fa-circle-check"></i> Genuine Review';
       }
 
-      if (conf) conf.textContent = `Confidence: ${res.confidence}%`;
-      if (metricVerdict) metricVerdict.textContent = res.isFake ? 'Fake / Bot' : 'Genuine';
-      if (metricSpam) metricSpam.textContent = `${res.spamProbability}%`;
-      if (metricSentiment) metricSentiment.textContent = res.isFake ? 'Promotional / Inflated' : 'Balanced Organic';
+      if (confidenceText) {
+        confidenceText.textContent = `Confidence: ${result.confidence}%`;
+      }
 
-      if (reasonsUl) {
-        reasonsUl.innerHTML = res.reasons.map((r) => `<li>${r}</li>`).join('');
+      if (resultReasons) {
+        resultReasons.textContent = `Analysis: ${result.reasons}`;
       }
     }
   };
 
-  if (analyzeBtn) {
-    analyzeBtn.addEventListener('click', runModalAnalysis);
+  if (sampleGenuineBtn && liveReviewInput) {
+    sampleGenuineBtn.addEventListener('click', () => {
+      liveReviewInput.value = sampleGenuineText;
+      runAnalysis();
+    });
+  }
+
+  if (sampleFakeBtn && liveReviewInput) {
+    sampleFakeBtn.addEventListener('click', () => {
+      liveReviewInput.value = sampleFakeText;
+      runAnalysis();
+    });
+  }
+
+  if (runAnalysisBtn) {
+    runAnalysisBtn.addEventListener('click', runAnalysis);
+  }
+
+  if (clearAnalysisBtn && liveReviewInput) {
+    clearAnalysisBtn.addEventListener('click', () => {
+      liveReviewInput.value = '';
+      if (testerResultBox) testerResultBox.style.display = 'none';
+      liveReviewInput.focus();
+    });
+  }
+
+  if (openDemoBtn && liveReviewInput) {
+    openDemoBtn.addEventListener('click', () => {
+      liveReviewInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      liveReviewInput.focus();
+      if (!liveReviewInput.value) {
+        liveReviewInput.value = sampleGenuineText;
+        runAnalysis();
+      }
+    });
   }
 
 
   // ==========================================================================
-  // 5. ONE-CLICK COPY EMAIL TO CLIPBOARD
+  // 4. ONE-CLICK COPY EMAIL TO CLIPBOARD
   // ==========================================================================
   const copyEmailBtn = document.getElementById('copy-email-btn');
   const copyTooltip = document.getElementById('copy-tooltip');
-  const emailLink = document.getElementById('email-link');
+  const emailText = document.getElementById('email-text');
 
-  if (copyEmailBtn && emailLink) {
+  if (copyEmailBtn && emailText) {
     copyEmailBtn.addEventListener('click', async () => {
-      const emailText = emailLink.textContent.trim();
+      const email = emailText.textContent.trim();
       
       try {
-        await navigator.clipboard.writeText(emailText);
+        await navigator.clipboard.writeText(email);
         if (copyTooltip) {
           copyTooltip.classList.add('show');
           setTimeout(() => {
             copyTooltip.classList.remove('show');
           }, 2000);
         }
-        showToast('Email Copied!', `${emailText} copied to clipboard.`);
+        showToast('Email Copied!', `${email} copied to clipboard.`);
       } catch (err) {
-        // Fallback for older browsers
+        // Fallback for older browser engines
         const tempInput = document.createElement('input');
-        tempInput.value = emailText;
+        tempInput.value = email;
         document.body.appendChild(tempInput);
         tempInput.select();
         document.execCommand('copy');
         document.body.removeChild(tempInput);
-        showToast('Email Copied!', `${emailText} copied to clipboard.`);
+        showToast('Email Copied!', `${email} copied to clipboard.`);
       }
     });
   }
 
 
   // ==========================================================================
-  // 6. CONTACT FORM VALIDATION & TOAST NOTIFICATION
+  // 5. CONTACT FORM VALIDATION & TOAST NOTIFICATIONS
   // ==========================================================================
   const contactForm = document.getElementById('contact-form');
   const nameInput = document.getElementById('name');
@@ -386,25 +312,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const messageInput = document.getElementById('message');
   const toast = document.getElementById('toast');
   const toastTitle = document.getElementById('toast-title');
-  const toastDesc = document.getElementById('toast-desc');
-  const toastClose = document.getElementById('toast-close');
+  const toastMessage = document.getElementById('toast-message');
 
-  const showToast = (title, description) => {
+  const showToast = (title, message) => {
     if (!toast) return;
     if (toastTitle) toastTitle.textContent = title;
-    if (toastDesc) toastDesc.textContent = description;
+    if (toastMessage) toastMessage.textContent = message;
     toast.classList.add('show');
 
     setTimeout(() => {
       toast.classList.remove('show');
-    }, 4500);
+    }, 4000);
   };
-
-  if (toastClose) {
-    toastClose.addEventListener('click', () => {
-      toast.classList.remove('show');
-    });
-  }
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -436,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Validate Message
       const messageGroup = messageInput ? messageInput.closest('.form-group') : null;
-      if (messageInput && messageInput.value.trim().length < 10) {
+      if (messageInput && messageInput.value.trim().length < 8) {
         if (messageGroup) messageGroup.classList.add('has-error');
         isValid = false;
       } else if (messageGroup) {
@@ -444,13 +363,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (isValid) {
-        // Clear inputs
+        const senderName = nameInput.value.trim();
         contactForm.reset();
-        showToast('Message Sent Successfully!', 'Thank you, Trisa will respond to your message soon.');
+        showToast('Message Sent!', `Thank you ${senderName}, Trisa has received your message.`);
       }
     });
 
-    // Clear error states on input typing
+    // Clear error states as user types
     [nameInput, emailInput, messageInput].forEach((input) => {
       if (input) {
         input.addEventListener('input', () => {
@@ -463,12 +382,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 7. SCROLL TO TOP BUTTON
+  // 6. SCROLL TO TOP BUTTON
   // ==========================================================================
   const scrollTopBtn = document.getElementById('scroll-top-btn');
 
   const handleScrollTopVisibility = () => {
-    if (window.scrollY > 400) {
+    if (window.scrollY > 350) {
       if (scrollTopBtn) scrollTopBtn.classList.add('show');
     } else {
       if (scrollTopBtn) scrollTopBtn.classList.remove('show');
@@ -485,18 +404,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
-
-  // ==========================================================================
-  // 8. OTHER PROJECTS DEMO ALERT HANDLERS
-  // ==========================================================================
-  const demoAlertBtns = document.querySelectorAll('.project-demo-alert-btn');
-  demoAlertBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const projName = btn.getAttribute('data-project') || 'Project';
-      showToast(`${projName}`, 'Demo link placeholder! You can link this to your live deployment or GitHub demo.');
-    });
-  });
 
 });

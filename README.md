@@ -1,197 +1,106 @@
 # Trisa Barai — Personal Portfolio Website
 
-A modern, professional, ultra-responsive developer portfolio website built for **Trisa Barai** (Computer Science & Software Engineering Student), featuring a primary blue theme, high-contrast typography, interactive AI demo for the **Fake Review Detection System**, skill cards, education timeline, and resume download.
+A modern, professional, ultra-responsive developer portfolio website created for **Trisa Barai** (Computer Science Student & Aspiring Software Developer), designed with a **blue background theme**, **black and white text & accents**, a single featured **Fake Review Detection System** project, and a dedicated **"Let's Work Together"** contact section.
 
 ---
 
-## Table of Contents
-1. [Folder & File Structure](#1-folder--file-structure)
-2. [How to Add Your Photo](#2-how-to-add-your-photo)
-3. [How to Add Your Resume](#3-how-to-add-your-resume)
-4. [How to Add Your GitHub Link](#4-how-to-add-your-github-link)
-5. [How to Add Your LinkedIn Link](#5-how-to-add-your-linkedin-link)
-6. [How to Run the Website on Your Laptop](#6-how-to-run-the-website-on-your-laptop)
-7. [How Responsiveness Works](#7-how-responsiveness-works)
-8. [How to Upload & Publish to GitHub Pages (Free)](#8-how-to-upload--publish-to-github-pages-free)
-
----
-
-## 1. Folder & File Structure
+## 📁 1. Folder & File Structure
 
 ```
 trisaportfolio/
 │
-├── index.html              # Main HTML5 webpage containing all 9 sections
-├── style.css               # Vanilla CSS3 styling, modern blue color palette & media queries
-├── script.js               # Vanilla JavaScript for mobile menu, AI analyzer demo & contact form
+├── index.html       # Clean HTML5 markup containing Home, About, Skills, Project, Contact & Footer
+├── style.css        # Blue theme stylesheet with responsive media queries for mobile, tablet & laptop
+├── script.js        # Vanilla JS for navbar, mobile hamburger menu, AI review classifier demo & form
 │
-├── images/                 # Image assets & illustrations
-│   ├── avatar.svg          # Modern developer illustration avatar
-│   └── fake-review-demo.svg# Architecture diagram for Fake Review Detection System
+├── images/          # Image assets
+│   ├── avatar.svg   # Modern developer tech avatar graphic
+│   └── fake-review-demo.svg # Flagship project architecture graphic
 │
-├── resume/                 # Resume folder
-│   ├── resume.pdf          # Your downloadable resume PDF
-│   └── README.md           # Instructions for replacing resume
-│
-├── projects/               # Project documentation folder
-│   └── fake-review-system/ # Notes & specifications for Fake Review Detection System
-│
-├── backend/                # Optional Python Flask + SQLite Backend API
-│   ├── app.py              # Flask server with ML review classification endpoint
-│   ├── database.py         # Database utilities
-│   ├── requirements.txt    # Python dependencies
-│   └── README.md           # Guide on running backend locally
-│
-├── resume.pdf              # Root copy of resume for direct download links
-└── README.md               # Beginner-friendly guide (this document)
+└── README.md        # Beginner-friendly documentation (this guide)
 ```
 
 ---
 
-## 2. How to Add Your Photo
+## 🎨 2. Design System & Theme Details
 
-1. Prepare your photo (JPEG, PNG, or WebP) and rename it to something simple like `profile.jpg` or `myphoto.png`.
-2. Copy your photo into the `images/` folder:
-   ```
-   images/profile.jpg
-   ```
-3. Open `index.html` in VS Code or any text editor.
-4. Locate the avatar image inside the **Hero Section** (around Line 140):
-   ```html
-   <!-- Find this line: -->
-   <img src="images/avatar.svg" alt="Trisa Barai - Software Engineering Student" class="hero-avatar-img">
-   
-   <!-- Change it to: -->
-   <img src="images/profile.jpg" alt="Trisa Barai" class="hero-avatar-img">
-   ```
-5. Save the file and refresh your browser. Your photo will now appear with the ambient glowing blue border!
+* **Background Colors**: Deep navy & royal blue tones (`#0a192f`, `#0d223f`, `#102646`).
+* **Text & Accents**: Crisp white (`#ffffff`), soft white (`#e2e8f0`), and dark high-contrast black (`#000000` / `#0a192f`).
+* **Interactive Elements**:
+  - Translucent frosted-glass card surfaces with subtle blue glow borders.
+  - Active section observer that highlights the navbar link automatically as you scroll.
+  - Mobile slide-out drawer navigation menu for Android phones and tablets.
+  - Instant live AI Fake Review Detector with quick preset buttons (`Genuine Sample` vs `Fake Sample`).
+  - One-click copy email button with tooltip feedback.
+  - Interactive contact form with real-time field validation.
 
 ---
 
-## 3. How to Add Your Resume
+## ✏️ 3. How to Customize Your Links & Photos
 
-1. Export your real resume from MS Word, Canva, or Google Docs as a PDF named `resume.pdf`.
-2. Copy and replace the `resume.pdf` in both places:
-   * Inside the `resume/` folder (`resume/resume.pdf`)
-   * In the main root directory (`resume.pdf`)
-3. All download buttons on the site (Hero button, Navigation Drawer, and dedicated Resume Section) are already configured to download `resume/resume.pdf` automatically with the filename `Trisa_Barai_Resume.pdf`.
+### A. How to Add Your Own Photo
+1. Copy your picture (e.g., `myphoto.jpg` or `profile.png`) into the `images/` folder.
+2. Open [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) and find line **126**:
+   ```html
+   <!-- Change this: -->
+   <img src="images/avatar.svg" alt="Trisa Barai" class="hero-avatar">
+
+   <!-- To: -->
+   <img src="images/myphoto.jpg" alt="Trisa Barai" class="hero-avatar">
+   ```
+
+### B. How to Update Your GitHub Link
+Open [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) and search for `https://github.com`. Update it with your GitHub URL (e.g., `https://github.com/TrisaBarai`):
+* In the **Project Section** (around Line 310)
+* In the **Contact Section** (around Line 410)
+
+### C. Contact Details Included:
+* **Email**: `baraitrisa@gmail.com`
+* **Phone**: `+91 8653024020`
 
 ---
 
-## 4. How to Add Your GitHub Link
+## 🚀 4. How to Run the Website on Your Laptop
 
-Open `index.html` and search for `https://github.com`. Replace it with your actual profile link (e.g., `https://github.com/yourusername`):
+### Method 1: Double-Click (Zero Setup)
+Double-click [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) in your Windows File Explorer. It will open instantly in any web browser.
 
-1. **In the Header / Drawer Socials** (Around Line 70)
-2. **In the Hero Socials Bar** (Around Line 120):
-   ```html
-   <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile">
-     <i class="fa-brands fa-github"></i>
-   </a>
-   ```
-3. **In the Featured Project Card** (Around Line 325):
-   ```html
-   <a href="https://github.com/yourusername/fake-review-detection" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-     <i class="fa-brands fa-github"></i>
-     <span>View on GitHub</span>
-   </a>
-   ```
-4. **In the Contact Section & Footer** (Around Line 460 & 530).
-
----
-
-## 5. How to Add Your LinkedIn Link
-
-Open `index.html` and search for `https://linkedin.com`. Replace it with your actual LinkedIn profile:
-
-1. **In the Hero Section Socials** (Around Line 125):
-   ```html
-   <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile">
-     <i class="fa-brands fa-linkedin-in"></i>
-   </a>
-   ```
-2. **In the Contact Section Card** (Around Line 445):
-   ```html
-   <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="contact-card-value">
-     linkedin.com/in/yourusername
-   </a>
-   ```
-3. **In the Footer** (Around Line 535).
-
----
-
-## 6. How to Run the Website on Your Laptop
-
-You have 3 easy ways to run the website locally:
-
-### Option A: Double Click (Easiest)
-- Simply open your project folder in File Explorer on Windows.
-- Double-click `index.html`.
-- It will instantly open and work in your default browser (Chrome, Edge, Firefox).
-
-### Option B: VS Code Live Server (Recommended for Editing)
-1. Open the `trisaportfolio` folder in **VS Code**.
-2. Install the **Live Server** extension (by Ritwick Dey).
-3. Right-click on `index.html` and click **"Open with Live Server"**.
-4. Any time you save a file, the browser will automatically refresh with your changes!
-
-### Option C: Python Simple Server
-Open your terminal in the portfolio folder and run:
-```bash
+### Method 2: Python Built-in Server
+Open PowerShell in the `trisaportfolio` directory and run:
+```powershell
 python -m http.server 8000
 ```
-Then open `http://localhost:8000` in your web browser.
+Then open your browser and navigate to: **`http://localhost:8000`**
+
+### Method 3: VS Code Live Server
+1. Open this folder in **VS Code**.
+2. Install the extension **Live Server**.
+3. Right-click [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) and select **"Open with Live Server"**.
 
 ---
 
-## 7. How Responsiveness Works
+## 📱 5. How Responsiveness is Built
 
-The website is engineered from the ground up to be 100% responsive without horizontal scrolling:
+* **Android Mobile Phones (320px - 480px)**: The navigation collapses into a smooth hamburger drawer menu, cards stack vertically, buttons become full-width for comfortable touch tapping, and margins adapt cleanly without any horizontal overflow.
+* **Tablets (481px - 1024px)**: Grids dynamically display 2-column cards with optimized spacing.
+* **Laptops & Desktops (1025px+)**: Expanded multi-column layout with ambient glowing backdrops and responsive typography.
 
-1. **Flexible CSS Grid & Flexbox**: All skill cards, project cards, and bio pillars automatically calculate how many items fit side-by-side depending on screen width.
-2. **Viewport Meta Tag**:
-   ```html
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+---
+
+## 🌐 6. How to Upload to GitHub Pages (Free Web Hosting)
+
+1. Create a new repository on [GitHub](https://github.com) named `portfolio` (or `<your-username>.github.io`).
+2. Run these commands in PowerShell:
+   ```powershell
+   git init
+   git add .
+   git commit -m "Create Trisa Barai portfolio"
+   git branch -M main
+   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+   git push -u origin main
    ```
-   Ensures Android and iOS mobile browsers scale pages to device dimensions rather than rendering desktop zoom.
-3. **Mobile Drawer Navigation**: On screens narrower than `768px`, the top navigation links collapse into a clean hamburger button that opens an animated drawer.
-4. **Adaptive Breakpoints (`style.css`)**:
-   * **Desktops (> 1024px)**: Multi-column side-by-side layouts.
-   * **Laptops / Tablets (769px - 1024px)**: Balanced single/dual column grids.
-   * **Mobile Phones (≤ 480px)**: Full-width touch-friendly buttons, single column cards, and large tap targets.
-
----
-
-## 8. How to Upload & Publish to GitHub Pages (Free)
-
-Host your portfolio online for free on your own `https://yourusername.github.io/trisaportfolio` link:
-
-### Step 1: Initialize Git and Commit
-Open terminal in your portfolio folder:
-```bash
-git add .
-git commit -m "Initial commit of Trisa Barai portfolio"
-```
-
-### Step 2: Create a New Repository on GitHub
-1. Go to [github.com/new](https://github.com/new).
-2. Name the repository `trisaportfolio` (or `yourusername.github.io`).
-3. Set visibility to **Public**.
-4. Click **Create repository**.
-
-### Step 3: Push Your Code to GitHub
-In your terminal, copy and run the commands shown on GitHub:
-```bash
-git branch -M main
-git remote add origin https://github.com/yourusername/trisaportfolio.git
-git push -u origin main
-```
-
-### Step 4: Enable GitHub Pages
-1. On your GitHub repository page, click **Settings** (gear icon at the top).
-2. On the left sidebar, click **Pages**.
-3. Under **Branch**, select `main` and `/ (root)`, then click **Save**.
-4. Wait 1-2 minutes. GitHub will display your live website URL:
-   `https://yourusername.github.io/trisaportfolio/`
-
-🎉 **Congratulations! Your portfolio is live for recruiters and companies worldwide!**
+3. In your GitHub repository:
+   - Go to **Settings** → **Pages**.
+   - Under **Branch**, select **`main`** and **`/ (root)`**.
+   - Click **Save**.
+4. Your website will be live in 1–2 minutes at: `https://<your-username>.github.io/<your-repo-name>/`.
