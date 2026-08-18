@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,10 @@
   <!-- SEO & Page Metadata                                                       -->
   <!-- ========================================================================= -->
   <title>Trisa Barai | Computer Science Student &amp; Aspiring Software Developer</title>
-  <meta name="description" content="Portfolio of Trisa Barai - Computer Science Student & Aspiring Software Developer passionate about software development, web technologies, programming and problem solving.">
-  <meta name="keywords" content="Trisa Barai, Computer Science, Software Developer, Fake Review Detection System, Python, Java, C, C++, Web Development, Portfolio">
+  <meta name="description" content="Portfolio of Trisa Barai - Computer Science Student & Aspiring Software Developer specializing in AI, algorithms, web technologies, and software engineering.">
+  <meta name="keywords" content="Trisa Barai, Computer Science, Software Developer, AI, Algorithms, Fake Review Detection System, Python, Java, C, C++, Web Development, Portfolio">
   <meta name="author" content="Trisa Barai">
-  <meta name="theme-color" content="#0a192f">
+  <meta name="theme-color" content="#1565C0">
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,7 @@
 <body>
 
   <!-- ========================================================================= -->
-  <!-- 1. NAVIGATION BAR (Fixed with mobile hamburger support)                   -->
+  <!-- 1. NAVIGATION BAR (Fixed with mobile hamburger & Dark/Light Theme Toggle) -->
   <!-- ========================================================================= -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
@@ -38,7 +38,7 @@
         <span class="brand-name">Trisa Barai</span>
       </a>
 
-      <!-- Desktop Navigation Menu (ONLY 5 SECTIONS: Home, About, Skills, Project, Contact) -->
+      <!-- Desktop Navigation Menu (5 SECTIONS: Home, About, Skills, Project, Contact) -->
       <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
         <ul class="nav-list">
           <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
@@ -49,9 +49,18 @@
         </ul>
       </nav>
 
-      <!-- Nav CTA & Mobile Hamburger Button -->
+      <!-- Nav Actions: Theme Toggle, Primary Connect CTA, and Hamburger Button -->
       <div class="nav-actions">
-        <a href="#contact" class="btn btn-sm btn-outline nav-cta">Let's Connect</a>
+        
+        <!-- DARK / LIGHT MODE TOGGLE BUTTON -->
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle dark / light mode">
+          <i class="fa-solid fa-moon theme-icon" id="theme-icon"></i>
+        </button>
+
+        <a href="#contact" class="btn btn-sm btn-primary nav-cta">
+          <span>Let's Connect</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </a>
         
         <!-- Hamburger Button for Mobile / Tablet -->
         <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
@@ -85,6 +94,12 @@
     </ul>
 
     <div class="mobile-drawer-footer">
+      <!-- Dark/Light Mode Switch inside Mobile Drawer -->
+      <button class="mobile-theme-btn" id="mobile-theme-toggle-btn" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon" id="mobile-theme-icon"></i>
+        <span id="mobile-theme-text">Switch to Dark Mode</span>
+      </button>
+
       <a href="mailto:baraitrisa@gmail.com" class="drawer-contact-item">
         <i class="fa-solid fa-envelope"></i> baraitrisa@gmail.com
       </a>
@@ -92,7 +107,8 @@
         <i class="fa-solid fa-phone"></i> +91 8653024020
       </a>
       <div class="drawer-socials">
-        <!-- EDIT YOUR GITHUB LINK HERE -->
+        <!-- EDIT YOUR LINKEDIN & GITHUB LINKS HERE -->
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
         <a href="mailto:baraitrisa@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
@@ -104,13 +120,13 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 1. HOME SECTION (HERO)                                                    -->
+  <!-- 1. HOME SECTION (HERO - Refined Text & Streamlined CTAs)                  -->
   <!-- ========================================================================= -->
   <section class="hero-section" id="home">
     <div class="container hero-container">
       
       <!-- Hero Left: Text Content -->
-      <div class="hero-content">
+      <div class="hero-content reveal">
         <div class="hero-badge">
           <span class="pulse-dot"></span>
           <span>Welcome to my Portfolio</span>
@@ -124,37 +140,49 @@
           Computer Science Student &amp; Aspiring Software Developer
         </h2>
 
+        <!-- REFINED HERO PARAGRAPH: Unique focus on AI, algorithms, and engineering -->
         <p class="hero-intro">
-          I am a Computer Science student passionate about software development, web technologies, programming and problem solving.
+          Specializing in building robust software systems, modern web architectures, and AI-driven solutions. I combine strong algorithmic thinking with clean, efficient code to transform complex problems into intuitive digital products.
         </p>
 
-        <!-- CTA Action Buttons (View My Project & Contact Me) -->
+        <!-- STREAMLINED CTA GROUP: Dominant primary action + secondary action -->
         <div class="hero-cta-group">
-          <a href="#project" class="btn btn-primary">
+          <!-- TOP PRIORITY DOMINANT CTA: Download CV -->
+          <a href="resume/resume.pdf" download="Trisa_Barai_CV.pdf" class="btn btn-primary btn-glow" id="download-cv-btn" title="Download Trisa Barai CV as PDF">
+            <i class="fa-solid fa-file-arrow-down"></i>
+            <span>Download CV</span>
+          </a>
+
+          <!-- SECONDARY CTA: View Featured Project -->
+          <a href="#project" class="btn btn-outline" title="Explore Main Project">
             <span>View My Project</span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>
-          <a href="#contact" class="btn btn-outline">
-            <span>Contact Me</span>
-            <i class="fa-solid fa-paper-plane"></i>
-          </a>
         </div>
 
-        <!-- Quick Contact Info Bar -->
+        <!-- Quick Contact Info & Social Strip (Including LinkedIn) -->
         <div class="hero-contact-strip">
-          <a href="mailto:baraitrisa@gmail.com" class="strip-item">
+          <a href="mailto:baraitrisa@gmail.com" class="strip-item" title="Send Email">
             <i class="fa-solid fa-envelope"></i>
             <span>baraitrisa@gmail.com</span>
           </a>
-          <a href="tel:8653024020" class="strip-item">
+          <a href="tel:8653024020" class="strip-item" title="Call Me">
             <i class="fa-solid fa-phone"></i>
             <span>+91 8653024020</span>
           </a>
+          <div class="hero-social-links">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" title="LinkedIn Profile" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" title="GitHub Profile" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- Hero Right: Visual Illustration Card -->
-      <div class="hero-visual">
+      <div class="hero-visual reveal">
         <div class="hero-card">
           <div class="hero-avatar-box">
             <!-- TO ADD YOUR OWN PHOTO: Change src="images/avatar.svg" to src="images/yourphoto.jpg" -->
@@ -182,25 +210,50 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 2. ABOUT SECTION                                                          -->
+  <!-- 2. ABOUT SECTION (Education Highlight + Core Interests)                   -->
   <!-- ========================================================================= -->
   <section class="section about-section" id="about">
     <div class="container">
       
-      <div class="section-header">
-        <span class="section-tag">Introduction</span>
+      <div class="section-header reveal">
+        <span class="section-tag">Background &amp; Education</span>
         <h2 class="section-title">About Me</h2>
         <div class="title-underline"></div>
       </div>
 
-      <div class="about-card">
+      <div class="about-card reveal">
+        
         <div class="about-text-content">
           <p class="about-paragraph">
-            Hello! I am <strong>Trisa Barai</strong>, a dedicated Computer Science student with a strong passion for software engineering, modern web development, and problem solving. I love turning concepts into clean, reliable, and functional digital applications.
+            Hello! I am <strong>Trisa Barai</strong>, a dedicated Computer Science student with a strong foundation in software engineering, object-oriented design, and algorithm optimization. I enjoy building dependable software applications and turning computational ideas into practical, user-friendly solutions.
           </p>
           <p class="about-paragraph">
-            I continuously practice coding, building efficient software solutions, designing optimized databases, and exploring machine learning algorithms that solve real-world problems.
+            My technical journey revolves around core computer science principles—from mastering data structures and algorithmic complexity to architecting relational databases and engineering intelligent machine learning models.
           </p>
+        </div>
+
+        <!-- EDUCATION HIGHLIGHT BLOCK -->
+        <div class="education-block">
+          <h3 class="education-block-title">
+            <i class="fa-solid fa-graduation-cap"></i> Academic Education
+          </h3>
+          <div class="education-card-inner">
+            <div class="education-icon-box">
+              <i class="fa-solid fa-university"></i>
+            </div>
+            <div class="education-details">
+              <div class="education-top-row">
+                <h4 class="education-degree">Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</h4>
+                <span class="education-timeline-badge"><i class="fa-regular fa-calendar"></i> Expected Graduation: 2026</span>
+              </div>
+              <p class="education-institution">
+                <i class="fa-solid fa-building-columns"></i> University / College Computer Science Department
+              </p>
+              <p class="education-desc">
+                Focus Areas: Data Structures &amp; Algorithms (DAA), Database Management Systems (DBMS), Operating Systems, Software Engineering, Object-Oriented Programming (Java/C++), and Applied Machine Learning.
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- Areas of Interest Badges -->
@@ -220,6 +273,7 @@
             <div class="interest-pill"><i class="fa-solid fa-robot"></i> Artificial Intelligence</div>
           </div>
         </div>
+
       </div>
 
     </div>
@@ -227,12 +281,12 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 3. SKILLS SECTION                                                         -->
+  <!-- 3. SKILLS SECTION (Technical Toolkit)                                     -->
   <!-- ========================================================================= -->
   <section class="section skills-section" id="skills">
     <div class="container">
       
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-tag">Technical Toolkit</span>
         <h2 class="section-title">Technical Skills</h2>
         <div class="title-underline"></div>
@@ -242,91 +296,91 @@
       <div class="skills-grid">
         
         <!-- Skill 1: C -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-c"></i></div>
           <h3 class="skill-name">C</h3>
           <span class="skill-category">Programming</span>
         </div>
 
         <!-- Skill 2: C++ -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
           <h3 class="skill-name">C++</h3>
           <span class="skill-category">OOP &amp; STL</span>
         </div>
 
         <!-- Skill 3: Java -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
           <h3 class="skill-name">Java</h3>
           <span class="skill-category">OOP &amp; Backend</span>
         </div>
 
         <!-- Skill 4: Python -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
           <h3 class="skill-name">Python</h3>
           <span class="skill-category">AI / ML &amp; Scripting</span>
         </div>
 
         <!-- Skill 5: HTML -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
           <h3 class="skill-name">HTML</h3>
           <span class="skill-category">Frontend Structure</span>
         </div>
 
         <!-- Skill 6: CSS -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
           <h3 class="skill-name">CSS</h3>
           <span class="skill-category">Responsive Design</span>
         </div>
 
         <!-- Skill 7: JavaScript -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
           <h3 class="skill-name">JavaScript</h3>
           <span class="skill-category">Interactive Logic</span>
         </div>
 
         <!-- Skill 8: SQL -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-table"></i></div>
           <h3 class="skill-name">SQL</h3>
           <span class="skill-category">Queries &amp; Relational Data</span>
         </div>
 
         <!-- Skill 9: DBMS -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
           <h3 class="skill-name">DBMS</h3>
           <span class="skill-category">Database Management</span>
         </div>
 
         <!-- Skill 10: Data Structures -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-diagram-project"></i></div>
           <h3 class="skill-name">Data Structures</h3>
           <span class="skill-category">Core Computer Science</span>
         </div>
 
         <!-- Skill 11: DAA -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
           <h3 class="skill-name">DAA</h3>
           <span class="skill-category">Design &amp; Analysis of Algorithms</span>
         </div>
 
         <!-- Skill 12: Operating Systems -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-solid fa-microchip"></i></div>
           <h3 class="skill-name">Operating Systems</h3>
           <span class="skill-category">Systems &amp; Memory</span>
         </div>
 
         <!-- Skill 13: Git & GitHub -->
-        <div class="skill-card">
+        <div class="skill-card reveal">
           <div class="skill-icon"><i class="fa-brands fa-github"></i></div>
           <h3 class="skill-name">Git &amp; GitHub</h3>
           <span class="skill-category">Version Control &amp; Collaboration</span>
@@ -339,23 +393,23 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 4. PROJECT SECTION (SINGLE FEATURED PROJECT ONLY)                         -->
+  <!-- 4. PROJECT SECTION (Visual Showcase + Interactive Demo)                  -->
   <!-- ========================================================================= -->
   <section class="section project-section" id="project">
     <div class="container">
       
-      <div class="section-header">
-        <span class="section-tag">Featured Project</span>
+      <div class="section-header reveal">
+        <span class="section-tag">Flagship AI Project</span>
         <h2 class="section-title">Main Project</h2>
         <div class="title-underline"></div>
       </div>
 
       <!-- Single Main Project Card -->
-      <div class="main-project-card">
+      <div class="main-project-card reveal">
         
         <div class="project-card-grid">
           
-          <!-- Project Left: Details -->
+          <!-- Project Left: Details, Visual Thumbnail, and Actions -->
           <div class="project-info">
             
             <div class="project-badge">
@@ -365,8 +419,18 @@
             <h3 class="project-title">Fake Review Detection System</h3>
 
             <p class="project-desc">
-              Fake Review Detection System is an AI-based project designed to identify whether an online review is genuine or fake. The system analyzes review information and uses machine learning techniques to classify suspicious reviews.
+              Fake Review Detection System is an AI-based project designed to identify whether an online review is genuine or fake. The system analyzes textual sentiment patterns, linguistic markers, and review distributions using machine learning techniques to classify suspicious reviews.
             </p>
+
+            <!-- PROJECT VISUAL THUMBNAIL / ARCHITECTURE SHOWCASE -->
+            <div class="project-visual-preview">
+              <div class="project-media-wrap">
+                <img src="images/fake-review-demo.svg" alt="Fake Review Detection AI System Architecture &amp; Analytics Dashboard" class="project-preview-img">
+                <div class="project-media-overlay">
+                  <span class="media-tag"><i class="fa-solid fa-microchip"></i> NLP &amp; Classification Pipeline</span>
+                </div>
+              </div>
+            </div>
 
             <!-- Features List -->
             <div class="project-features">
@@ -465,12 +529,12 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 5. CONTACT SECTION ("Let's Work Together")                                -->
+  <!-- 5. CONTACT SECTION ("Let's Work Together" - With LinkedIn)                -->
   <!-- ========================================================================= -->
   <section class="section contact-section" id="contact">
     <div class="container">
       
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-tag">Get In Touch</span>
         <h2 class="section-title">Let's Work Together</h2>
         <p class="section-subtitle">Have a project idea or want to connect? Feel free to contact me.</p>
@@ -479,8 +543,8 @@
 
       <div class="contact-grid">
         
-        <!-- Left: Contact Details Cards -->
-        <div class="contact-info-col">
+        <!-- Left: Contact Details Cards (Email, Phone, LinkedIn, GitHub) -->
+        <div class="contact-info-col reveal">
           
           <!-- Email Card -->
           <div class="contact-card">
@@ -507,7 +571,20 @@
             </a>
           </div>
 
-          <!-- Additional Socials / GitHub -->
+          <!-- LINKEDIN PROFILE CARD -->
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div class="contact-details">
+              <span class="contact-label">LinkedIn</span>
+              <!-- EDIT YOUR LINKEDIN PROFILE URL HERE -->
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-value">linkedin.com/in/TrisaBarai</a>
+            </div>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="phone-call-btn" title="Open LinkedIn Profile" aria-label="Open LinkedIn">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <!-- GitHub Card -->
           <div class="contact-card">
             <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
             <div class="contact-details">
@@ -523,7 +600,7 @@
         </div>
 
         <!-- Right: Contact Form -->
-        <div class="contact-form-col">
+        <div class="contact-form-col reveal">
           <div class="form-card">
             <h3 class="form-title">Send a Message</h3>
             
@@ -595,6 +672,10 @@
         <span class="footer-divider">•</span>
         <a href="tel:8653024020" class="footer-link">
           <i class="fa-solid fa-phone"></i> +91 8653024020
+        </a>
+        <span class="footer-divider">•</span>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">
+          <i class="fa-brands fa-linkedin-in"></i> LinkedIn
         </a>
       </div>
 

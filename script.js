@@ -1,7 +1,17 @@
 /**
  * ============================================================================
  * TRISA BARAI - PERSONAL PORTFOLIO JAVASCRIPT
- * Strictly 5 Sections: Home, About, Skills, Project, Contact
+ * 
+ * Features:
+ * 1. Resume / CV Download Support
+ * 2. Dark Mode / Light Mode Theme Switcher with localStorage Persistence
+ * 3. Smooth Scroll Animations (IntersectionObserver with Reduced Motion Support)
+ * 4. Sticky Navigation Bar & Dynamic Active Nav Link Tracking
+ * 5. Mobile Navigation Drawer & Backdrop
+ * 6. Fake Review Detection AI Live Interactive Analyzer Demo
+ * 7. One-Click Copy Email to Clipboard with Tooltip
+ * 8. Contact Form Client-Side Validation with Instant Toast Alert
+ * 9. Scroll-to-Top Button
  * ============================================================================
  */
 
@@ -9,7 +19,105 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   // ==========================================================================
-  // 1. STICKY NAVBAR & ACTIVE NAV LINK OBSERVER (5 SECTIONS ONLY)
+  // 1. DARK MODE / LIGHT MODE TOGGLE (FEATURE 2)
+  // ==========================================================================
+  const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const themeIcon = document.getElementById('theme-icon');
+  const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle-btn');
+  const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+  const mobileThemeText = document.getElementById('mobile-theme-text');
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+  // Check saved theme from localStorage (default: 'light' / Blue theme)
+  const savedTheme = localStorage.getItem('trisa_portfolio_theme') || 'light';
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('trisa_portfolio_theme', theme);
+
+    if (theme === 'dark') {
+      if (themeIcon) {
+        themeIcon.className = 'fa-solid fa-sun theme-icon';
+      }
+      if (mobileThemeIcon) {
+        mobileThemeIcon.className = 'fa-solid fa-sun';
+      }
+      if (mobileThemeText) {
+        mobileThemeText.textContent = 'Switch to Light Mode';
+      }
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', '#061A40');
+      }
+    } else {
+      if (themeIcon) {
+        themeIcon.className = 'fa-solid fa-moon theme-icon';
+      }
+      if (mobileThemeIcon) {
+        mobileThemeIcon.className = 'fa-solid fa-moon';
+      }
+      if (mobileThemeText) {
+        mobileThemeText.textContent = 'Switch to Dark Mode';
+      }
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', '#1565C0');
+      }
+    }
+  };
+
+  // Initialize theme on page load
+  applyTheme(savedTheme);
+
+  // Toggle theme on button click
+  const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme);
+    showToast(
+      newTheme === 'dark' ? 'Dark Mode Activated' : 'Light Mode Activated',
+      newTheme === 'dark' ? 'Switched to midnight blue dark theme.' : 'Switched to clean blue light theme.'
+    );
+  };
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', toggleTheme);
+  }
+
+  if (mobileThemeToggleBtn) {
+    mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+  }
+
+
+  // ==========================================================================
+  // 2. SCROLL REVEAL ANIMATIONS (FEATURE 3 - IntersectionObserver)
+  // ==========================================================================
+  const revealElements = document.querySelectorAll('.reveal');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (revealElements.length > 0) {
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      // If user prefers reduced motion or browser doesn't support observer, reveal all immediately
+      revealElements.forEach((el) => el.classList.add('active'));
+    } else {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Animate once per element
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0.1,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      revealElements.forEach((el) => revealObserver.observe(el));
+    }
+  }
+
+
+  // ==========================================================================
+  // 3. STICKY NAVBAR & ACTIVE NAV LINK OBSERVER (5 SECTIONS ONLY)
   // ==========================================================================
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -27,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScrollHeader, { passive: true });
   handleScrollHeader();
 
-  const observerOptions = {
+  const sectionObserverOptions = {
     root: null,
     rootMargin: '-20% 0px -40% 0px',
     threshold: 0
@@ -57,13 +165,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-  }, observerOptions);
+  }, sectionObserverOptions);
 
   sections.forEach((sec) => sectionObserver.observe(sec));
 
 
   // ==========================================================================
-  // 2. MOBILE NAVIGATION DRAWER (FOR ANDROID PHONES & TABLETS)
+  // 4. MOBILE NAVIGATION DRAWER (FOR ANDROID PHONES & TABLETS)
   // ==========================================================================
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const drawerCloseBtn = document.getElementById('drawer-close-btn');
@@ -100,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 3. FAKE REVIEW DETECTION AI - LIVE INTERACTIVE ANALYZER DEMO
+  // 5. FAKE REVIEW DETECTION AI - LIVE INTERACTIVE ANALYZER DEMO
   // ==========================================================================
   const reviewInput = document.getElementById('live-review-input');
   const runAnalysisBtn = document.getElementById('run-analysis-btn');
@@ -254,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 4. ONE-CLICK COPY EMAIL TO CLIPBOARD WITH TOOLTIP
+  // 6. ONE-CLICK COPY EMAIL TO CLIPBOARD WITH TOOLTIP
   // ==========================================================================
   const copyEmailBtn = document.getElementById('copy-email-btn');
   const copyTooltip = document.getElementById('copy-tooltip');
@@ -289,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 5. CONTACT FORM VALIDATION & INSTANT TOAST NOTIFICATION
+  // 7. CONTACT FORM VALIDATION & INSTANT TOAST NOTIFICATION
   // ==========================================================================
   const contactForm = document.getElementById('contact-form');
   const nameInput = document.getElementById('name');
@@ -368,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 6. SCROLL TO TOP BUTTON
+  // 8. SCROLL TO TOP BUTTON
   // ==========================================================================
   const scrollTopBtn = document.getElementById('scroll-top-btn');
 
@@ -393,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 7. TOAST NOTIFICATION UTILITY
+  // 9. TOAST NOTIFICATION UTILITY
   // ==========================================================================
   let toastTimer = null;
   function showToast(title, message) {
