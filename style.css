@@ -1,98 +1,96 @@
 /* ==========================================================================
    TRISA BARAI - PERSONAL PORTFOLIO STYLESHEET
-   Features:
-   1. Resume / CV Download Support
-   2. All-Blue Color Theme (Blue Background for Entire Website)
-   3. Light Mode (Vibrant Blue #1565C0) & Dark Mode (Midnight Blue #061A40)
-   4. Smooth Scroll Animations (IntersectionObserver & Reduced Motion Support)
-   5. Education Highlight Card & LinkedIn Integration
-   6. Visual Project Architecture Showcase & Streamlined Hero CTAs
+   Color Theme: DARK BLUE Background, NAVY Sections, DARKER BLUE Cards
+   Text: WHITE and BLACK only
+   Buttons: BLUE with WHITE / BLACK text
    Strictly 5 Sections: Home, About, Skills, Project, Contact
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. CSS VARIABLES & DUAL-THEME BLUE DESIGN TOKENS
+   1. CSS VARIABLES & DARK BLUE THEME DESIGN TOKENS
    -------------------------------------------------------------------------- */
 
-/* Default: Vibrant Blue Theme (Light Mode) */
+/* Default: Rich Dark Blue Theme */
 :root,
 [data-theme="light"] {
   --theme-name: 'light';
 
-  /* All-Blue Backgrounds */
-  --bg-primary: #1565C0;            /* Rich Vibrant Blue Main Background */
-  --bg-secondary: #0D47A1;          /* Darker Blue for Alternating Sections */
-  --bg-card: #0B3D91;               /* Solid Dark Blue Card Surface */
-  --bg-card-hover: #0d46a0;
-  --bg-input: #082d6c;              /* Deep Blue Input Background */
-  --bg-nav: rgba(21, 101, 192, 0.94);
-  --bg-mobile-drawer: #0D47A1;
-  --bg-footer: #082552;             /* Deepest Blue Footer */
+  /* Dark Blue & Navy Backgrounds */
+  --bg-primary: #0a192f;            /* Main Page Background: DARK BLUE */
+  --bg-secondary: #07162c;          /* Alternating Sections: NAVY BLUE */
+  --bg-card: #051020;               /* Cards: DARKER BLUE */
+  --bg-card-hover: #081930;         /* Card Hover Surface */
+  --bg-input: #030a14;              /* Deep Navy Input Background */
+  --bg-nav: rgba(10, 25, 47, 0.94); /* Fixed Navbar Background */
+  --bg-mobile-drawer: #07162c;
+  --bg-footer: #030810;             /* Deepest Blue Footer */
 
   /* Blue Accents & Borders */
-  --blue-primary: #64B5F6;          /* Bright Sky Blue Accent */
-  --blue-hover: #90CAF9;            /* Soft Cyan / Sky Hover */
-  --blue-light: #90CAF9;            /* Pale Sky Accent */
-  --blue-soft: #BBDEFB;             /* Very Soft Readable Ice Blue */
-  --blue-badge-bg: rgba(144, 202, 249, 0.18);
-  --blue-glow: rgba(100, 181, 246, 0.35);
-  --border-blue: rgba(144, 202, 249, 0.28);
-  --border-blue-hover: rgba(144, 202, 249, 0.6);
+  --blue-primary: #2563eb;          /* Vibrant Royal Blue */
+  --blue-hover: #1d4ed8;            /* Deep Blue Hover */
+  --blue-light: #3b82f6;            /* Sky Blue Highlight */
+  --blue-soft: #60a5fa;             /* Soft Blue for Accents/Icons */
+  --blue-badge-bg: rgba(37, 99, 235, 0.2);
+  --blue-glow: rgba(37, 99, 235, 0.4);
+  --border-blue: rgba(59, 130, 246, 0.25);
+  --border-blue-hover: rgba(96, 165, 250, 0.6);
 
-  /* Typography Colors - Crisp White & High-Contrast Light Blue */
-  --text-white: #ffffff;            /* Pure White for Headings & Key Text */
-  --text-light: #f0f7ff;            /* Clean Off-White for Paragraphs */
-  --text-muted: #d0e4ff;            /* Readable Light Sky Blue for Notes & Subtitles */
-  --text-footer: #d0e4ff;           /* Light text in Footer */
+  /* Typography: WHITE & BLACK ONLY */
+  --text-white: #ffffff;            /* Pure White Headings & Primary Text */
+  --text-light: #ffffff;            /* Pure White Paragraphs & Descriptions */
+  --text-muted: #e2e8f0;            /* Soft White for Subtitles & Notes */
+  --text-dark: #000000;             /* Pure Black for Contrast on Light Surfaces */
+  --text-footer: #cbd5e1;           /* Footer Text */
   --text-footer-white: #ffffff;
 
   /* Shadows */
-  --shadow-card: 0 10px 30px -5px rgba(5, 25, 60, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-  --shadow-blue: 0 10px 25px -5px rgba(100, 181, 246, 0.45);
-  --shadow-glow: 0 0 24px rgba(100, 181, 246, 0.25);
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-blue: 0 10px 25px -5px rgba(37, 99, 235, 0.45);
+  --shadow-glow: 0 0 24px rgba(37, 99, 235, 0.3);
 
-  /* Ambient Glow */
-  --ambient-glow: radial-gradient(circle, rgba(144, 202, 249, 0.15) 0%, rgba(21, 101, 192, 0) 70%);
+  /* Ambient Background Glow */
+  --ambient-glow: radial-gradient(circle, rgba(37, 99, 235, 0.16) 0%, rgba(10, 25, 47, 0) 70%);
 }
 
 /* Dark Mode: Deep Midnight Navy Blue */
 [data-theme="dark"] {
   --theme-name: 'dark';
 
-  /* Deep Midnight Navy Backgrounds */
-  --bg-primary: #061A40;            /* Deep Midnight Navy Blue */
-  --bg-secondary: #071E3D;          /* Secondary Deep Navy Blue */
-  --bg-card: #0A2A5E;               /* Midnight Blue Card Surface */
-  --bg-card-hover: #0d3575;
-  --bg-input: #04122d;              /* Dark Navy Input Field */
-  --bg-nav: rgba(6, 26, 64, 0.94);
-  --bg-mobile-drawer: #071E3D;
-  --bg-footer: #030c1d;
+  /* Deepest Midnight Navy Backgrounds */
+  --bg-primary: #050d1a;            /* Deepest Midnight Navy */
+  --bg-secondary: #030812;          /* Deepest Navy Section */
+  --bg-card: #02060d;               /* Pitch Dark Blue Card Surface */
+  --bg-card-hover: #050f1f;
+  --bg-input: #010307;
+  --bg-nav: rgba(5, 13, 26, 0.95);
+  --bg-mobile-drawer: #030812;
+  --bg-footer: #010205;
 
   /* Blue Accents & Borders */
-  --blue-primary: #64B5F6;          /* Bright Electric Blue */
-  --blue-hover: #90CAF9;
-  --blue-light: #64B5F6;
-  --blue-soft: #90CAF9;             /* Bright Soft Blue */
-  --blue-badge-bg: rgba(100, 181, 246, 0.15);
-  --blue-glow: rgba(100, 181, 246, 0.4);
-  --border-blue: rgba(100, 181, 246, 0.25);
-  --border-blue-hover: rgba(144, 202, 249, 0.6);
+  --blue-primary: #3b82f6;
+  --blue-hover: #2563eb;
+  --blue-light: #60a5fa;
+  --blue-soft: #93c5fd;
+  --blue-badge-bg: rgba(59, 130, 246, 0.2);
+  --blue-glow: rgba(59, 130, 246, 0.45);
+  --border-blue: rgba(59, 130, 246, 0.3);
+  --border-blue-hover: rgba(147, 197, 253, 0.7);
 
-  /* Typography Colors */
-  --text-white: #ffffff;            /* Pure White for Headings */
-  --text-light: #e8f2fe;            /* Crisp White for Paragraphs */
-  --text-muted: #b8d7fb;            /* Muted Sky for Subtitles */
-  --text-footer: #b8d7fb;
+  /* Typography: WHITE & BLACK ONLY */
+  --text-white: #ffffff;
+  --text-light: #ffffff;
+  --text-muted: #e2e8f0;
+  --text-dark: #000000;
+  --text-footer: #cbd5e1;
   --text-footer-white: #ffffff;
 
   /* Shadows */
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-  --shadow-blue: 0 10px 25px -5px rgba(100, 181, 246, 0.45);
-  --shadow-glow: 0 0 24px rgba(100, 181, 246, 0.3);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.9);
+  --shadow-blue: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
+  --shadow-glow: 0 0 24px rgba(59, 130, 246, 0.35);
 
   /* Ambient Glow */
-  --ambient-glow: radial-gradient(circle, rgba(100, 181, 246, 0.18) 0%, rgba(6, 26, 64, 0) 70%);
+  --ambient-glow: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(5, 13, 26, 0) 70%);
 }
 
 /* Global Structural Tokens */
@@ -177,8 +175,8 @@ button {
 }
 
 ::selection {
-  background-color: #90CAF9;
-  color: #0B3D91;
+  background-color: var(--blue-primary);
+  color: #ffffff;
 }
 
 /* Scrollbar Customization */
@@ -189,12 +187,11 @@ button {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #0B3D91;
-  border: 1px solid var(--border-blue);
+  background: var(--blue-primary);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--blue-primary);
+  background: var(--blue-soft);
 }
 
 /* --------------------------------------------------------------------------
@@ -227,7 +224,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   4. LAYOUT CONTAINER & SECTION UTILITIES
+   4. LAYOUT CONTAINER & SECTION UTILITIES (DARK BLUE / NAVY BLUE)
    -------------------------------------------------------------------------- */
 .container {
   width: 100%;
@@ -241,16 +238,17 @@ button {
   position: relative;
 }
 
-/* Alternating Section Backgrounds for Subtle Depth */
-.about-section,
-.project-section {
-  background-color: var(--bg-secondary);
-  transition: var(--theme-transition);
-}
-
+/* Alternating Dark Blue & Navy Blue Sections */
+.hero-section,
 .skills-section,
 .contact-section {
   background-color: var(--bg-primary);
+  transition: var(--theme-transition);
+}
+
+.about-section,
+.project-section {
+  background-color: var(--bg-secondary);
   transition: var(--theme-transition);
 }
 
@@ -265,7 +263,7 @@ button {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--blue-soft);
+  color: var(--text-white);
   margin-bottom: 8px;
   background: var(--blue-badge-bg);
   padding: 4px 14px;
@@ -298,7 +296,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   5. BUTTON COMPONENTS & STREAMLINED CTAs
+   5. BUTTON COMPONENTS (BLUE WITH WHITE / BLACK TEXT)
    -------------------------------------------------------------------------- */
 .btn {
   display: inline-flex;
@@ -314,32 +312,35 @@ button {
   user-select: none;
 }
 
+/* Primary Button: Blue with White Text */
 .btn-primary {
-  background: #ffffff;
-  color: #0D47A1;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  background: var(--blue-primary);
+  color: var(--text-white);
+  box-shadow: var(--shadow-blue);
+  border: 1px solid var(--blue-light);
 }
 
 .btn-primary:hover {
   background: var(--blue-hover);
-  color: #061A40;
+  color: var(--text-white);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(100, 181, 246, 0.5);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.6);
 }
 
-/* Glowing Dominant Primary Button */
+/* Glowing Dominant CV Button: Blue with White Text */
 .btn-glow {
   position: relative;
-  background: #ffffff;
-  color: #0D47A1;
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.35), 0 0 15px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border: 1px solid #60a5fa;
+  box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.6), 0 0 15px rgba(59, 130, 246, 0.4);
   font-weight: 800;
 }
 
 .btn-glow:hover {
-  background: #90CAF9;
-  color: #061A40;
-  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.45), 0 0 25px rgba(144, 202, 249, 0.6);
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #ffffff;
+  box-shadow: 0 12px 28px -4px rgba(37, 99, 235, 0.8), 0 0 25px rgba(96, 165, 250, 0.6);
   transform: translateY(-2px) scale(1.02);
 }
 
@@ -351,19 +352,20 @@ button {
   transform: translateY(2px);
 }
 
+/* Outline Button: Darker Blue Surface with Blue Border and White Text */
 .btn-outline {
-  background: rgba(11, 61, 145, 0.6);
-  color: #ffffff;
+  background: var(--bg-card);
+  color: var(--text-white);
   border: 1.5px solid var(--border-blue);
   font-weight: 700;
   backdrop-filter: blur(8px);
 }
 
 .btn-outline:hover {
-  background: var(--bg-card);
-  border-color: var(--blue-soft);
+  background: var(--blue-primary);
+  border-color: var(--blue-light);
   transform: translateY(-2px);
-  color: var(--blue-soft);
+  color: var(--text-white);
 }
 
 .btn-sm {
@@ -395,7 +397,7 @@ button {
 }
 
 .navbar.scrolled {
-  box-shadow: 0 10px 30px rgba(5, 25, 60, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
 .nav-container {
@@ -417,7 +419,7 @@ button {
 .brand-monogram {
   width: 38px;
   height: 38px;
-  background: linear-gradient(135deg, #64B5F6, #0D47A1);
+  background: linear-gradient(135deg, #2563eb, #0a192f);
   border: 1.5px solid var(--blue-soft);
   border-radius: var(--radius-sm);
   display: flex;
@@ -427,11 +429,12 @@ button {
   font-weight: 800;
   font-size: 0.95rem;
   color: #ffffff;
-  box-shadow: 0 0 12px rgba(100, 181, 246, 0.35);
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
 }
 
 .brand-name {
   letter-spacing: -0.3px;
+  color: var(--text-white);
 }
 
 .nav-list {
@@ -451,7 +454,7 @@ button {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #ffffff;
+  color: var(--text-white);
 }
 
 .nav-link::after {
@@ -481,26 +484,27 @@ button {
 .theme-toggle-btn {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--bg-card);
   border: 1px solid var(--border-blue);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--text-white);
   font-size: 1.1rem;
   transition: var(--transition);
 }
 
 [data-theme="dark"] .theme-toggle-btn {
-  color: #fbbf24;
-  background: rgba(251, 191, 36, 0.15);
-  border-color: rgba(251, 191, 36, 0.35);
+  color: #ffffff;
+  background: #051020;
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
 .theme-toggle-btn:hover {
   transform: rotate(20deg) scale(1.08);
-  box-shadow: 0 0 12px rgba(100, 181, 246, 0.45);
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.5);
+  background: var(--blue-primary);
 }
 
 /* Mobile Drawer Theme Button */
@@ -512,7 +516,7 @@ button {
   width: 100%;
   padding: 10px 14px;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--bg-card);
   border: 1px solid var(--border-blue);
   color: var(--text-white);
   font-weight: 600;
@@ -523,7 +527,7 @@ button {
 
 .mobile-theme-btn:hover {
   background: var(--blue-primary);
-  color: #061A40;
+  color: var(--text-white);
 }
 
 /* Mobile Hamburger Button */
@@ -555,7 +559,7 @@ button {
   height: 100vh;
   background: var(--bg-mobile-drawer);
   border-left: 1px solid var(--border-blue);
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
   z-index: 1050;
   display: flex;
   flex-direction: column;
@@ -589,7 +593,7 @@ button {
 }
 
 .drawer-close-btn {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
   color: var(--text-white);
   width: 36px;
   height: 36px;
@@ -598,12 +602,13 @@ button {
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
+  border: 1px solid var(--border-blue);
   transition: var(--transition);
 }
 
 .drawer-close-btn:hover {
   background: var(--blue-primary);
-  color: #061A40;
+  color: var(--text-white);
 }
 
 .mobile-nav-list {
@@ -632,7 +637,7 @@ button {
 
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--blue-badge-bg);
   color: #ffffff;
   border-left: 3px solid var(--blue-primary);
 }
@@ -670,7 +675,8 @@ button {
 .drawer-socials a {
   width: 36px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-blue);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -682,7 +688,7 @@ button {
 
 .drawer-socials a:hover {
   background: var(--blue-primary);
-  color: #061A40;
+  color: #ffffff;
 }
 
 .backdrop {
@@ -691,7 +697,7 @@ button {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(4px);
   z-index: 1040;
   opacity: 0;
@@ -714,7 +720,6 @@ button {
   padding-top: calc(var(--header-height) + 20px);
   padding-bottom: 40px;
   position: relative;
-  background: var(--bg-primary);
 }
 
 .hero-container {
@@ -740,31 +745,31 @@ button {
   border-radius: var(--radius-full);
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--blue-soft);
+  color: var(--text-white);
   width: fit-content;
 }
 
 .pulse-dot {
   width: 8px;
   height: 8px;
-  background-color: var(--blue-primary);
+  background-color: var(--blue-light);
   border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(100, 181, 246, 0.8);
+  box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.8);
   animation: pulseDot 2s infinite;
 }
 
 @keyframes pulseDot {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(100, 181, 246, 0.8);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.8);
   }
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 8px rgba(100, 181, 246, 0);
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
   }
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(100, 181, 246, 0);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
   }
 }
 
@@ -773,13 +778,13 @@ button {
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -1px;
-  color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: var(--text-white);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   transition: var(--theme-transition);
 }
 
 .highlight-text {
-  background: linear-gradient(135deg, #ffffff 40%, #90CAF9 100%);
+  background: linear-gradient(135deg, #ffffff 40%, var(--blue-soft) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -842,22 +847,22 @@ button {
 .social-icon-link {
   width: 34px;
   height: 34px;
-  background: var(--blue-badge-bg);
+  background: var(--bg-card);
   border: 1px solid var(--border-blue);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--text-white);
   font-size: 0.95rem;
   transition: var(--transition);
 }
 
 .social-icon-link:hover {
   background: var(--blue-primary);
-  color: #061A40;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.45);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.45);
 }
 
 /* Hero Visual Box */
@@ -887,7 +892,7 @@ button {
 .hero-avatar-box {
   width: 100%;
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(100, 181, 246, 0.3) 0%, rgba(13, 71, 161, 0.7) 80%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(5, 16, 32, 0.9) 80%);
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
@@ -907,7 +912,7 @@ button {
   transform: scale(1.03);
 }
 
-/* Floating Status Badges */
+/* Floating Status Badges (DARKER BLUE) */
 .hero-floating-tag {
   position: absolute;
   background: var(--bg-card);
@@ -937,7 +942,7 @@ button {
 
 .hero-floating-tag strong {
   font-size: 0.82rem;
-  color: #ffffff;
+  color: var(--text-white);
 }
 
 .hero-floating-tag span {
@@ -963,11 +968,11 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   8. 2. ABOUT SECTION & EDUCATION HIGHLIGHT
+   8. 2. ABOUT SECTION & EDUCATION HIGHLIGHT (DARKER BLUE CARDS)
    -------------------------------------------------------------------------- */
 .about-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-blue);
+  border: 1.5px solid var(--border-blue);
   border-radius: var(--radius-lg);
   padding: 38px;
   backdrop-filter: blur(12px);
@@ -996,9 +1001,9 @@ button {
   color: #ffffff;
 }
 
-/* Education Highlight Block */
+/* Education Highlight Block: Darker Blue */
 .education-block {
-  background: rgba(8, 37, 82, 0.8);
+  background: #030a14;
   border: 1px solid var(--border-blue);
   border-radius: var(--radius-md);
   padding: 24px;
@@ -1009,7 +1014,7 @@ button {
 .education-block-title {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--blue-soft);
+  color: var(--text-white);
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -1059,8 +1064,8 @@ button {
 
 .education-timeline-badge {
   font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--blue-soft);
+  font-weight: 700;
+  color: #ffffff;
   background: var(--blue-badge-bg);
   padding: 3px 10px;
   border-radius: var(--radius-full);
@@ -1098,7 +1103,7 @@ button {
 .interests-title {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--blue-soft);
+  color: var(--text-white);
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -1130,13 +1135,14 @@ button {
 }
 
 .interest-pill:hover {
-  background: rgba(144, 202, 249, 0.3);
-  border-color: var(--blue-soft);
+  background: var(--blue-primary);
+  color: #ffffff;
+  border-color: var(--blue-light);
   transform: translateY(-2px);
 }
 
 /* --------------------------------------------------------------------------
-   9. 3. SKILLS SECTION
+   9. 3. SKILLS SECTION (DARKER BLUE CARDS)
    -------------------------------------------------------------------------- */
 .skills-grid {
   display: grid;
@@ -1146,7 +1152,7 @@ button {
 
 .skill-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-blue);
+  border: 1.5px solid var(--border-blue);
   border-radius: var(--radius-md);
   padding: 22px 16px;
   text-align: center;
@@ -1182,7 +1188,7 @@ button {
 
 .skill-card:hover .skill-icon {
   background: var(--blue-primary);
-  color: #061A40;
+  color: #ffffff;
   transform: scale(1.1);
 }
 
@@ -1201,11 +1207,11 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   10. 4. PROJECT SECTION & VISUAL SHOWCASE
+   10. 4. PROJECT SECTION & VISUAL SHOWCASE (DARKER BLUE CARDS)
    -------------------------------------------------------------------------- */
 .main-project-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-blue);
+  border: 1.5px solid var(--border-blue);
   border-radius: var(--radius-lg);
   padding: 36px;
   box-shadow: var(--shadow-card), var(--shadow-glow);
@@ -1226,7 +1232,7 @@ button {
   gap: 8px;
   background: var(--blue-badge-bg);
   border: 1px solid var(--border-blue);
-  color: var(--blue-soft);
+  color: #ffffff;
   padding: 5px 12px;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
@@ -1261,8 +1267,8 @@ button {
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border-blue);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  background: #0B192C;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  background: #02060d;
 }
 
 .project-preview-img {
@@ -1285,10 +1291,10 @@ button {
 }
 
 .media-tag {
-  background: rgba(6, 26, 64, 0.88);
+  background: rgba(5, 16, 32, 0.9);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(100, 181, 246, 0.4);
-  color: #90CAF9;
+  border: 1px solid var(--border-blue);
+  color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 4px 10px;
@@ -1300,7 +1306,7 @@ button {
 
 .project-features {
   margin-bottom: 22px;
-  background: rgba(8, 37, 82, 0.8);
+  background: #030a14;
   border: 1px solid var(--border-blue);
   border-radius: var(--radius-md);
   padding: 18px;
@@ -1310,7 +1316,7 @@ button {
 .features-title {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--blue-soft);
+  color: var(--text-white);
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -1368,13 +1374,13 @@ button {
   gap: 14px;
 }
 
-/* Interactive Review Classifier Box */
+/* Interactive Review Classifier Box: Darker Blue */
 .project-interactive-box {
-  background: rgba(8, 37, 82, 0.9);
+  background: #030a14;
   border: 1px solid var(--border-blue);
   border-radius: var(--radius-md);
   padding: 22px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   transition: var(--theme-transition);
 }
 
@@ -1431,9 +1437,9 @@ button {
 }
 
 .sample-btn:hover {
-  background: rgba(144, 202, 249, 0.25);
-  border-color: var(--blue-soft);
-  color: var(--blue-soft);
+  background: var(--blue-primary);
+  border-color: var(--blue-light);
+  color: #ffffff;
 }
 
 .tester-input-wrap {
@@ -1456,7 +1462,7 @@ button {
 
 .tester-textarea:focus {
   border-color: var(--blue-primary);
-  box-shadow: 0 0 10px rgba(100, 181, 246, 0.4);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
 }
 
 .tester-btn-row {
@@ -1508,7 +1514,7 @@ button {
 .confidence-text {
   font-size: 0.82rem;
   font-family: var(--font-mono);
-  color: var(--blue-soft);
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -1519,7 +1525,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   11. 5. CONTACT SECTION ("Let's Work Together" - With LinkedIn)
+   11. 5. CONTACT SECTION ("Let's Work Together" - DARKER BLUE CARDS)
    -------------------------------------------------------------------------- */
 .contact-grid {
   display: grid;
@@ -1536,7 +1542,7 @@ button {
 
 .contact-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-blue);
+  border: 1.5px solid var(--border-blue);
   border-radius: var(--radius-md);
   padding: 16px 18px;
   display: flex;
@@ -1606,12 +1612,13 @@ button {
   transition: var(--transition);
   position: relative;
   flex-shrink: 0;
+  border: 1px solid var(--border-blue);
 }
 
 .copy-btn:hover,
 .phone-call-btn:hover {
   background: var(--blue-primary);
-  color: #061A40;
+  color: #ffffff;
 }
 
 .copy-tooltip {
@@ -1620,7 +1627,7 @@ button {
   left: 50%;
   transform: translateX(-50%);
   background: #ffffff;
-  color: #0D47A1;
+  color: #000000;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -1641,7 +1648,7 @@ button {
 /* Contact Form */
 .form-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-blue);
+  border: 1.5px solid var(--border-blue);
   border-radius: var(--radius-lg);
   padding: 32px;
   box-shadow: var(--shadow-card);
@@ -1714,7 +1721,7 @@ button {
 
 .form-input:focus {
   border-color: var(--blue-primary);
-  box-shadow: 0 0 10px rgba(100, 181, 246, 0.4);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
 }
 
 .form-input.invalid {
@@ -1800,7 +1807,7 @@ button {
 
 .footer-bottom {
   padding-top: 16px;
-  border-top: 1px solid rgba(144, 202, 249, 0.2);
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
   width: 100%;
 }
 
@@ -1818,19 +1825,20 @@ button {
   right: 24px;
   width: 42px;
   height: 42px;
-  background: #ffffff;
-  color: #0D47A1;
+  background: var(--blue-primary);
+  color: #ffffff;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
   transition: var(--transition);
   z-index: 999;
+  border: 1px solid var(--blue-light);
 }
 
 .scroll-top-btn.visible {
@@ -1840,8 +1848,7 @@ button {
 }
 
 .scroll-top-btn:hover {
-  background: var(--blue-primary);
-  color: #061A40;
+  background: var(--blue-hover);
   transform: translateY(-4px);
 }
 
@@ -1857,7 +1864,7 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
   z-index: 2000;
   opacity: 0;
   visibility: hidden;

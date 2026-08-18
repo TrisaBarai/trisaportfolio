@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileThemeText.textContent = 'Switch to Light Mode';
       }
       if (metaThemeColor) {
-        metaThemeColor.setAttribute('content', '#061A40');
+        metaThemeColor.setAttribute('content', '#050d1a');
       }
     } else {
       if (themeIcon) {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileThemeText.textContent = 'Switch to Dark Mode';
       }
       if (metaThemeColor) {
-        metaThemeColor.setAttribute('content', '#1565C0');
+        metaThemeColor.setAttribute('content', '#0a192f');
       }
     }
   };
