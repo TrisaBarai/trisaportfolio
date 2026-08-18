@@ -1,30 +1,21 @@
 /**
  * ============================================================================
- * TRISA BARAI - PORTFOLIO INTERACTION SCRIPT (VANILLA JAVASCRIPT)
+ * TRISA BARAI - PERSONAL PORTFOLIO JAVASCRIPT
+ * Strictly 5 Sections: Home, About, Skills, Project, Contact
  * ============================================================================
- * 
- * Features Included:
- * 1. Sticky Navigation Bar & Dynamic Active Nav Link Observer
- * 2. Mobile Drawer Menu Open/Close Controls & Backdrop
- * 3. Fake Review Detection AI Live Interactive Analyzer & Heuristic Engine
- * 4. One-Click Copy Email to Clipboard with Tooltip
- * 5. Contact Form Validation with Instant Toast Alert
- * 6. Scroll-to-Top Button
- * 
- * All code is written in clean, modern vanilla JavaScript with no dependencies.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   // ==========================================================================
-  // 1. STICKY NAVBAR & ACTIVE NAV LINK OBSERVER
+  // 1. STICKY NAVBAR & ACTIVE NAV LINK OBSERVER (5 SECTIONS ONLY)
   // ==========================================================================
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
   const sections = document.querySelectorAll('section[id]');
 
-  // Add shadow and reduce background opacity on scroll
   const handleScrollHeader = () => {
     if (window.scrollY > 20) {
       navbar.classList.add('scrolled');
@@ -36,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScrollHeader, { passive: true });
   handleScrollHeader();
 
-  // Highlight active link based on currently visible section
   const observerOptions = {
     root: null,
     rootMargin: '-20% 0px -40% 0px',
@@ -47,7 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const activeId = entry.target.getAttribute('id');
+        
+        // Update Desktop Nav
         navLinks.forEach((link) => {
+          if (link.getAttribute('href') === `#${activeId}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+
+        // Update Mobile Drawer Links
+        mobileNavLinks.forEach((link) => {
           if (link.getAttribute('href') === `#${activeId}`) {
             link.classList.add('active');
           } else {
@@ -68,19 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const drawerCloseBtn = document.getElementById('drawer-close-btn');
   const mobileDrawer = document.getElementById('mobile-drawer');
   const backdrop = document.getElementById('backdrop');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
   const openDrawer = () => {
-    mobileDrawer.classList.add('active');
-    backdrop.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    if (mobileDrawer) mobileDrawer.classList.add('active');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
     if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
   };
 
   const closeDrawer = () => {
-    mobileDrawer.classList.remove('active');
-    backdrop.classList.remove('active');
-    document.body.style.overflow = ''; // Restore background scrolling
+    if (mobileDrawer) mobileDrawer.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
     if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
   };
 
@@ -88,12 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
   if (backdrop) backdrop.addEventListener('click', closeDrawer);
 
-  // Close mobile drawer when any link inside it is clicked
   mobileNavLinks.forEach((link) => {
     link.addEventListener('click', closeDrawer);
   });
 
-  // Close drawer if user presses Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('active')) {
       closeDrawer();
@@ -102,233 +100,207 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 3. FAKE REVIEW DETECTION AI - NLP & CLASSIFICATION ENGINE
+  // 3. FAKE REVIEW DETECTION AI - LIVE INTERACTIVE ANALYZER DEMO
   // ==========================================================================
-  
-  /**
-   * Evaluates a review string using Natural Language Processing heuristics,
-   * spam keyword detection, punctuation frequency, and sentence structure.
-   */
-  const evaluateReviewText = (text) => {
-    const raw = (text || '').trim();
-    if (!raw || raw.length < 4) {
-      return null;
-    }
-
-    const words = raw.match(/\b\w+\b/g) || [];
-    const wordCount = words.length;
-    const upperChars = (raw.match(/[A-Z]/g) || []).length;
-    const totalChars = Math.max(raw.length, 1);
-    const capsRatio = upperChars / totalChars;
-    const exclamationCount = (raw.match(/[!?]/g) || []).length;
-
-    // Common promotional spam / fake bot patterns
-    const spamKeywords = [
-      '100% recommended', 'best ever', 'buy now', 'click here', 
-      'guaranteed', 'must buy', 'free gift', 'discount code',
-      'waste of money', 'dont buy', 'fake product', 'scam',
-      'definitely buy', 'click link', 'five stars', '5 stars'
-    ];
-
-    let detectedKeywords = [];
-    spamKeywords.forEach((kw) => {
-      if (raw.toLowerCase().includes(kw)) {
-        detectedKeywords.push(kw);
-      }
-    });
-
-    let spamScore = 0.0;
-    let reasons = [];
-
-    // Rule 1: High Caps Ratio (Shouting pattern)
-    if (capsRatio > 0.3 && totalChars > 15) {
-      spamScore += 0.35;
-      reasons.push('Excessive capitalization detected.');
-    }
-
-    // Rule 2: Excessive Punctuation
-    if (exclamationCount >= 3) {
-      spamScore += 0.3;
-      reasons.push(`Multiple exclamation marks (${exclamationCount} found).`);
-    }
-
-    // Rule 3: Promotional Keyword Matches
-    if (detectedKeywords.length > 0) {
-      spamScore += Math.min(0.45, detectedKeywords.length * 0.22);
-      reasons.push(`Promotional spam phrase: "${detectedKeywords.join('", "')}".`);
-    }
-
-    // Rule 4: Length check
-    if (wordCount < 5) {
-      spamScore += 0.2;
-      reasons.push('Review is overly brief and lacks specifics.');
-    }
-
-    // Rule 5: Natural sentence bonus (organic human reviews)
-    if (wordCount >= 16 && detectedKeywords.length === 0 && capsRatio < 0.15) {
-      spamScore = Math.max(0.04, spamScore - 0.35);
-      reasons.push('Natural sentence structure with balanced descriptive vocabulary.');
-    }
-
-    spamScore = Math.max(0.04, Math.min(0.96, spamScore));
-
-    const isFake = spamScore >= 0.48;
-    const verdict = isFake ? 'Suspicious / Fake Review' : 'Genuine Review';
-    const confidence = isFake ? Math.round(spamScore * 100) : Math.round((1 - spamScore) * 100);
-
-    return {
-      raw,
-      isFake,
-      verdict,
-      confidence,
-      reasons: reasons.length > 0 ? reasons.join(' ') : 'Normal organic review characteristics.'
-    };
-  };
-
-  // Sample texts for testing
-  const sampleGenuineText = "I have been using this laptop for the past 3 weeks for coding and study. The battery easily lasts around 8 hours on a single charge and the keyboard is very comfortable. Good value for money.";
-  const sampleFakeText = "BEST PRODUCT EVER IN THE WORLD!!!! EVERYONE MUST BUY NOW 100% RECOMMENDED CLICK LINK FOR DISCOUNT 5 STARS FOR SURE BUY NOW!!!";
-
-  const liveReviewInput = document.getElementById('live-review-input');
-  const sampleGenuineBtn = document.getElementById('sample-genuine-btn');
-  const sampleFakeBtn = document.getElementById('sample-fake-btn');
+  const reviewInput = document.getElementById('live-review-input');
   const runAnalysisBtn = document.getElementById('run-analysis-btn');
   const clearAnalysisBtn = document.getElementById('clear-analysis-btn');
-  const testerResultBox = document.getElementById('tester-result-box');
+  const sampleGenuineBtn = document.getElementById('sample-genuine-btn');
+  const sampleFakeBtn = document.getElementById('sample-fake-btn');
+  const openDemoBtn = document.getElementById('open-demo-btn');
+  const resultBox = document.getElementById('tester-result-box');
   const verdictPill = document.getElementById('verdict-pill');
   const confidenceText = document.getElementById('confidence-text');
   const resultReasons = document.getElementById('result-reasons');
-  const openDemoBtn = document.getElementById('open-demo-btn');
 
-  // Trigger analysis function
-  const runAnalysis = () => {
-    if (!liveReviewInput) return;
-    const text = liveReviewInput.value;
-    const result = evaluateReviewText(text);
+  const sampleGenuineText = "I purchased this laptop three weeks ago for my computer science classes. The battery lasts around 8 hours, and compiling code in VS Code is swift. The trackpad is responsive, though the speakers could be slightly louder.";
+  const sampleFakeText = "BEST PRODUCT EVER IN THE WORLD!!! BUY RIGHT NOW 100% DISCOUNT AMAZING GUARANTEED!!! PERFECT LIFE CHANGING MUST BUY CLICK HERE AMAZING AMAZING FIVE STARS ⭐⭐⭐⭐⭐";
 
-    if (!result) {
-      alert('Please enter at least 4 characters of review text to analyze.');
-      return;
-    }
-
-    if (testerResultBox) {
-      testerResultBox.style.display = 'flex';
-      
-      if (verdictPill) {
-        verdictPill.className = `verdict-pill ${result.isFake ? 'fake' : 'genuine'}`;
-        verdictPill.innerHTML = result.isFake 
-          ? '<i class="fa-solid fa-triangle-exclamation"></i> Suspicious / Fake' 
-          : '<i class="fa-solid fa-circle-check"></i> Genuine Review';
+  if (openDemoBtn) {
+    openDemoBtn.addEventListener('click', () => {
+      const demoBox = document.getElementById('live-review-input');
+      if (demoBox) {
+        demoBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        demoBox.focus();
       }
-
-      if (confidenceText) {
-        confidenceText.textContent = `Confidence: ${result.confidence}%`;
-      }
-
-      if (resultReasons) {
-        resultReasons.textContent = `Analysis: ${result.reasons}`;
-      }
-    }
-  };
-
-  if (sampleGenuineBtn && liveReviewInput) {
-    sampleGenuineBtn.addEventListener('click', () => {
-      liveReviewInput.value = sampleGenuineText;
-      runAnalysis();
     });
   }
 
-  if (sampleFakeBtn && liveReviewInput) {
+  if (sampleGenuineBtn) {
+    sampleGenuineBtn.addEventListener('click', () => {
+      if (reviewInput) {
+        reviewInput.value = sampleGenuineText;
+        analyzeReview(sampleGenuineText);
+      }
+    });
+  }
+
+  if (sampleFakeBtn) {
     sampleFakeBtn.addEventListener('click', () => {
-      liveReviewInput.value = sampleFakeText;
-      runAnalysis();
+      if (reviewInput) {
+        reviewInput.value = sampleFakeText;
+        analyzeReview(sampleFakeText);
+      }
+    });
+  }
+
+  if (clearAnalysisBtn) {
+    clearAnalysisBtn.addEventListener('click', () => {
+      if (reviewInput) reviewInput.value = '';
+      if (resultBox) resultBox.style.display = 'none';
     });
   }
 
   if (runAnalysisBtn) {
-    runAnalysisBtn.addEventListener('click', runAnalysis);
-  }
-
-  if (clearAnalysisBtn && liveReviewInput) {
-    clearAnalysisBtn.addEventListener('click', () => {
-      liveReviewInput.value = '';
-      if (testerResultBox) testerResultBox.style.display = 'none';
-      liveReviewInput.focus();
+    runAnalysisBtn.addEventListener('click', () => {
+      const text = reviewInput ? reviewInput.value.trim() : '';
+      if (!text) {
+        showToast('Please enter review text', 'Type or paste a review first to run analysis.');
+        if (reviewInput) reviewInput.focus();
+        return;
+      }
+      analyzeReview(text);
     });
   }
 
-  if (openDemoBtn && liveReviewInput) {
-    openDemoBtn.addEventListener('click', () => {
-      liveReviewInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      liveReviewInput.focus();
-      if (!liveReviewInput.value) {
-        liveReviewInput.value = sampleGenuineText;
-        runAnalysis();
+  function analyzeReview(text) {
+    if (!resultBox || !verdictPill || !confidenceText || !resultReasons) return;
+
+    let spamScore = 0;
+    const reasons = [];
+
+    // 1. Check exclamation marks
+    const exclamationCount = (text.match(/!/g) || []).length;
+    if (exclamationCount >= 3) {
+      spamScore += 30;
+      reasons.push("Multiple exclamation marks detected (promotional spam pattern).");
+    }
+
+    // 2. Check uppercase ratio
+    const letters = text.replace(/[^a-zA-Z]/g, '');
+    if (letters.length > 10) {
+      const upperLetters = text.replace(/[^A-Z]/g, '').length;
+      const upperRatio = upperLetters / letters.length;
+      if (upperRatio > 0.3) {
+        spamScore += 35;
+        reasons.push("Excessive uppercase lettering indicates unnatural sentiment amplification.");
+      }
+    }
+
+    // 3. Spam trigger words matching
+    const spamKeywords = [
+      'best product ever', 'must buy', 'buy right now', '100% discount', 'guaranteed',
+      'click here', 'life changing', 'miracle', 'free gift', 'act now'
+    ];
+    let matchedKeywords = [];
+    const lowerText = text.toLowerCase();
+    spamKeywords.forEach((kw) => {
+      if (lowerText.includes(kw)) {
+        spamScore += 25;
+        matchedKeywords.push(`"${kw}"`);
       }
     });
+    if (matchedKeywords.length > 0) {
+      reasons.push(`Contains spam trigger phrase(s): ${matchedKeywords.join(', ')}.`);
+    }
+
+    // 4. Repeated word patterns
+    const words = lowerText.split(/\s+/).filter((w) => w.length > 3);
+    const wordCounts = {};
+    let hasHighRepetition = false;
+    words.forEach((w) => {
+      wordCounts[w] = (wordCounts[w] || 0) + 1;
+      if (wordCounts[w] >= 3) hasHighRepetition = true;
+    });
+    if (hasHighRepetition) {
+      spamScore += 20;
+      reasons.push("Repetitive keyword frequency detected.");
+    }
+
+    // 5. Genuine review characteristics
+    const genuineMarkers = ['because', 'although', 'however', 'used for', 'weeks', 'battery', 'build', 'specs', 'tested'];
+    let genuineMatches = 0;
+    genuineMarkers.forEach((gm) => {
+      if (lowerText.includes(gm)) genuineMatches++;
+    });
+    if (genuineMatches >= 2 && spamScore < 30) {
+      spamScore = Math.max(5, spamScore - 20);
+      reasons.push("Contextual nuances and product usage details suggest authentic customer experience.");
+    }
+
+    const isFake = spamScore >= 45;
+    let confidence;
+
+    if (isFake) {
+      confidence = Math.min(99, Math.max(78, 60 + spamScore / 2));
+      verdictPill.textContent = "Fake / Suspicious Review";
+      verdictPill.className = "verdict-pill fake";
+      confidenceText.textContent = `Confidence: ${Math.round(confidence)}%`;
+      resultReasons.innerHTML = reasons.length > 0 
+        ? reasons.map(r => `<div>• ${r}</div>`).join('') 
+        : "<div>• Text characteristics match typical automated fake reviews.</div>";
+    } else {
+      confidence = Math.min(98, Math.max(82, 100 - spamScore));
+      verdictPill.textContent = "Genuine Review";
+      verdictPill.className = "verdict-pill genuine";
+      confidenceText.textContent = `Confidence: ${Math.round(confidence)}%`;
+      resultReasons.innerHTML = reasons.length > 0 
+        ? reasons.map(r => `<div>• ${r}</div>`).join('') 
+        : "<div>• Natural phrasing, balanced sentiment, and specific contextual details verified.</div>";
+    }
+
+    resultBox.style.display = 'block';
   }
 
 
   // ==========================================================================
-  // 4. ONE-CLICK COPY EMAIL TO CLIPBOARD
+  // 4. ONE-CLICK COPY EMAIL TO CLIPBOARD WITH TOOLTIP
   // ==========================================================================
   const copyEmailBtn = document.getElementById('copy-email-btn');
   const copyTooltip = document.getElementById('copy-tooltip');
-  const emailText = document.getElementById('email-text');
+  const emailText = "baraitrisa@gmail.com";
 
-  if (copyEmailBtn && emailText) {
+  if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', async () => {
-      const email = emailText.textContent.trim();
-      
       try {
-        await navigator.clipboard.writeText(email);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(emailText);
+        } else {
+          const tempInput = document.createElement('input');
+          tempInput.value = emailText;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+        }
+
         if (copyTooltip) {
           copyTooltip.classList.add('show');
           setTimeout(() => {
             copyTooltip.classList.remove('show');
           }, 2000);
         }
-        showToast('Email Copied!', `${email} copied to clipboard.`);
+        showToast('Email Copied!', 'baraitrisa@gmail.com is copied to your clipboard.');
       } catch (err) {
-        // Fallback for older browser engines
-        const tempInput = document.createElement('input');
-        tempInput.value = email;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        showToast('Email Copied!', `${email} copied to clipboard.`);
+        showToast('Email Address', 'baraitrisa@gmail.com');
       }
     });
   }
 
 
   // ==========================================================================
-  // 5. CONTACT FORM VALIDATION & TOAST NOTIFICATIONS
+  // 5. CONTACT FORM VALIDATION & INSTANT TOAST NOTIFICATION
   // ==========================================================================
   const contactForm = document.getElementById('contact-form');
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
   const messageInput = document.getElementById('message');
-  const toast = document.getElementById('toast');
-  const toastTitle = document.getElementById('toast-title');
-  const toastMessage = document.getElementById('toast-message');
+  const nameError = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+  const messageError = document.getElementById('message-error');
+  const submitBtn = document.getElementById('submit-btn');
 
-  const showToast = (title, message) => {
-    if (!toast) return;
-    if (toastTitle) toastTitle.textContent = title;
-    if (toastMessage) toastMessage.textContent = message;
-    toast.classList.add('show');
-
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 4000);
-  };
-
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-  };
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -336,45 +308,59 @@ document.addEventListener('DOMContentLoaded', () => {
       let isValid = true;
 
       // Validate Name
-      const nameGroup = nameInput ? nameInput.closest('.form-group') : null;
-      if (nameInput && nameInput.value.trim().length < 2) {
-        if (nameGroup) nameGroup.classList.add('has-error');
+      if (!nameInput.value.trim()) {
+        nameInput.classList.add('invalid');
+        if (nameError) nameError.classList.add('visible');
         isValid = false;
-      } else if (nameGroup) {
-        nameGroup.classList.remove('has-error');
+      } else {
+        nameInput.classList.remove('invalid');
+        if (nameError) nameError.classList.remove('visible');
       }
 
       // Validate Email
-      const emailGroup = emailInput ? emailInput.closest('.form-group') : null;
-      if (emailInput && !validateEmail(emailInput.value.trim())) {
-        if (emailGroup) emailGroup.classList.add('has-error');
+      if (!emailRegex.test(emailInput.value.trim())) {
+        emailInput.classList.add('invalid');
+        if (emailError) emailError.classList.add('visible');
         isValid = false;
-      } else if (emailGroup) {
-        emailGroup.classList.remove('has-error');
+      } else {
+        emailInput.classList.remove('invalid');
+        if (emailError) emailError.classList.remove('visible');
       }
 
       // Validate Message
-      const messageGroup = messageInput ? messageInput.closest('.form-group') : null;
-      if (messageInput && messageInput.value.trim().length < 8) {
-        if (messageGroup) messageGroup.classList.add('has-error');
+      if (messageInput.value.trim().length < 8) {
+        messageInput.classList.add('invalid');
+        if (messageError) messageError.classList.add('visible');
         isValid = false;
-      } else if (messageGroup) {
-        messageGroup.classList.remove('has-error');
+      } else {
+        messageInput.classList.remove('invalid');
+        if (messageError) messageError.classList.remove('visible');
       }
 
-      if (isValid) {
-        const senderName = nameInput.value.trim();
+      if (!isValid) return;
+
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Sending...</span>`;
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        submitBtn.innerHTML = `<i class="fa-solid fa-check"></i> <span>Message Sent!</span>`;
+        showToast('Message Sent Successfully!', `Thank you ${nameInput.value.trim()}, I will get back to you soon.`);
         contactForm.reset();
-        showToast('Message Sent!', `Thank you ${senderName}, Trisa has received your message.`);
-      }
+
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 3000);
+      }, 1000);
     });
 
-    // Clear error states as user types
     [nameInput, emailInput, messageInput].forEach((input) => {
       if (input) {
         input.addEventListener('input', () => {
-          const group = input.closest('.form-group');
-          if (group) group.classList.remove('has-error');
+          input.classList.remove('invalid');
+          const errorElem = document.getElementById(`${input.id}-error`);
+          if (errorElem) errorElem.classList.remove('visible');
         });
       }
     });
@@ -386,15 +372,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const scrollTopBtn = document.getElementById('scroll-top-btn');
 
-  const handleScrollTopVisibility = () => {
-    if (window.scrollY > 350) {
-      if (scrollTopBtn) scrollTopBtn.classList.add('show');
+  const handleScrollTopBtn = () => {
+    if (window.scrollY > 400) {
+      if (scrollTopBtn) scrollTopBtn.classList.add('visible');
     } else {
-      if (scrollTopBtn) scrollTopBtn.classList.remove('show');
+      if (scrollTopBtn) scrollTopBtn.classList.remove('visible');
     }
   };
 
-  window.addEventListener('scroll', handleScrollTopVisibility, { passive: true });
+  window.addEventListener('scroll', handleScrollTopBtn, { passive: true });
 
   if (scrollTopBtn) {
     scrollTopBtn.addEventListener('click', () => {
@@ -403,6 +389,29 @@ document.addEventListener('DOMContentLoaded', () => {
         behavior: 'smooth'
       });
     });
+  }
+
+
+  // ==========================================================================
+  // 7. TOAST NOTIFICATION UTILITY
+  // ==========================================================================
+  let toastTimer = null;
+  function showToast(title, message) {
+    const toast = document.getElementById('toast');
+    const toastTitle = document.getElementById('toast-title');
+    const toastMessage = document.getElementById('toast-message');
+
+    if (!toast || !toastTitle || !toastMessage) return;
+
+    toastTitle.textContent = title;
+    toastMessage.textContent = message;
+
+    toast.classList.add('show');
+
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4000);
   }
 
 });

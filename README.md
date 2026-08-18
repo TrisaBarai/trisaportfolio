@@ -1,46 +1,61 @@
 # Trisa Barai — Personal Portfolio Website
 
-A modern, professional, ultra-responsive developer portfolio website created for **Trisa Barai** (Computer Science Student & Aspiring Software Developer), designed with a **blue background theme**, **black and white text & accents**, a single featured **Fake Review Detection System** project, and a dedicated **"Let's Work Together"** contact section.
+A modern, professional, responsive personal portfolio website created for **Trisa Barai** (Computer Science Student & Aspiring Software Developer).
+
+Built with semantic **HTML5**, modern **Vanilla CSS3**, and clean **Vanilla JavaScript**. Designed with a **Blue theme**, high-contrast **Black & White typography**, and **strictly 5 core sections** with complete multi-device responsiveness.
 
 ---
 
-## 📁 1. Folder & File Structure
+## 📁 1. Project Directory & Files
 
 ```
-trisaportfolio/
+portfolio/
 │
-├── index.html       # Clean HTML5 markup containing Home, About, Skills, Project, Contact & Footer
-├── style.css        # Blue theme stylesheet with responsive media queries for mobile, tablet & laptop
-├── script.js        # Vanilla JS for navbar, mobile hamburger menu, AI review classifier demo & form
-│
-├── images/          # Image assets
-│   ├── avatar.svg   # Modern developer tech avatar graphic
-│   └── fake-review-demo.svg # Flagship project architecture graphic
-│
-└── README.md        # Beginner-friendly documentation (this guide)
+├── index.html       # Clean HTML5 markup containing strictly 5 sections
+├── style.css        # Pure Vanilla CSS design system with responsive media queries
+├── script.js        # Vanilla JS for navbar, mobile drawer menu, AI classifier demo & form
+├── images/          # Image and vector assets
+│   ├── avatar.svg   # Modern developer avatar graphic (placeholder for your photo)
+│   └── fake-review-demo.svg # Flagship ML project architecture illustration
+└── README.md        # Complete guide & documentation
 ```
 
 ---
 
-## 🎨 2. Design System & Theme Details
+## 🌐 2. The 5 Portfolio Sections
 
-* **Background Colors**: Deep navy & royal blue tones (`#0a192f`, `#0d223f`, `#102646`).
-* **Text & Accents**: Crisp white (`#ffffff`), soft white (`#e2e8f0`), and dark high-contrast black (`#000000` / `#0a192f`).
-* **Interactive Elements**:
-  - Translucent frosted-glass card surfaces with subtle blue glow borders.
-  - Active section observer that highlights the navbar link automatically as you scroll.
-  - Mobile slide-out drawer navigation menu for Android phones and tablets.
-  - Instant live AI Fake Review Detector with quick preset buttons (`Genuine Sample` vs `Fake Sample`).
-  - One-click copy email button with tooltip feedback.
-  - Interactive contact form with real-time field validation.
+1. **Home**:
+   - "Hi, I'm Trisa Barai"
+   - "Computer Science Student & Aspiring Software Developer"
+   - Short introduction
+   - **View My Project** and **Contact Me** action buttons
+   - Quick contact strip with Email (`baraitrisa@gmail.com`) and Phone (`8653024020`)
+   - Developer avatar card with floating status tags
+2. **About Me**:
+   - Short, professional introduction
+   - Core interests tags: *Software Development, Web Development, Python, Java, C, C++, Data Structures, Algorithms, DBMS, SQL, Artificial Intelligence*
+3. **Skills**:
+   - 13 skill cards with blue glow hover effects:
+     * **C**, **C++**, **Java**, **Python**, **HTML**, **CSS**, **JavaScript**, **SQL**, **DBMS**, **Data Structures**, **DAA**, **Operating Systems**, **Git & GitHub**
+4. **Project (Single Featured Project)**:
+   - **Fake Review Detection System**
+   - Full description & key features breakdown
+   - Tech stack tags: *Python, Machine Learning, HTML, CSS, JavaScript, Flask, SQL*
+   - Action buttons: **GitHub** & **Live Demo**
+   - **Interactive Live Review Classifier Demo** built into the card for instant testing
+5. **Contact ("Let's Work Together")**:
+   - Contact cards for **Email** (`baraitrisa@gmail.com`) with one-click copy button, **Phone** (`8653024020` / `+91 8653024020`), and **GitHub**
+   - Responsive contact form (Name, Email, Message, Send Message button) with instant client-side validation & toast feedback
+6. **Footer**:
+   - `© 2026 Trisa Barai. All Rights Reserved.` with direct email and phone contact details.
 
 ---
 
-## ✏️ 3. How to Customize Your Links & Photos
+## ✏️ 3. How to Customize Your Photo & Links
 
-### A. How to Add Your Own Photo
-1. Copy your picture (e.g., `myphoto.jpg` or `profile.png`) into the `images/` folder.
-2. Open [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) and find line **126**:
+### 🖼️ Where to Add Your Photo
+1. Copy your picture (e.g. `myphoto.jpg` or `profile.png`) into the **`images/`** folder.
+2. Open [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) and locate line **163**:
    ```html
    <!-- Change this: -->
    <img src="images/avatar.svg" alt="Trisa Barai" class="hero-avatar">
@@ -49,58 +64,35 @@ trisaportfolio/
    <img src="images/myphoto.jpg" alt="Trisa Barai" class="hero-avatar">
    ```
 
-### B. How to Update Your GitHub Link
-Open [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) and search for `https://github.com`. Update it with your GitHub URL (e.g., `https://github.com/TrisaBarai`):
-* In the **Project Section** (around Line 310)
-* In the **Contact Section** (around Line 410)
-
-### C. Contact Details Included:
-* **Email**: `baraitrisa@gmail.com`
-* **Phone**: `+91 8653024020`
+### 🐙 Where to Add Your GitHub Link
+Open [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) and search for `https://github.com`:
+* **Mobile Drawer**: Line 96
+* **Project Section**: Line 405
+* **Contact Section**: Line 523
 
 ---
 
-## 🚀 4. How to Run the Website on Your Laptop
+## 💻 4. How to Run the Website on Your Laptop
 
-### Method 1: Double-Click (Zero Setup)
-Double-click [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) in your Windows File Explorer. It will open instantly in any web browser.
+### Method 1: Double-Click (Simplest)
+Open Windows File Explorer, navigate to your portfolio folder, and double-click [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html).
 
-### Method 2: Python Built-in Server
-Open PowerShell in the `trisaportfolio` directory and run:
+### Method 2: Python Web Server
+Open PowerShell in this folder and run:
 ```powershell
 python -m http.server 8000
 ```
-Then open your browser and navigate to: **`http://localhost:8000`**
-
-### Method 3: VS Code Live Server
-1. Open this folder in **VS Code**.
-2. Install the extension **Live Server**.
-3. Right-click [`index.html`](file:///c:/Users/barai/OneDrive/Documents/trisaportfolio/index.html) and select **"Open with Live Server"**.
+Then open `http://localhost:8000` in your web browser.
 
 ---
 
-## 📱 5. How Responsiveness is Built
+## 📱 5. Responsive Design Across Devices
 
-* **Android Mobile Phones (320px - 480px)**: The navigation collapses into a smooth hamburger drawer menu, cards stack vertically, buttons become full-width for comfortable touch tapping, and margins adapt cleanly without any horizontal overflow.
-* **Tablets (481px - 1024px)**: Grids dynamically display 2-column cards with optimized spacing.
-* **Laptops & Desktops (1025px+)**: Expanded multi-column layout with ambient glowing backdrops and responsive typography.
+- **Android Mobile Phones (320px – 480px)**: The navigation collapses into a slide-out hamburger drawer with touch shortcuts. Buttons become full-width for comfortable tapping, cards stack neatly in a single column, and `overflow-x: hidden` prevents any horizontal scrolling.
+- **Tablets (481px – 768px)**: Adapts to balanced 2-column cards.
+- **Laptops & Desktops (1025px+)**: Wide multi-column layout with fixed blurred glass navigation and hover animations.
 
 ---
 
-## 🌐 6. How to Upload to GitHub Pages (Free Web Hosting)
-
-1. Create a new repository on [GitHub](https://github.com) named `portfolio` (or `<your-username>.github.io`).
-2. Run these commands in PowerShell:
-   ```powershell
-   git init
-   git add .
-   git commit -m "Create Trisa Barai portfolio"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
-   git push -u origin main
-   ```
-3. In your GitHub repository:
-   - Go to **Settings** → **Pages**.
-   - Under **Branch**, select **`main`** and **`/ (root)`**.
-   - Click **Save**.
-4. Your website will be live in 1–2 minutes at: `https://<your-username>.github.io/<your-repo-name>/`.
+## 📄 License
+© 2026 Trisa Barai. All Rights Reserved.

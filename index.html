@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO & Page Metadata -->
+  <!-- ========================================================================= -->
+  <!-- SEO & Page Metadata                                                       -->
+  <!-- ========================================================================= -->
   <title>Trisa Barai | Computer Science Student &amp; Aspiring Software Developer</title>
-  <meta name="description" content="Portfolio of Trisa Barai - Computer Science Student passionate about software development, web technologies, and machine learning.">
-  <meta name="keywords" content="Trisa Barai, Computer Science, Software Developer, Fake Review Detection System, Python, Java, C, C++, Web Development">
+  <meta name="description" content="Portfolio of Trisa Barai - Computer Science Student & Aspiring Software Developer passionate about software development, web technologies, programming and problem solving.">
+  <meta name="keywords" content="Trisa Barai, Computer Science, Software Developer, Fake Review Detection System, Python, Java, C, C++, Web Development, Portfolio">
   <meta name="author" content="Trisa Barai">
   <meta name="theme-color" content="#0a192f">
 
@@ -16,27 +18,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Main Stylesheet -->
+  <!-- Main External Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- ========================================================================= -->
-  <!-- 1. NAVIGATION BAR                                                         -->
+  <!-- 1. NAVIGATION BAR (Fixed with mobile hamburger support)                   -->
   <!-- ========================================================================= -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       
-      <!-- Brand Logo -->
+      <!-- Brand Logo / Monogram -->
       <a href="#home" class="nav-brand" aria-label="Trisa Barai Home">
         <div class="brand-monogram">TB</div>
         <span class="brand-name">Trisa Barai</span>
       </a>
 
-      <!-- Desktop Navigation Menu -->
+      <!-- Desktop Navigation Menu (ONLY 5 SECTIONS: Home, About, Skills, Project, Contact) -->
       <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
         <ul class="nav-list">
           <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
@@ -50,6 +52,8 @@
       <!-- Nav CTA & Mobile Hamburger Button -->
       <div class="nav-actions">
         <a href="#contact" class="btn btn-sm btn-outline nav-cta">Let's Connect</a>
+        
+        <!-- Hamburger Button for Mobile / Tablet -->
         <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
@@ -60,7 +64,7 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu (Visible on Mobile & Tablet) -->
+  <!-- Mobile Drawer Menu (Slides out on Android phones and tablets) -->
   <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
     <div class="mobile-drawer-header">
       <div class="brand-wrap">
@@ -87,6 +91,11 @@
       <a href="tel:8653024020" class="drawer-contact-item">
         <i class="fa-solid fa-phone"></i> +91 8653024020
       </a>
+      <div class="drawer-socials">
+        <!-- EDIT YOUR GITHUB LINK HERE -->
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:baraitrisa@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
     </div>
   </aside>
 
@@ -95,12 +104,12 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 2. HOME (HERO) SECTION                                                    -->
+  <!-- 1. HOME SECTION (HERO)                                                    -->
   <!-- ========================================================================= -->
   <section class="hero-section" id="home">
     <div class="container hero-container">
       
-      <!-- Hero Text Content -->
+      <!-- Hero Left: Text Content -->
       <div class="hero-content">
         <div class="hero-badge">
           <span class="pulse-dot"></span>
@@ -119,7 +128,7 @@
           I am a Computer Science student passionate about software development, web technologies, programming and problem solving.
         </p>
 
-        <!-- CTA Action Buttons -->
+        <!-- CTA Action Buttons (View My Project & Contact Me) -->
         <div class="hero-cta-group">
           <a href="#project" class="btn btn-primary">
             <span>View My Project</span>
@@ -144,7 +153,7 @@
         </div>
       </div>
 
-      <!-- Hero Visual Card -->
+      <!-- Hero Right: Visual Illustration Card -->
       <div class="hero-visual">
         <div class="hero-card">
           <div class="hero-avatar-box">
@@ -173,7 +182,7 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 3. ABOUT ME SECTION                                                       -->
+  <!-- 2. ABOUT SECTION                                                          -->
   <!-- ========================================================================= -->
   <section class="section about-section" id="about">
     <div class="container">
@@ -187,10 +196,10 @@
       <div class="about-card">
         <div class="about-text-content">
           <p class="about-paragraph">
-            Hello! I am <strong>Trisa Barai</strong>, a dedicated Computer Science student with a strong passion for software engineering and modern web development. I love turning ideas into functional, responsive, and user-friendly digital solutions.
+            Hello! I am <strong>Trisa Barai</strong>, a dedicated Computer Science student with a strong passion for software engineering, modern web development, and problem solving. I love turning concepts into clean, reliable, and functional digital applications.
           </p>
           <p class="about-paragraph">
-            I continuously practice problem-solving, building modular backend architectures, designing optimized databases, and exploring machine learning algorithms that solve real-world problems.
+            I continuously practice coding, building efficient software solutions, designing optimized databases, and exploring machine learning algorithms that solve real-world problems.
           </p>
         </div>
 
@@ -218,7 +227,7 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 4. SKILLS SECTION                                                         -->
+  <!-- 3. SKILLS SECTION                                                         -->
   <!-- ========================================================================= -->
   <section class="section skills-section" id="skills">
     <div class="container">
@@ -229,7 +238,7 @@
         <div class="title-underline"></div>
       </div>
 
-      <!-- Skills Cards Grid (14 Skills) -->
+      <!-- Skills Cards Grid -->
       <div class="skills-grid">
         
         <!-- Skill 1: C -->
@@ -316,18 +325,11 @@
           <span class="skill-category">Systems &amp; Memory</span>
         </div>
 
-        <!-- Skill 13: Git -->
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fa-solid fa-code-branch"></i></div>
-          <h3 class="skill-name">Git</h3>
-          <span class="skill-category">Version Control</span>
-        </div>
-
-        <!-- Skill 14: GitHub -->
+        <!-- Skill 13: Git & GitHub -->
         <div class="skill-card">
           <div class="skill-icon"><i class="fa-brands fa-github"></i></div>
-          <h3 class="skill-name">GitHub</h3>
-          <span class="skill-category">Collaboration &amp; Hosting</span>
+          <h3 class="skill-name">Git &amp; GitHub</h3>
+          <span class="skill-category">Version Control &amp; Collaboration</span>
         </div>
 
       </div>
@@ -337,7 +339,7 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 5. PROJECT SECTION (SINGLE FEATURED PROJECT ONLY)                        -->
+  <!-- 4. PROJECT SECTION (SINGLE FEATURED PROJECT ONLY)                         -->
   <!-- ========================================================================= -->
   <section class="section project-section" id="project">
     <div class="container">
@@ -463,7 +465,7 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 6. CONTACT SECTION ("Let's Work Together")                                -->
+  <!-- 5. CONTACT SECTION ("Let's Work Together")                                -->
   <!-- ========================================================================= -->
   <section class="section contact-section" id="contact">
     <div class="container">
@@ -573,7 +575,7 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 7. FOOTER                                                                 -->
+  <!-- FOOTER                                                                    -->
   <!-- ========================================================================= -->
   <footer class="footer">
     <div class="container footer-container">
