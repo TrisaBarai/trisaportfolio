@@ -22,22 +22,30 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   // ==========================================================================
-  // 1. OPENING INTRO ANIMATION ("Trisa Barai" Letter-by-Letter)
+  // 1. PREMIUM WELCOME INTRO SCREEN (#071a33 / #0a192f)
   // ==========================================================================
   const introScreen = document.getElementById('intro-screen');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (introScreen) {
     document.body.style.overflow = 'hidden';
 
-    // Hold for ~1s after letters appear, then smoothly fade/slide away at 2.4s
+    // Sequence Duration:
+    // 0.25s: "Welcome" tag appears
+    // 0.45s: "Welcome to Trisa Barai's Portfolio" reveals
+    // 0.60s - 2.4s: Thin electric blue loading line fills
+    // 0.95s: Subtitle reveals
+    // 2.6s: Smooth fade out (or 0.6s on prefers-reduced-motion)
+    const introDuration = prefersReducedMotion ? 600 : 2600;
+
     setTimeout(() => {
       introScreen.classList.add('hide');
       document.body.style.overflow = '';
 
       setTimeout(() => {
         introScreen.style.display = 'none';
-      }, 850);
-    }, 2400);
+      }, prefersReducedMotion ? 300 : 850);
+    }, introDuration);
   }
 
 
