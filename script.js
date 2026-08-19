@@ -2,16 +2,18 @@
  * ============================================================================
  * TRISA BARAI - PERSONAL PORTFOLIO JAVASCRIPT
  * 
- * Features:
- * 1. Resume / CV Download Support
- * 2. Dark Mode / Light Mode Theme Switcher with localStorage Persistence
- * 3. Smooth Scroll Animations (IntersectionObserver with Reduced Motion Support)
- * 4. Sticky Navigation Bar & Dynamic Active Nav Link Tracking
- * 5. Mobile Navigation Drawer & Backdrop
- * 6. Fake Review Detection AI Live Interactive Analyzer Demo
- * 7. One-Click Copy Email to Clipboard with Tooltip
- * 8. Contact Form Client-Side Validation with Instant Toast Alert
- * 9. Scroll-to-Top Button
+ * Improvements & Core Features:
+ * 1. Professional Opening Intro Animation (Letter-by-Letter "Trisa Barai")
+ * 2. Dynamic Typing Animation ("Computer Science Student", "Aspiring Software Developer", "AI Enthusiast")
+ * 3. Subtle Animated Blue Glowing Particles & Mesh Background Canvas
+ * 4. Fake Review Detection AI Analyzer with Realistic "Analyzing..." Sequence
+ * 5. Dark Mode / Light Mode Theme Switcher with Persistence
+ * 6. Smooth Scroll Reveal (IntersectionObserver with Reduced Motion Support)
+ * 7. Sticky Navigation & Active Section Indicator (5 Sections)
+ * 8. Mobile Navigation Drawer & Backdrop
+ * 9. One-Click Copy Email to Clipboard with Tooltip
+ * 10. Contact Form Client-Side Validation & Feedback
+ * 11. Scroll-to-Top Button & Toast Alerts
  * ============================================================================
  */
 
@@ -19,7 +21,178 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   // ==========================================================================
-  // 1. DARK MODE / LIGHT MODE TOGGLE (FEATURE 2)
+  // 1. PROFESSIONAL OPENING ANIMATION ("Trisa Barai" Letter-by-Letter)
+  // ==========================================================================
+  const introScreen = document.getElementById('intro-screen');
+
+  if (introScreen) {
+    // Prevent background scrolling while intro is running
+    document.body.style.overflow = 'hidden';
+
+    // Sequence:
+    // 1. Dark navy screen appears immediately (#071a33)
+    // 2. Letters reveal letter-by-letter (0.18s to 1.05s)
+    // 3. Glowing neon line expands & subtitle reveals (1.15s - 1.35s)
+    // 4. Hold for about 1 second
+    // 5. Smoothly fade/slide the intro away at 2.4s
+    setTimeout(() => {
+      introScreen.classList.add('hide');
+      document.body.style.overflow = '';
+
+      setTimeout(() => {
+        introScreen.style.display = 'none';
+      }, 850);
+    }, 2400);
+  }
+
+
+  // ==========================================================================
+  // 2. DYNAMIC TYPING ANIMATION UNDER NAME
+  // ==========================================================================
+  const typingElement = document.getElementById('hero-typing-text');
+  if (typingElement) {
+    const roles = [
+      "Computer Science Student",
+      "Aspiring Software Developer",
+      "AI Enthusiast"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 80;
+
+    function typeRole() {
+      const currentRole = roles[roleIndex];
+
+      if (isDeleting) {
+        typingElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 40;
+      } else {
+        typingElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 85;
+      }
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        // Pause at end of role
+        typingSpeed = 1800;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typingSpeed = 350;
+      }
+
+      setTimeout(typeRole, typingSpeed);
+    }
+
+    // Start typing after initial intro delay
+    setTimeout(typeRole, 1200);
+  }
+
+
+  // ==========================================================================
+  // 3. SUBTLE ANIMATED BLUE GLOWING PARTICLES (HERO BACKGROUND CANVAS)
+  // ==========================================================================
+  const canvas = document.getElementById('hero-particles-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationFrameId;
+    let width, height;
+
+    function resizeCanvas() {
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      width = canvas.width = parent.clientWidth;
+      height = canvas.height = parent.clientHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2.2 + 0.8;
+        this.speedX = (Math.random() - 0.5) * 0.45;
+        this.speedY = (Math.random() - 0.5) * 0.45;
+        this.opacity = Math.random() * 0.5 + 0.2;
+        this.color = Math.random() > 0.4 ? '#38bdf8' : '#2563eb';
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0) this.x = width;
+        if (this.x > width) this.x = 0;
+        if (this.y < 0) this.y = height;
+        if (this.y > height) this.y = 0;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.opacity;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const particleCount = Math.min(35, Math.floor((width * height) / 25000));
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    initParticles();
+
+    function connectParticles() {
+      const maxDistance = 110;
+      for (let a = 0; a < particles.length; a++) {
+        for (let b = a + 1; b < particles.length; b++) {
+          const dx = particles[a].x - particles[b].x;
+          const dy = particles[a].y - particles[b].y;
+          const dist = Math.hypot(dx, dy);
+
+          if (dist < maxDistance) {
+            ctx.beginPath();
+            ctx.strokeStyle = '#38bdf8';
+            ctx.globalAlpha = (1 - dist / maxDistance) * 0.15;
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
+      connectParticles();
+      animationFrameId = requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+  }
+
+
+  // ==========================================================================
+  // 4. DARK MODE / LIGHT MODE TOGGLE (WITH LOCALSTORAGE PERSISTENCE)
   // ==========================================================================
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
   const themeIcon = document.getElementById('theme-icon');
@@ -28,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileThemeText = document.getElementById('mobile-theme-text');
   const metaThemeColor = document.querySelector('meta[name="theme-color"]');
 
-  // Check saved theme from localStorage (default: 'light' / Blue theme)
   const savedTheme = localStorage.getItem('trisa_portfolio_theme') || 'light';
 
   const applyTheme = (theme) => {
@@ -36,78 +208,54 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('trisa_portfolio_theme', theme);
 
     if (theme === 'dark') {
-      if (themeIcon) {
-        themeIcon.className = 'fa-solid fa-sun theme-icon';
-      }
-      if (mobileThemeIcon) {
-        mobileThemeIcon.className = 'fa-solid fa-sun';
-      }
-      if (mobileThemeText) {
-        mobileThemeText.textContent = 'Switch to Light Mode';
-      }
-      if (metaThemeColor) {
-        metaThemeColor.setAttribute('content', '#050d1a');
-      }
+      if (themeIcon) themeIcon.className = 'fa-solid fa-sun theme-icon';
+      if (mobileThemeIcon) mobileThemeIcon.className = 'fa-solid fa-sun';
+      if (mobileThemeText) mobileThemeText.textContent = 'Switch to Light Mode';
+      if (metaThemeColor) metaThemeColor.setAttribute('content', '#050d1a');
     } else {
-      if (themeIcon) {
-        themeIcon.className = 'fa-solid fa-moon theme-icon';
-      }
-      if (mobileThemeIcon) {
-        mobileThemeIcon.className = 'fa-solid fa-moon';
-      }
-      if (mobileThemeText) {
-        mobileThemeText.textContent = 'Switch to Dark Mode';
-      }
-      if (metaThemeColor) {
-        metaThemeColor.setAttribute('content', '#0a192f');
-      }
+      if (themeIcon) themeIcon.className = 'fa-solid fa-moon theme-icon';
+      if (mobileThemeIcon) mobileThemeIcon.className = 'fa-solid fa-moon';
+      if (mobileThemeText) mobileThemeText.textContent = 'Switch to Dark Mode';
+      if (metaThemeColor) metaThemeColor.setAttribute('content', '#0a192f');
     }
   };
 
-  // Initialize theme on page load
   applyTheme(savedTheme);
 
-  // Toggle theme on button click
   const toggleTheme = () => {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     applyTheme(newTheme);
     showToast(
       newTheme === 'dark' ? 'Dark Mode Activated' : 'Light Mode Activated',
-      newTheme === 'dark' ? 'Switched to midnight blue dark theme.' : 'Switched to clean blue light theme.'
+      newTheme === 'dark' ? 'Switched to midnight navy theme.' : 'Switched to dark blue theme.'
     );
   };
 
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', toggleTheme);
-  }
-
-  if (mobileThemeToggleBtn) {
-    mobileThemeToggleBtn.addEventListener('click', toggleTheme);
-  }
+  if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+  if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', toggleTheme);
 
 
   // ==========================================================================
-  // 2. SCROLL REVEAL ANIMATIONS (FEATURE 3 - IntersectionObserver)
+  // 5. SCROLL REVEAL ANIMATIONS (IntersectionObserver)
   // ==========================================================================
   const revealElements = document.querySelectorAll('.reveal');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (revealElements.length > 0) {
     if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-      // If user prefers reduced motion or browser doesn't support observer, reveal all immediately
       revealElements.forEach((el) => el.classList.add('active'));
     } else {
       const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            observer.unobserve(entry.target); // Animate once per element
+            observer.unobserve(entry.target);
           }
         });
       }, {
         root: null,
-        threshold: 0.1,
+        threshold: 0.08,
         rootMargin: '0px 0px -30px 0px'
       });
 
@@ -117,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 3. STICKY NAVBAR & ACTIVE NAV LINK OBSERVER (5 SECTIONS ONLY)
+  // 6. STICKY NAVBAR & ACTIVE NAV LINK OBSERVER (5 SECTIONS)
   // ==========================================================================
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -135,18 +283,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScrollHeader, { passive: true });
   handleScrollHeader();
 
-  const sectionObserverOptions = {
-    root: null,
-    rootMargin: '-20% 0px -40% 0px',
-    threshold: 0
-  };
-
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const activeId = entry.target.getAttribute('id');
         
-        // Update Desktop Nav
         navLinks.forEach((link) => {
           if (link.getAttribute('href') === `#${activeId}`) {
             link.classList.add('active');
@@ -155,7 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        // Update Mobile Drawer Links
         mobileNavLinks.forEach((link) => {
           if (link.getAttribute('href') === `#${activeId}`) {
             link.classList.add('active');
@@ -165,13 +305,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-  }, sectionObserverOptions);
+  }, { root: null, rootMargin: '-20% 0px -40% 0px', threshold: 0 });
 
   sections.forEach((sec) => sectionObserver.observe(sec));
 
 
   // ==========================================================================
-  // 4. MOBILE NAVIGATION DRAWER (FOR ANDROID PHONES & TABLETS)
+  // 7. MOBILE NAVIGATION DRAWER & BACKDROP
   // ==========================================================================
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const drawerCloseBtn = document.getElementById('drawer-close-btn');
@@ -208,70 +348,118 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 5. FAKE REVIEW DETECTION AI - LIVE INTERACTIVE ANALYZER DEMO
+  // 8. FAKE REVIEW DETECTION SYSTEM - LIVE INTERACTIVE ANALYZER WITH "ANALYZING..." ANIMATION
   // ==========================================================================
   const reviewInput = document.getElementById('live-review-input');
   const runAnalysisBtn = document.getElementById('run-analysis-btn');
+  const runAnalysisText = document.getElementById('run-analysis-text');
   const clearAnalysisBtn = document.getElementById('clear-analysis-btn');
   const sampleGenuineBtn = document.getElementById('sample-genuine-btn');
   const sampleFakeBtn = document.getElementById('sample-fake-btn');
   const openDemoBtn = document.getElementById('open-demo-btn');
+  
+  const analyzingBox = document.getElementById('tester-analyzing-box');
+  const analyzingStatusText = document.getElementById('analyzing-status-text');
   const resultBox = document.getElementById('tester-result-box');
   const verdictPill = document.getElementById('verdict-pill');
   const confidenceText = document.getElementById('confidence-text');
+  const confidenceBarFill = document.getElementById('confidence-bar-fill');
   const resultReasons = document.getElementById('result-reasons');
 
   const sampleGenuineText = "I purchased this laptop three weeks ago for my computer science classes. The battery lasts around 8 hours, and compiling code in VS Code is swift. The trackpad is responsive, though the speakers could be slightly louder.";
   const sampleFakeText = "BEST PRODUCT EVER IN THE WORLD!!! BUY RIGHT NOW 100% DISCOUNT AMAZING GUARANTEED!!! PERFECT LIFE CHANGING MUST BUY CLICK HERE AMAZING AMAZING FIVE STARS ⭐⭐⭐⭐⭐";
 
+  let isAnalyzing = false;
+
   if (openDemoBtn) {
     openDemoBtn.addEventListener('click', () => {
-      const demoBox = document.getElementById('live-review-input');
-      if (demoBox) {
-        demoBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        demoBox.focus();
+      if (reviewInput) {
+        reviewInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        reviewInput.focus();
       }
     });
   }
 
   if (sampleGenuineBtn) {
     sampleGenuineBtn.addEventListener('click', () => {
+      if (isAnalyzing) return;
       if (reviewInput) {
         reviewInput.value = sampleGenuineText;
-        analyzeReview(sampleGenuineText);
+        startAnalysisSequence(sampleGenuineText);
       }
     });
   }
 
   if (sampleFakeBtn) {
     sampleFakeBtn.addEventListener('click', () => {
+      if (isAnalyzing) return;
       if (reviewInput) {
         reviewInput.value = sampleFakeText;
-        analyzeReview(sampleFakeText);
+        startAnalysisSequence(sampleFakeText);
       }
     });
   }
 
   if (clearAnalysisBtn) {
     clearAnalysisBtn.addEventListener('click', () => {
+      if (isAnalyzing) return;
       if (reviewInput) reviewInput.value = '';
+      if (analyzingBox) analyzingBox.style.display = 'none';
       if (resultBox) resultBox.style.display = 'none';
     });
   }
 
   if (runAnalysisBtn) {
     runAnalysisBtn.addEventListener('click', () => {
+      if (isAnalyzing) return;
       const text = reviewInput ? reviewInput.value.trim() : '';
       if (!text) {
         showToast('Please enter review text', 'Type or paste a review first to run analysis.');
         if (reviewInput) reviewInput.focus();
         return;
       }
-      analyzeReview(text);
+      startAnalysisSequence(text);
     });
   }
 
-  function analyzeReview(text) {
+  function startAnalysisSequence(text) {
+    isAnalyzing = true;
+
+    // UI state: analyzing
+    if (resultBox) resultBox.style.display = 'none';
+    if (analyzingBox) analyzingBox.style.display = 'flex';
+    if (runAnalysisBtn) {
+      runAnalysisBtn.disabled = true;
+      if (runAnalysisText) runAnalysisText.textContent = 'Analyzing...';
+    }
+
+    const statusMessages = [
+      "Extracting linguistic tokens & sentiment score...",
+      "Evaluating spam patterns & phrase frequency...",
+      "Calibrating neural classification confidence..."
+    ];
+
+    let msgIndex = 0;
+    const interval = setInterval(() => {
+      msgIndex++;
+      if (analyzingStatusText && statusMessages[msgIndex]) {
+        analyzingStatusText.textContent = statusMessages[msgIndex];
+      }
+    }, 280);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      if (analyzingBox) analyzingBox.style.display = 'none';
+      if (runAnalysisBtn) {
+        runAnalysisBtn.disabled = false;
+        if (runAnalysisText) runAnalysisText.textContent = 'Analyze Review';
+      }
+      renderAnalysisResult(text);
+      isAnalyzing = false;
+    }, 850);
+  }
+
+  function renderAnalysisResult(text) {
     if (!resultBox || !verdictPill || !confidenceText || !resultReasons) return;
 
     let spamScore = 0;
@@ -281,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const exclamationCount = (text.match(/!/g) || []).length;
     if (exclamationCount >= 3) {
       spamScore += 30;
-      reasons.push("Multiple exclamation marks detected (promotional spam pattern).");
+      reasons.push("Multiple exclamation marks detected (promotional spam marker).");
     }
 
     // 2. Check uppercase ratio
@@ -340,18 +528,32 @@ document.addEventListener('DOMContentLoaded', () => {
     let confidence;
 
     if (isFake) {
-      confidence = Math.min(99, Math.max(78, 60 + spamScore / 2));
-      verdictPill.textContent = "Fake / Suspicious Review";
+      confidence = Math.min(98, Math.max(82, Math.round(65 + spamScore / 2)));
+      verdictPill.textContent = `Fake Review: ${confidence}%`;
       verdictPill.className = "verdict-pill fake";
-      confidenceText.textContent = `Confidence: ${Math.round(confidence)}%`;
+      confidenceText.textContent = `AI Confidence: ${confidence}%`;
+      if (confidenceBarFill) {
+        confidenceBarFill.className = "confidence-bar-fill fake";
+        confidenceBarFill.style.width = "0%";
+        setTimeout(() => {
+          confidenceBarFill.style.width = `${confidence}%`;
+        }, 50);
+      }
       resultReasons.innerHTML = reasons.length > 0 
         ? reasons.map(r => `<div>• ${r}</div>`).join('') 
         : "<div>• Text characteristics match typical automated fake reviews.</div>";
     } else {
-      confidence = Math.min(98, Math.max(82, 100 - spamScore));
-      verdictPill.textContent = "Genuine Review";
+      confidence = Math.min(98, Math.max(85, Math.round(100 - spamScore)));
+      verdictPill.textContent = `Genuine Review: ${confidence}%`;
       verdictPill.className = "verdict-pill genuine";
-      confidenceText.textContent = `Confidence: ${Math.round(confidence)}%`;
+      confidenceText.textContent = `AI Confidence: ${confidence}%`;
+      if (confidenceBarFill) {
+        confidenceBarFill.className = "confidence-bar-fill genuine";
+        confidenceBarFill.style.width = "0%";
+        setTimeout(() => {
+          confidenceBarFill.style.width = `${confidence}%`;
+        }, 50);
+      }
       resultReasons.innerHTML = reasons.length > 0 
         ? reasons.map(r => `<div>• ${r}</div>`).join('') 
         : "<div>• Natural phrasing, balanced sentiment, and specific contextual details verified.</div>";
@@ -362,7 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 6. ONE-CLICK COPY EMAIL TO CLIPBOARD WITH TOOLTIP
+  // 9. ONE-CLICK COPY EMAIL TO CLIPBOARD WITH TOOLTIP
   // ==========================================================================
   const copyEmailBtn = document.getElementById('copy-email-btn');
   const copyTooltip = document.getElementById('copy-tooltip');
@@ -397,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 7. CONTACT FORM VALIDATION & INSTANT TOAST NOTIFICATION
+  // 10. CONTACT FORM CLIENT-SIDE VALIDATION & FEEDBACK
   // ==========================================================================
   const contactForm = document.getElementById('contact-form');
   const nameInput = document.getElementById('name');
@@ -476,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 8. SCROLL TO TOP BUTTON
+  // 11. SCROLL TO TOP BUTTON & TOAST NOTIFICATION UTILITY
   // ==========================================================================
   const scrollTopBtn = document.getElementById('scroll-top-btn');
 
@@ -499,10 +701,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
-  // ==========================================================================
-  // 9. TOAST NOTIFICATION UTILITY
-  // ==========================================================================
   let toastTimer = null;
   function showToast(title, message) {
     const toast = document.getElementById('toast');

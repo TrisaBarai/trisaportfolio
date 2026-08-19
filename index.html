@@ -28,9 +28,38 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main External Stylesheet (Cache-busted) -->
-  <link rel="stylesheet" href="style.css?v=2.0">
+  <link rel="stylesheet" href="style.css?v=4.0">
 </head>
 <body>
+
+  <!-- ========================================================================= -->
+  <!-- 0. FULLSCREEN OPENING INTRO ANIMATION SCREEN (#071a33)                    -->
+  <!-- ========================================================================= -->
+  <div class="intro-screen" id="intro-screen" aria-hidden="true">
+    <div class="intro-backdrop-glow"></div>
+    <div class="intro-content">
+      <div class="intro-logo-badge">
+        <img src="images/trisa-circle-logo.png?v=2.0" alt="Trisa Barai Logo" class="intro-logo-img" width="64" height="64">
+      </div>
+      <div class="intro-name-wrap">
+        <h1 class="intro-title" id="intro-title" aria-label="Trisa Barai">
+          <span class="intro-letter" style="--i:0">T</span>
+          <span class="intro-letter" style="--i:1">r</span>
+          <span class="intro-letter" style="--i:2">i</span>
+          <span class="intro-letter" style="--i:3">s</span>
+          <span class="intro-letter" style="--i:4">a</span>
+          <span class="intro-letter space" style="--i:5">&nbsp;</span>
+          <span class="intro-letter" style="--i:6">B</span>
+          <span class="intro-letter" style="--i:7">a</span>
+          <span class="intro-letter" style="--i:8">r</span>
+          <span class="intro-letter" style="--i:9">a</span>
+          <span class="intro-letter" style="--i:10">i</span>
+        </h1>
+      </div>
+      <div class="intro-line" id="intro-line"></div>
+      <div class="intro-subtext" id="intro-subtext">Computer Science &bull; Software Engineering</div>
+    </div>
+  </div>
 
   <!-- ========================================================================= -->
   <!-- 1. NAVIGATION BAR (Fixed with mobile hamburger & Dark/Light Theme Toggle) -->
@@ -133,6 +162,14 @@
   <!-- 1. HOME SECTION (HERO - Refined Text & Streamlined CTAs)                  -->
   <!-- ========================================================================= -->
   <section class="hero-section" id="home">
+    <!-- Subtle Animated Blue Glowing Particles & Ambient Gradient Shapes -->
+    <div class="hero-particles-bg" id="hero-particles-bg" aria-hidden="true">
+      <div class="hero-glow-orb orb-1"></div>
+      <div class="hero-glow-orb orb-2"></div>
+      <div class="hero-glow-orb orb-3"></div>
+      <canvas id="hero-particles-canvas" class="hero-particles-canvas"></canvas>
+    </div>
+
     <div class="container hero-container">
       
       <!-- Hero Left: Text Content -->
@@ -146,8 +183,9 @@
           Hi, I'm <span class="highlight-text">Trisa Barai</span>
         </h1>
 
+        <!-- Dynamic Typing Animation Under Name -->
         <h2 class="hero-role">
-          Computer Science Student &amp; Aspiring Software Developer
+          <span class="role-prefix">I am a </span><span id="hero-typing-text" class="hero-typing-text">Computer Science Student</span><span class="typing-cursor" aria-hidden="true">|</span>
         </h2>
 
         <!-- REFINED HERO PARAGRAPH: Unique focus on AI, algorithms, and engineering -->
@@ -191,9 +229,10 @@
         </div>
       </div>
 
-      <!-- Hero Right: Visual Illustration Card with Circle Shape Avatar -->
+      <!-- Hero Right: Visual Illustration Card with Circle Shape Avatar & Glow Ring -->
       <div class="hero-visual reveal">
         <div class="hero-card hero-card-circle">
+          <div class="avatar-glow-ring"></div>
           <div class="hero-avatar-box">
             <img src="images/trisa-profile-circle.png?v=2.0" alt="Trisa Barai" class="hero-avatar" width="300" height="300" loading="eager">
           </div>
@@ -265,20 +304,69 @@
           </div>
         </div>
 
+        <!-- Small Achievement / Core Technical Cards in About Section -->
+        <div class="about-skills-highlight">
+          <h3 class="about-subheading"><i class="fa-solid fa-code"></i> Core Competencies:</h3>
+          <div class="about-mini-cards-grid">
+            <div class="mini-skill-card">
+              <div class="mini-skill-icon"><i class="fa-solid fa-code"></i></div>
+              <div class="mini-skill-info">
+                <strong>C / C++</strong>
+                <span>OOP &amp; Systems</span>
+              </div>
+            </div>
+
+            <div class="mini-skill-card">
+              <div class="mini-skill-icon"><i class="fa-brands fa-java"></i></div>
+              <div class="mini-skill-info">
+                <strong>Java</strong>
+                <span>Backend &amp; Logic</span>
+              </div>
+            </div>
+
+            <div class="mini-skill-card">
+              <div class="mini-skill-icon"><i class="fa-brands fa-python"></i></div>
+              <div class="mini-skill-info">
+                <strong>Python</strong>
+                <span>AI &amp; Automation</span>
+              </div>
+            </div>
+
+            <div class="mini-skill-card">
+              <div class="mini-skill-icon"><i class="fa-solid fa-diagram-project"></i></div>
+              <div class="mini-skill-info">
+                <strong>DSA</strong>
+                <span>Data Structures</span>
+              </div>
+            </div>
+
+            <div class="mini-skill-card">
+              <div class="mini-skill-icon"><i class="fa-solid fa-database"></i></div>
+              <div class="mini-skill-info">
+                <strong>DBMS</strong>
+                <span>SQL &amp; Relational</span>
+              </div>
+            </div>
+
+            <div class="mini-skill-card highlight-mini">
+              <div class="mini-skill-icon"><i class="fa-solid fa-brain"></i></div>
+              <div class="mini-skill-info">
+                <strong>AI / ML</strong>
+                <span>Machine Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Areas of Interest Badges -->
         <div class="interests-container">
-          <h3 class="interests-title"><i class="fa-solid fa-compass"></i> My Core Interests:</h3>
+          <h3 class="interests-title"><i class="fa-solid fa-compass"></i> Additional Areas of Interest:</h3>
           <div class="interests-grid">
             <div class="interest-pill"><i class="fa-solid fa-code"></i> Software Development</div>
             <div class="interest-pill"><i class="fa-solid fa-globe"></i> Web Development</div>
-            <div class="interest-pill"><i class="fa-brands fa-python"></i> Python</div>
-            <div class="interest-pill"><i class="fa-brands fa-java"></i> Java</div>
-            <div class="interest-pill"><i class="fa-solid fa-terminal"></i> C</div>
-            <div class="interest-pill"><i class="fa-solid fa-code-branch"></i> C++</div>
-            <div class="interest-pill"><i class="fa-solid fa-diagram-project"></i> Data Structures</div>
-            <div class="interest-pill"><i class="fa-solid fa-brain"></i> Algorithms</div>
-            <div class="interest-pill"><i class="fa-solid fa-database"></i> DBMS</div>
-            <div class="interest-pill"><i class="fa-solid fa-table"></i> SQL</div>
+            <div class="interest-pill"><i class="fa-solid fa-microchip"></i> Operating Systems</div>
+            <div class="interest-pill"><i class="fa-solid fa-table"></i> SQL Queries</div>
+            <div class="interest-pill"><i class="fa-brands fa-github"></i> Git &amp; GitHub</div>
             <div class="interest-pill"><i class="fa-solid fa-robot"></i> Artificial Intelligence</div>
           </div>
         </div>
@@ -290,111 +378,131 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 3. SKILLS SECTION (Technical Toolkit)                                     -->
+  <!-- 3. SKILLS SECTION (Technical Toolkit - Modern Cards & Pills)              -->
   <!-- ========================================================================= -->
   <section class="section skills-section" id="skills">
     <div class="container">
       
       <div class="section-header reveal">
-        <span class="section-tag">Technical Toolkit</span>
+        <span class="section-tag">Core Technical Toolkit</span>
         <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Proficiencies in programming languages, algorithmic design, data structures, and intelligent systems.</p>
         <div class="title-underline"></div>
       </div>
 
-      <!-- Skills Cards Grid -->
+      <!-- Primary Featured Skill Cards: C, C++, Java, Python, DSA, DBMS, AI/ML -->
       <div class="skills-grid">
         
         <!-- Skill 1: C -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-solid fa-c"></i></div>
+        <div class="skill-card modern-card reveal">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fa-solid fa-c"></i></div>
+            <span class="skill-badge-pill">Core</span>
+          </div>
           <h3 class="skill-name">C</h3>
-          <span class="skill-category">Programming</span>
+          <p class="skill-subdesc">Procedural Programming &amp; Memory Management</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag">Pointers</span>
+            <span class="skill-tag">Structures</span>
+          </div>
         </div>
 
         <!-- Skill 2: C++ -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+        <div class="skill-card modern-card reveal">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+            <span class="skill-badge-pill">OOP</span>
+          </div>
           <h3 class="skill-name">C++</h3>
-          <span class="skill-category">OOP &amp; STL</span>
+          <p class="skill-subdesc">Object-Oriented Design &amp; Standard Template Library</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag">STL</span>
+            <span class="skill-tag">Templates</span>
+          </div>
         </div>
 
         <!-- Skill 3: Java -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
+        <div class="skill-card modern-card reveal">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
+            <span class="skill-badge-pill">Backend</span>
+          </div>
           <h3 class="skill-name">Java</h3>
-          <span class="skill-category">OOP &amp; Backend</span>
+          <p class="skill-subdesc">Robust OOP, Collections Framework &amp; Backend Dev</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">Collections</span>
+          </div>
         </div>
 
         <!-- Skill 4: Python -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+        <div class="skill-card modern-card reveal">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+            <span class="skill-badge-pill">AI &amp; Scripting</span>
+          </div>
           <h3 class="skill-name">Python</h3>
-          <span class="skill-category">AI / ML &amp; Scripting</span>
+          <p class="skill-subdesc">AI/ML Modeling, Data Processing &amp; Scripting</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Scikit-Learn</span>
+          </div>
         </div>
 
-        <!-- Skill 5: HTML -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
-          <h3 class="skill-name">HTML</h3>
-          <span class="skill-category">Frontend Structure</span>
+        <!-- Skill 5: DSA (Data Structures & Algorithms) -->
+        <div class="skill-card modern-card reveal">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fa-solid fa-diagram-project"></i></div>
+            <span class="skill-badge-pill">Algorithms</span>
+          </div>
+          <h3 class="skill-name">DSA</h3>
+          <p class="skill-subdesc">Data Structures, DAA &amp; Time/Space Optimization</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag">Trees/Graphs</span>
+            <span class="skill-tag">Dynamic Prog</span>
+          </div>
         </div>
 
-        <!-- Skill 6: CSS -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
-          <h3 class="skill-name">CSS</h3>
-          <span class="skill-category">Responsive Design</span>
-        </div>
-
-        <!-- Skill 7: JavaScript -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
-          <h3 class="skill-name">JavaScript</h3>
-          <span class="skill-category">Interactive Logic</span>
-        </div>
-
-        <!-- Skill 8: SQL -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-solid fa-table"></i></div>
-          <h3 class="skill-name">SQL</h3>
-          <span class="skill-category">Queries &amp; Relational Data</span>
-        </div>
-
-        <!-- Skill 9: DBMS -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+        <!-- Skill 6: DBMS -->
+        <div class="skill-card modern-card reveal">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+            <span class="skill-badge-pill">Database</span>
+          </div>
           <h3 class="skill-name">DBMS</h3>
-          <span class="skill-category">Database Management</span>
+          <p class="skill-subdesc">Relational Architecture, SQL &amp; Normalization</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Relational DB</span>
+          </div>
         </div>
 
-        <!-- Skill 10: Data Structures -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-solid fa-diagram-project"></i></div>
-          <h3 class="skill-name">Data Structures</h3>
-          <span class="skill-category">Core Computer Science</span>
+        <!-- Skill 7: AI/ML -->
+        <div class="skill-card modern-card reveal featured-skill-card">
+          <div class="skill-card-top">
+            <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+            <span class="skill-badge-pill highlight">Intelligent Systems</span>
+          </div>
+          <h3 class="skill-name">AI / ML</h3>
+          <p class="skill-subdesc">Machine Learning, NLP Text Analysis &amp; Prediction</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">Classification</span>
+          </div>
         </div>
 
-        <!-- Skill 11: DAA -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
-          <h3 class="skill-name">DAA</h3>
-          <span class="skill-category">Design &amp; Analysis of Algorithms</span>
-        </div>
+      </div>
 
-        <!-- Skill 12: Operating Systems -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-solid fa-microchip"></i></div>
-          <h3 class="skill-name">Operating Systems</h3>
-          <span class="skill-category">Systems &amp; Memory</span>
+      <!-- Additional Supporting Technologies Pill Strip -->
+      <div class="supporting-skills-wrap reveal">
+        <h4 class="supporting-skills-title"><i class="fa-solid fa-layer-group"></i> Additional Technologies &amp; Tools</h4>
+        <div class="supporting-pills-list">
+          <div class="modern-skill-pill"><i class="fa-brands fa-html5"></i> HTML5</div>
+          <div class="modern-skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+          <div class="modern-skill-pill"><i class="fa-brands fa-js"></i> JavaScript</div>
+          <div class="modern-skill-pill"><i class="fa-solid fa-microchip"></i> Operating Systems</div>
+          <div class="modern-skill-pill"><i class="fa-brands fa-github"></i> Git &amp; GitHub</div>
         </div>
-
-        <!-- Skill 13: Git & GitHub -->
-        <div class="skill-card reveal">
-          <div class="skill-icon"><i class="fa-brands fa-github"></i></div>
-          <h3 class="skill-name">Git &amp; GitHub</h3>
-          <span class="skill-category">Version Control &amp; Collaboration</span>
-        </div>
-
       </div>
 
     </div>
@@ -410,6 +518,7 @@
       <div class="section-header reveal">
         <span class="section-tag">Flagship AI Project</span>
         <h2 class="section-title">Main Project</h2>
+        <p class="section-subtitle">Intelligent Natural Language Processing pipeline detecting spam and misleading consumer reviews.</p>
         <div class="title-underline"></div>
       </div>
 
@@ -428,8 +537,64 @@
             <h3 class="project-title">Fake Review Detection System</h3>
 
             <p class="project-desc">
-              Fake Review Detection System is an AI-based project designed to identify whether an online review is genuine or fake. The system analyzes textual sentiment patterns, linguistic markers, and review distributions using machine learning techniques to classify suspicious reviews.
+              An AI-powered classification system designed to detect deceptive, incentivized, or machine-generated product reviews. The pipeline processes raw unstructured text, performs linguistic &amp; sentiment analysis, and predicts authenticity with calibrated confidence metrics.
             </p>
+
+            <!-- VISUAL FLOW PIPELINE: Review Input -> AI/NLP Analysis -> Fake/Real Result -->
+            <div class="project-pipeline-card">
+              <div class="pipeline-header">
+                <span class="pipeline-badge"><i class="fa-solid fa-diagram-project"></i> Architecture Pipeline</span>
+                <span class="pipeline-status"><i class="fa-solid fa-circle-dot"></i> Live NLP Flow</span>
+              </div>
+
+              <div class="pipeline-steps-grid">
+                <!-- Step 1: Review Input -->
+                <div class="pipeline-step-item">
+                  <div class="pipeline-step-icon">
+                    <i class="fa-solid fa-keyboard"></i>
+                  </div>
+                  <div class="pipeline-step-content">
+                    <span class="pipeline-step-tag">Step 01</span>
+                    <h5 class="pipeline-step-name">Review Input</h5>
+                    <p class="pipeline-step-detail">User text, rating &amp; sentiment tokens</p>
+                  </div>
+                </div>
+
+                <!-- Arrow 1 -->
+                <div class="pipeline-flow-arrow" aria-hidden="true">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+
+                <!-- Step 2: AI/NLP Analysis -->
+                <div class="pipeline-step-item highlight-step">
+                  <div class="pipeline-step-icon">
+                    <i class="fa-solid fa-microchip"></i>
+                  </div>
+                  <div class="pipeline-step-content">
+                    <span class="pipeline-step-tag">Step 02</span>
+                    <h5 class="pipeline-step-name">AI/NLP Analysis</h5>
+                    <p class="pipeline-step-detail">Linguistic markers &amp; ML classification</p>
+                  </div>
+                </div>
+
+                <!-- Arrow 2 -->
+                <div class="pipeline-flow-arrow" aria-hidden="true">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+
+                <!-- Step 3: Fake/Real Result -->
+                <div class="pipeline-step-item">
+                  <div class="pipeline-step-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <div class="pipeline-step-content">
+                    <span class="pipeline-step-tag">Step 03</span>
+                    <h5 class="pipeline-step-name">Fake / Real Result</h5>
+                    <p class="pipeline-step-detail">Confidence score &amp; verification pill</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- PROJECT VISUAL THUMBNAIL / ARCHITECTURE SHOWCASE -->
             <div class="project-visual-preview">
@@ -510,11 +675,26 @@
 
               <div class="tester-btn-row">
                 <button type="button" class="btn btn-primary btn-sm btn-block" id="run-analysis-btn">
-                  <i class="fa-solid fa-magnifying-glass"></i> Analyze Review
+                  <i class="fa-solid fa-magnifying-glass"></i> <span id="run-analysis-text">Analyze Review</span>
                 </button>
                 <button type="button" class="btn btn-outline btn-sm" id="clear-analysis-btn">
                   <i class="fa-solid fa-rotate-left"></i> Clear
                 </button>
+              </div>
+
+              <!-- Professional "Analyzing..." State Indicator -->
+              <div class="tester-analyzing-box" id="tester-analyzing-box" style="display: none;">
+                <div class="analyzing-spinner-wrap">
+                  <div class="analyzing-pulse-ring"></div>
+                  <i class="fa-solid fa-microchip analyzing-spin-icon"></i>
+                </div>
+                <div class="analyzing-details">
+                  <div class="analyzing-title">Analyzing Review...</div>
+                  <div class="analyzing-subtitle" id="analyzing-status-text">Scanning linguistic tokens &amp; sentiment distribution</div>
+                  <div class="analyzing-track">
+                    <div class="analyzing-bar" id="analyzing-bar"></div>
+                  </div>
+                </div>
               </div>
 
               <!-- Result Display Box -->
@@ -522,6 +702,9 @@
                 <div class="result-top">
                   <span class="verdict-pill" id="verdict-pill">Genuine Review</span>
                   <span class="confidence-text" id="confidence-text">Confidence: 96%</span>
+                </div>
+                <div class="confidence-bar-wrap">
+                  <div class="confidence-bar-fill" id="confidence-bar-fill"></div>
                 </div>
                 <div class="result-reasons" id="result-reasons"></div>
               </div>
@@ -661,7 +844,7 @@
 
 
   <!-- ========================================================================= -->
-  <!-- FOOTER                                                                    -->
+  <!-- FOOTER (Trisa Barai | Let's Work Together | Email, Phone, GitHub, LinkedIn) -->
   <!-- ========================================================================= -->
   <footer class="footer">
     <div class="container footer-container">
@@ -676,16 +859,22 @@
         </div>
       </div>
 
+      <div class="footer-headline">Let's Work Together</div>
+
       <div class="footer-contact-details">
-        <a href="mailto:baraitrisa@gmail.com" class="footer-link">
-          <i class="fa-solid fa-envelope"></i> baraitrisa@gmail.com
+        <a href="mailto:baraitrisa@gmail.com" class="footer-link" title="Send Email">
+          <i class="fa-solid fa-envelope"></i> Email
         </a>
         <span class="footer-divider">•</span>
-        <a href="tel:8653024020" class="footer-link">
-          <i class="fa-solid fa-phone"></i> +91 8653024020
+        <a href="tel:8653024020" class="footer-link" title="Call Phone">
+          <i class="fa-solid fa-phone"></i> Phone
         </a>
         <span class="footer-divider">•</span>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link" title="GitHub Profile">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <span class="footer-divider">•</span>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link" title="LinkedIn Profile">
           <i class="fa-brands fa-linkedin-in"></i> LinkedIn
         </a>
       </div>
@@ -715,7 +904,7 @@
     </div>
   </div>
 
-  <!-- JavaScript File -->
-  <script src="script.js"></script>
+  <!-- JavaScript File (Cache-busted) -->
+  <script src="script.js?v=4.0"></script>
 </body>
 </html>
