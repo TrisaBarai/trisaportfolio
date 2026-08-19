@@ -11,7 +11,7 @@
   <meta name="description" content="Portfolio of Trisa Barai - Computer Science Student & Aspiring Software Developer specializing in AI, algorithms, web technologies, and software engineering.">
   <meta name="keywords" content="Trisa Barai, Computer Science, Software Developer, AI, Algorithms, Fake Review Detection System, Python, Java, C, C++, Web Development, Portfolio">
   <meta name="author" content="Trisa Barai">
-  <meta name="theme-color" content="#0a192f">
+  <meta name="theme-color" content="#071a33">
 
   <!-- Favicon & App Icons (Circular Brand Logo) -->
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.0">
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main External Stylesheet (Cache-busted) -->
-  <link rel="stylesheet" href="style.css?v=4.0">
+  <link rel="stylesheet" href="style.css?v=5.0">
 </head>
 <body>
 
@@ -60,6 +60,9 @@
       <div class="intro-subtext" id="intro-subtext">Computer Science &bull; Software Engineering</div>
     </div>
   </div>
+
+  <!-- Background Animated Canvas (Blue Glowing Particles & Mesh) -->
+  <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
 
   <!-- ========================================================================= -->
   <!-- 1. NAVIGATION BAR (Fixed with mobile hamburger & Dark/Light Theme Toggle) -->
@@ -115,7 +118,7 @@
     <div class="mobile-drawer-header">
       <div class="brand-wrap">
         <div class="brand-logo-badge">
-          <img src="images/trisa-circle-logo.png?v=2.0" alt="Trisa Barai Logo" class="brand-logo-img" width="42" height="42">
+          <img src="images/trisa-circle-logo.png?v=2.0" alt="Trisa Barai Logo" class="brand-logo-img" width="38" height="38">
         </div>
         <span class="drawer-title">Trisa Barai</span>
       </div>
@@ -162,14 +165,6 @@
   <!-- 1. HOME SECTION (HERO - Refined Text & Streamlined CTAs)                  -->
   <!-- ========================================================================= -->
   <section class="hero-section" id="home">
-    <!-- Subtle Animated Blue Glowing Particles & Ambient Gradient Shapes -->
-    <div class="hero-particles-bg" id="hero-particles-bg" aria-hidden="true">
-      <div class="hero-glow-orb orb-1"></div>
-      <div class="hero-glow-orb orb-2"></div>
-      <div class="hero-glow-orb orb-3"></div>
-      <canvas id="hero-particles-canvas" class="hero-particles-canvas"></canvas>
-    </div>
-
     <div class="container hero-container">
       
       <!-- Hero Left: Text Content -->
@@ -183,10 +178,14 @@
           Hi, I'm <span class="highlight-text">Trisa Barai</span>
         </h1>
 
-        <!-- Dynamic Typing Animation Under Name -->
-        <h2 class="hero-role">
-          <span class="role-prefix">I am a </span><span id="hero-typing-text" class="hero-typing-text">Computer Science Student</span><span class="typing-cursor" aria-hidden="true">|</span>
-        </h2>
+        <!-- DYNAMIC TYPING TEXT: Rotates roles smoothly -->
+        <div class="hero-role-wrap">
+          <h2 class="hero-role">
+            <span class="hero-typing-prefix">I am a </span>
+            <span class="hero-typing-text" id="hero-typing-text">Computer Science Student</span>
+            <span class="hero-typing-cursor">|</span>
+          </h2>
+        </div>
 
         <!-- REFINED HERO PARAGRAPH: Unique focus on AI, algorithms, and engineering -->
         <p class="hero-intro">
@@ -258,7 +257,7 @@
 
 
   <!-- ========================================================================= -->
-  <!-- 2. ABOUT SECTION (Education Highlight + Core Interests)                   -->
+  <!-- 2. ABOUT SECTION (Education Highlight + Core Interests + Timeline)        -->
   <!-- ========================================================================= -->
   <section class="section about-section" id="about">
     <div class="container">
@@ -373,12 +372,107 @@
 
       </div>
 
+      <!-- FEATURE 4: MY LEARNING JOURNEY TIMELINE -->
+      <div class="learning-journey-wrapper reveal" id="learning-journey">
+        <div class="section-header inner-header">
+          <span class="section-tag"><i class="fa-solid fa-route"></i> Roadmap</span>
+          <h3 class="section-title">My Learning Journey</h3>
+          <p class="section-subtitle">A chronological evolution of technical mastery, foundational principles, and intelligent software systems.</p>
+          <div class="title-underline"></div>
+        </div>
+
+        <div class="journey-timeline">
+          <div class="journey-timeline-line"></div>
+
+          <!-- Item 1: C / C++ -->
+          <div class="journey-item reveal">
+            <div class="journey-node"><i class="fa-solid fa-c"></i></div>
+            <div class="journey-card">
+              <span class="journey-step-badge">Phase 01</span>
+              <h4 class="journey-title">C / C++</h4>
+              <p class="journey-desc">Procedural programming foundation, pointers, dynamic memory management, and OOP with STL.</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Java -->
+          <div class="journey-item reveal">
+            <div class="journey-node"><i class="fa-brands fa-java"></i></div>
+            <div class="journey-card">
+              <span class="journey-step-badge">Phase 02</span>
+              <h4 class="journey-title">Java</h4>
+              <p class="journey-desc">Object-oriented architectures, collections framework, exception handling, and backend development principles.</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Python -->
+          <div class="journey-item reveal">
+            <div class="journey-node"><i class="fa-brands fa-python"></i></div>
+            <div class="journey-card">
+              <span class="journey-step-badge">Phase 03</span>
+              <h4 class="journey-title">Python</h4>
+              <p class="journey-desc">Rapid scripting, automation, data manipulation with NumPy/Pandas, and machine learning model development.</p>
+            </div>
+          </div>
+
+          <!-- Item 4: Data Structures & Algorithms -->
+          <div class="journey-item reveal">
+            <div class="journey-node"><i class="fa-solid fa-diagram-project"></i></div>
+            <div class="journey-card">
+              <span class="journey-step-badge">Phase 04</span>
+              <h4 class="journey-title">Data Structures &amp; Algorithms</h4>
+              <p class="journey-desc">Mastering arrays, linked lists, trees, graphs, dynamic programming, and asymptotic time/space optimization.</p>
+            </div>
+          </div>
+
+          <!-- Item 5: DBMS & SQL -->
+          <div class="journey-item reveal">
+            <div class="journey-node"><i class="fa-solid fa-database"></i></div>
+            <div class="journey-card">
+              <span class="journey-step-badge">Phase 05</span>
+              <h4 class="journey-title">DBMS &amp; SQL</h4>
+              <p class="journey-desc">Relational database design, ACID transactions, schema normalization, indexing, and complex SQL querying.</p>
+            </div>
+          </div>
+
+          <!-- Item 6: Web Development -->
+          <div class="journey-item reveal">
+            <div class="journey-node"><i class="fa-solid fa-globe"></i></div>
+            <div class="journey-card">
+              <span class="journey-step-badge">Phase 06</span>
+              <h4 class="journey-title">Web Development</h4>
+              <p class="journey-desc">Responsive user interfaces, semantic HTML5, CSS design systems, dynamic JavaScript, and client-server integration.</p>
+            </div>
+          </div>
+
+          <!-- Item 7: AI / Machine Learning -->
+          <div class="journey-item reveal">
+            <div class="journey-node"><i class="fa-solid fa-brain"></i></div>
+            <div class="journey-card highlight-journey">
+              <span class="journey-step-badge highlight">Phase 07</span>
+              <h4 class="journey-title">AI &amp; Machine Learning</h4>
+              <p class="journey-desc">Natural Language Processing (NLP), text tokenization, TF-IDF feature extraction, and predictive spam classification.</p>
+            </div>
+          </div>
+
+          <!-- Item 8: Software Engineering -->
+          <div class="journey-item reveal">
+            <div class="journey-node"><i class="fa-solid fa-laptop-code"></i></div>
+            <div class="journey-card">
+              <span class="journey-step-badge">Phase 08</span>
+              <h4 class="journey-title">Software Engineering</h4>
+              <p class="journey-desc">Clean code architecture, modular design patterns, Git/GitHub collaboration, testing, and system deployment.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
 
   <!-- ========================================================================= -->
-  <!-- 3. SKILLS SECTION (Technical Toolkit - Modern Cards & Pills)              -->
+  <!-- 3. SKILLS SECTION (Technical Toolkit & Developer Terminal)                -->
   <!-- ========================================================================= -->
   <section class="section skills-section" id="skills">
     <div class="container">
@@ -505,12 +599,105 @@
         </div>
       </div>
 
+      <!-- FEATURE 2: DEVELOPER TERMINAL -->
+      <div class="terminal-wrapper reveal" id="developer-terminal">
+        <div class="terminal-window">
+          <!-- Terminal Header Bar -->
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+            </div>
+            <div class="terminal-title">
+              <i class="fa-solid fa-terminal"></i> trisa@portfolio:~ (bash)
+            </div>
+            <div class="terminal-actions-quick">
+              <span class="terminal-live-badge"><i class="fa-solid fa-circle"></i> Live Session</span>
+            </div>
+          </div>
+
+          <!-- Terminal Output Area -->
+          <div class="terminal-body" id="terminal-body">
+            <!-- Command 1: whoami -->
+            <div class="terminal-entry">
+              <div class="terminal-prompt-line">
+                <span class="terminal-user">trisa@portfolio</span>:<span class="terminal-path">~</span>$ <span class="terminal-cmd">whoami</span>
+              </div>
+              <div class="terminal-response">
+                <span class="term-role">Computer Science Student</span> &amp; <span class="term-highlight">Aspiring Software Developer</span>
+              </div>
+            </div>
+
+            <!-- Command 2: skills -->
+            <div class="terminal-entry">
+              <div class="terminal-prompt-line">
+                <span class="terminal-user">trisa@portfolio</span>:<span class="terminal-path">~</span>$ <span class="terminal-cmd">skills</span>
+              </div>
+              <div class="terminal-response term-skills-response">
+                <span class="term-tag">Python</span>
+                <span class="term-tag">Java</span>
+                <span class="term-tag">C++</span>
+                <span class="term-tag">C</span>
+                <span class="term-tag">DSA</span>
+                <span class="term-tag">DBMS</span>
+                <span class="term-tag">AI/ML</span>
+                <span class="term-tag">Web Development</span>
+              </div>
+            </div>
+
+            <!-- Command 3: project -->
+            <div class="terminal-entry">
+              <div class="terminal-prompt-line">
+                <span class="terminal-user">trisa@portfolio</span>:<span class="terminal-path">~</span>$ <span class="terminal-cmd">project</span>
+              </div>
+              <div class="terminal-response">
+                <i class="fa-solid fa-star term-star"></i> <span class="term-proj-name">Fake Review Detection System</span> <span class="term-muted">(NLP &amp; Machine Learning)</span>
+              </div>
+            </div>
+
+            <!-- Command 4: status -->
+            <div class="terminal-entry">
+              <div class="terminal-prompt-line">
+                <span class="terminal-user">trisa@portfolio</span>:<span class="terminal-path">~</span>$ <span class="terminal-cmd">status</span>
+              </div>
+              <div class="terminal-response term-status-response">
+                <div class="term-status-row"><span class="status-key">Portfolio:</span> <span class="status-val online">ONLINE [200 OK]</span></div>
+                <div class="term-status-row"><span class="status-key">AI Demo:</span> <span class="status-val online">ONLINE</span></div>
+                <div class="term-status-row"><span class="status-key">Projects:</span> <span class="status-val">01 Flagship System</span></div>
+                <div class="term-status-row"><span class="status-key">Contact:</span> <span class="status-val available">AVAILABLE FOR OPPORTUNITIES</span></div>
+              </div>
+            </div>
+
+            <!-- Dynamic Output Container for User Commands -->
+            <div id="terminal-dynamic-output"></div>
+
+            <!-- Interactive Terminal Prompt Input Line -->
+            <div class="terminal-input-line">
+              <span class="terminal-user">trisa@portfolio</span>:<span class="terminal-path">~</span>$&nbsp;
+              <input type="text" id="terminal-interactive-input" class="terminal-cli-input" placeholder="type 'help', 'skills', 'contact', 'clear'..." spellcheck="false" autocomplete="off">
+            </div>
+          </div>
+
+          <!-- Quick Terminal Command Buttons -->
+          <div class="terminal-quick-buttons">
+            <span class="quick-btn-label">Quick Commands:</span>
+            <button type="button" class="term-btn" data-cmd="whoami">whoami</button>
+            <button type="button" class="term-btn" data-cmd="skills">skills</button>
+            <button type="button" class="term-btn" data-cmd="project">project</button>
+            <button type="button" class="term-btn" data-cmd="status">status</button>
+            <button type="button" class="term-btn" data-cmd="contact">contact</button>
+            <button type="button" class="term-btn" data-cmd="clear">clear</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
 
   <!-- ========================================================================= -->
-  <!-- 4. PROJECT SECTION (Visual Showcase + Interactive Demo)                  -->
+  <!-- 4. PROJECT SECTION (FEATURE 3: UPGRADED FAKE REVIEW DETECTION DEMO)       -->
   <!-- ========================================================================= -->
   <section class="section project-section" id="project">
     <div class="container">
@@ -540,81 +727,71 @@
               An AI-powered classification system designed to detect deceptive, incentivized, or machine-generated product reviews. The pipeline processes raw unstructured text, performs linguistic &amp; sentiment analysis, and predicts authenticity with calibrated confidence metrics.
             </p>
 
-            <!-- VISUAL FLOW PIPELINE: Review Input -> AI/NLP Analysis -> Fake/Real Result -->
+            <!-- FEATURE 3: SEQUENTIAL VISUAL FLOW PIPELINE -->
             <div class="project-pipeline-card">
               <div class="pipeline-header">
-                <span class="pipeline-badge"><i class="fa-solid fa-diagram-project"></i> Architecture Pipeline</span>
-                <span class="pipeline-status"><i class="fa-solid fa-circle-dot"></i> Live NLP Flow</span>
+                <span class="pipeline-badge"><i class="fa-solid fa-diagram-project"></i> NLP Architecture Pipeline</span>
+                <span class="pipeline-status" id="pipeline-status-indicator"><i class="fa-solid fa-circle-dot"></i> Pipeline Ready</span>
               </div>
 
-              <div class="pipeline-steps-grid">
-                <!-- Step 1: Review Input -->
-                <div class="pipeline-step-item">
-                  <div class="pipeline-step-icon">
-                    <i class="fa-solid fa-keyboard"></i>
-                  </div>
-                  <div class="pipeline-step-content">
-                    <span class="pipeline-step-tag">Step 01</span>
-                    <h5 class="pipeline-step-name">Review Input</h5>
-                    <p class="pipeline-step-detail">User text, rating &amp; sentiment tokens</p>
-                  </div>
+              <!-- 6-Stage Visual Flow -->
+              <div class="nlp-stages-flow">
+                <div class="nlp-stage-box active" id="stage-0">
+                  <div class="stage-num">01</div>
+                  <div class="stage-icon"><i class="fa-solid fa-keyboard"></i></div>
+                  <div class="stage-title">User Review</div>
                 </div>
 
-                <!-- Arrow 1 -->
-                <div class="pipeline-flow-arrow" aria-hidden="true">
-                  <i class="fa-solid fa-arrow-right"></i>
+                <div class="nlp-stage-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+                <div class="nlp-stage-box" id="stage-1">
+                  <div class="stage-num">02</div>
+                  <div class="stage-icon"><i class="fa-solid fa-filter"></i></div>
+                  <div class="stage-title">Preprocessing</div>
                 </div>
 
-                <!-- Step 2: AI/NLP Analysis -->
-                <div class="pipeline-step-item highlight-step">
-                  <div class="pipeline-step-icon">
-                    <i class="fa-solid fa-microchip"></i>
-                  </div>
-                  <div class="pipeline-step-content">
-                    <span class="pipeline-step-tag">Step 02</span>
-                    <h5 class="pipeline-step-name">AI/NLP Analysis</h5>
-                    <p class="pipeline-step-detail">Linguistic markers &amp; ML classification</p>
-                  </div>
+                <div class="nlp-stage-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+                <div class="nlp-stage-box" id="stage-2">
+                  <div class="stage-num">03</div>
+                  <div class="stage-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                  <div class="stage-title">NLP Analysis</div>
                 </div>
 
-                <!-- Arrow 2 -->
-                <div class="pipeline-flow-arrow" aria-hidden="true">
-                  <i class="fa-solid fa-arrow-right"></i>
+                <div class="nlp-stage-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+                <div class="nlp-stage-box" id="stage-3">
+                  <div class="stage-num">04</div>
+                  <div class="stage-icon"><i class="fa-solid fa-dna"></i></div>
+                  <div class="stage-title">Feature Extract</div>
                 </div>
 
-                <!-- Step 3: Fake/Real Result -->
-                <div class="pipeline-step-item">
-                  <div class="pipeline-step-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
-                  </div>
-                  <div class="pipeline-step-content">
-                    <span class="pipeline-step-tag">Step 03</span>
-                    <h5 class="pipeline-step-name">Fake / Real Result</h5>
-                    <p class="pipeline-step-detail">Confidence score &amp; verification pill</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+                <div class="nlp-stage-arrow"><i class="fa-solid fa-chevron-right"></i></div>
 
-            <!-- PROJECT VISUAL THUMBNAIL / ARCHITECTURE SHOWCASE -->
-            <div class="project-visual-preview">
-              <div class="project-media-wrap">
-                <img src="images/fake-review-demo.svg" alt="Fake Review Detection AI System Architecture &amp; Analytics Dashboard" class="project-preview-img">
-                <div class="project-media-overlay">
-                  <span class="media-tag"><i class="fa-solid fa-microchip"></i> NLP &amp; Classification Pipeline</span>
+                <div class="nlp-stage-box" id="stage-4">
+                  <div class="stage-num">05</div>
+                  <div class="stage-icon"><i class="fa-solid fa-brain"></i></div>
+                  <div class="stage-title">AI Classify</div>
+                </div>
+
+                <div class="nlp-stage-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+                <div class="nlp-stage-box" id="stage-5">
+                  <div class="stage-num">06</div>
+                  <div class="stage-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                  <div class="stage-title">Fake / Genuine</div>
                 </div>
               </div>
             </div>
 
             <!-- Features List -->
             <div class="project-features">
-              <h4 class="features-title"><i class="fa-solid fa-list-check"></i> Key Features:</h4>
+              <h4 class="features-title"><i class="fa-solid fa-list-check"></i> Key Capabilities:</h4>
               <ul class="features-list">
-                <li><i class="fa-solid fa-check"></i> <strong>Review input:</strong> Seamless text input interface for any user-submitted review.</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Fake/Genuine review prediction:</strong> Immediate AI classification with calculated confidence score.</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Machine learning based detection:</strong> NLP algorithms analyzing word patterns, capitalization, and trigger phrases.</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Simple user interface:</strong> Clean, responsive, and intuitive design for effortless interaction.</li>
-                <li><i class="fa-solid fa-check"></i> <strong>Result display:</strong> Clear breakdown of verification status and metrics.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Text Ingestion:</strong> Normalizes raw text with tokenization, punctuation filtering &amp; lowercasing.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Linguistic Feature Extraction:</strong> Computes exclamation frequency, capital letter ratio &amp; repetitive triggers.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Sentiment &amp; Authenticity Scoring:</strong> Detects hyper-promotional spam indicators vs organic customer sentiment.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Confidence Progress Metric:</strong> Generates probabilistic prediction confidence percentage.</li>
               </ul>
             </div>
 
@@ -622,8 +799,8 @@
             <div class="project-tech-tags">
               <span class="tech-tag"><i class="fa-brands fa-python"></i> Python</span>
               <span class="tech-tag"><i class="fa-solid fa-brain"></i> Machine Learning</span>
-              <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML</span>
-              <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+              <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+              <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
               <span class="tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
               <span class="tech-tag"><i class="fa-solid fa-server"></i> Flask</span>
               <span class="tech-tag"><i class="fa-solid fa-database"></i> SQL</span>
@@ -634,12 +811,12 @@
               <!-- EDIT YOUR GITHUB LINK HERE -->
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 <i class="fa-brands fa-github"></i>
-                <span>GitHub</span>
+                <span>GitHub Repository</span>
               </a>
               <!-- Live Demo / Interactive Tester Button -->
               <button class="btn btn-outline" id="open-demo-btn">
                 <i class="fa-solid fa-play"></i>
-                <span>Live Demo</span>
+                <span>Test Live Demo</span>
               </button>
             </div>
 
@@ -651,26 +828,26 @@
               
               <div class="tester-header">
                 <span class="tester-indicator"></span>
-                <h4 class="tester-title">Live Review Classifier Demo</h4>
+                <h4 class="tester-title">Interactive AI Review Classifier</h4>
               </div>
               
               <p class="tester-note">
-                Test the detection logic directly below or click sample buttons:
+                Enter any product review below or load one of the quick test samples:
               </p>
 
               <!-- Quick Sample Buttons -->
               <div class="sample-actions">
                 <button type="button" class="sample-btn" id="sample-genuine-btn">
-                  <i class="fa-solid fa-circle-check"></i> Genuine Sample
+                  <i class="fa-solid fa-circle-check"></i> Load Genuine Sample
                 </button>
                 <button type="button" class="sample-btn" id="sample-fake-btn">
-                  <i class="fa-solid fa-triangle-exclamation"></i> Fake Sample
+                  <i class="fa-solid fa-triangle-exclamation"></i> Load Fake Sample
                 </button>
               </div>
 
               <!-- Input Area -->
               <div class="tester-input-wrap">
-                <textarea id="live-review-input" class="tester-textarea" rows="3" placeholder="Type or paste a review here to test..."></textarea>
+                <textarea id="live-review-input" class="tester-textarea" rows="3" placeholder="Type or paste a product review here to test..."></textarea>
               </div>
 
               <div class="tester-btn-row">
@@ -682,31 +859,55 @@
                 </button>
               </div>
 
-              <!-- Professional "Analyzing..." State Indicator -->
+              <!-- Sequential Analyzing State Indicator -->
               <div class="tester-analyzing-box" id="tester-analyzing-box" style="display: none;">
                 <div class="analyzing-spinner-wrap">
                   <div class="analyzing-pulse-ring"></div>
                   <i class="fa-solid fa-microchip analyzing-spin-icon"></i>
                 </div>
                 <div class="analyzing-details">
-                  <div class="analyzing-title">Analyzing Review...</div>
-                  <div class="analyzing-subtitle" id="analyzing-status-text">Scanning linguistic tokens &amp; sentiment distribution</div>
+                  <div class="analyzing-title" id="analyzing-main-title">Analyzing Review...</div>
+                  <div class="analyzing-subtitle" id="analyzing-status-text">Step 1/4: Text preprocessing &amp; tokenization...</div>
                   <div class="analyzing-track">
                     <div class="analyzing-bar" id="analyzing-bar"></div>
                   </div>
                 </div>
               </div>
 
-              <!-- Result Display Box -->
+              <!-- Animated Result Display Card -->
               <div class="tester-result-box" id="tester-result-box" style="display: none;">
-                <div class="result-top">
-                  <span class="verdict-pill" id="verdict-pill">Genuine Review</span>
-                  <span class="confidence-text" id="confidence-text">Confidence: 96%</span>
+                <div class="result-top-card">
+                  <div class="result-badge-group">
+                    <span class="verdict-pill" id="verdict-pill">Genuine Review</span>
+                    <span class="confidence-tag" id="confidence-level-tag">Confidence: High</span>
+                  </div>
+                  <div class="probability-score" id="probability-score-text">Probability: 92%</div>
                 </div>
-                <div class="confidence-bar-wrap">
-                  <div class="confidence-bar-fill" id="confidence-bar-fill"></div>
+
+                <!-- Confidence Progress Bar -->
+                <div class="confidence-bar-container">
+                  <div class="confidence-bar-label">
+                    <span>Model Confidence Score</span>
+                    <span id="confidence-bar-percentage">92%</span>
+                  </div>
+                  <div class="confidence-bar-track">
+                    <div class="confidence-bar-fill" id="confidence-bar-fill"></div>
+                  </div>
                 </div>
-                <div class="result-reasons" id="result-reasons"></div>
+
+                <!-- Detected Signals Breakdown -->
+                <div class="detected-signals-card">
+                  <div class="signals-header">
+                    <i class="fa-solid fa-chart-simple"></i> Detected Linguistic Signals:
+                  </div>
+                  <div class="result-reasons" id="result-reasons"></div>
+                </div>
+
+                <!-- Clear Portfolio Demo Disclaimer -->
+                <div class="demo-disclaimer-pill">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span><strong>Demo AI Classification:</strong> Frontend NLP &amp; heuristic simulation for portfolio demonstration.</span>
+                </div>
               </div>
 
             </div>
@@ -844,14 +1045,14 @@
 
 
   <!-- ========================================================================= -->
-  <!-- FOOTER (Trisa Barai | Let's Work Together | Email, Phone, GitHub, LinkedIn) -->
+  <!-- FOOTER                                                                    -->
   <!-- ========================================================================= -->
   <footer class="footer">
     <div class="container footer-container">
       
       <div class="footer-brand">
         <div class="brand-logo-badge">
-          <img src="images/trisa-circle-logo.png?v=2.0" alt="Trisa Barai Logo" class="brand-logo-img" width="42" height="42">
+          <img src="images/trisa-circle-logo.png?v=2.0" alt="Trisa Barai Logo" class="brand-logo-img" width="38" height="38">
         </div>
         <div class="footer-info">
           <h3 class="footer-name">Trisa Barai</h3>
@@ -859,22 +1060,16 @@
         </div>
       </div>
 
-      <div class="footer-headline">Let's Work Together</div>
-
       <div class="footer-contact-details">
-        <a href="mailto:baraitrisa@gmail.com" class="footer-link" title="Send Email">
-          <i class="fa-solid fa-envelope"></i> Email
+        <a href="mailto:baraitrisa@gmail.com" class="footer-link">
+          <i class="fa-solid fa-envelope"></i> baraitrisa@gmail.com
         </a>
         <span class="footer-divider">•</span>
-        <a href="tel:8653024020" class="footer-link" title="Call Phone">
-          <i class="fa-solid fa-phone"></i> Phone
+        <a href="tel:8653024020" class="footer-link">
+          <i class="fa-solid fa-phone"></i> +91 8653024020
         </a>
         <span class="footer-divider">•</span>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link" title="GitHub Profile">
-          <i class="fa-brands fa-github"></i> GitHub
-        </a>
-        <span class="footer-divider">•</span>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link" title="LinkedIn Profile">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">
           <i class="fa-brands fa-linkedin-in"></i> LinkedIn
         </a>
       </div>
@@ -887,6 +1082,71 @@
 
     </div>
   </footer>
+
+
+  <!-- ========================================================================= -->
+  <!-- FEATURE 1: AI PORTFOLIO ASSISTANT — "Ask Trisa AI" FLOATING WIDGET        -->
+  <!-- ========================================================================= -->
+  <div class="ai-assistant-widget" id="ai-assistant-widget">
+    <!-- Floating Trigger Button -->
+    <button class="ai-chat-btn" id="ai-chat-toggle-btn" aria-label="Open Ask Trisa AI Assistant">
+      <span class="ai-chat-btn-pulse"></span>
+      <i class="fa-solid fa-robot ai-btn-icon"></i>
+      <span class="ai-btn-text">Ask Trisa AI</span>
+      <span class="ai-status-dot"></span>
+    </button>
+    
+    <!-- Modern Chat Panel -->
+    <div class="ai-chat-panel" id="ai-chat-panel" aria-hidden="true">
+      <div class="ai-chat-header">
+        <div class="ai-chat-header-info">
+          <div class="ai-avatar-mini">
+            <i class="fa-solid fa-robot"></i>
+            <span class="ai-avatar-status"></span>
+          </div>
+          <div>
+            <h4 class="ai-chat-title">Trisa AI Assistant</h4>
+            <span class="ai-chat-subtitle">Portfolio AI Guide &bull; Online</span>
+          </div>
+        </div>
+        <button class="ai-chat-close-btn" id="ai-chat-close-btn" aria-label="Close chat">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Messages Stream -->
+      <div class="ai-chat-messages" id="ai-chat-messages">
+        <!-- Welcome Message -->
+        <div class="ai-msg ai-msg-bot">
+          <div class="ai-msg-avatar"><i class="fa-solid fa-robot"></i></div>
+          <div class="ai-msg-bubble">
+            Hi there! 👋 I'm <strong>Trisa AI</strong>. Ask me anything about Trisa's skills, education, projects, or contact details!
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Question Suggestions -->
+      <div class="ai-quick-questions" id="ai-quick-questions">
+        <span class="ai-quick-title"><i class="fa-solid fa-bolt"></i> Quick Questions:</span>
+        <div class="ai-quick-chips">
+          <button type="button" class="ai-chip" data-question="Who is Trisa?">Who is Trisa?</button>
+          <button type="button" class="ai-chip" data-question="What are Trisa's skills?">What are Trisa's skills?</button>
+          <button type="button" class="ai-chip" data-question="Tell me about the Fake Review Detection System.">Fake Review Project?</button>
+          <button type="button" class="ai-chip" data-question="What is Trisa's education?">Education details?</button>
+          <button type="button" class="ai-chip" data-question="Is Trisa available for opportunities?">Is Trisa available?</button>
+          <button type="button" class="ai-chip" data-question="How can I contact Trisa?">How to contact?</button>
+        </div>
+      </div>
+
+      <!-- Chat Input Form -->
+      <form class="ai-chat-input-form" id="ai-chat-form">
+        <input type="text" id="ai-user-input" class="ai-chat-input" placeholder="Ask a question about Trisa..." autocomplete="off">
+        <button type="submit" class="ai-chat-send-btn" id="ai-chat-send-btn" aria-label="Send Message">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
 
 
   <!-- ========================================================================= -->
@@ -905,6 +1165,6 @@
   </div>
 
   <!-- JavaScript File (Cache-busted) -->
-  <script src="script.js?v=4.0"></script>
+  <script src="script.js?v=5.0"></script>
 </body>
 </html>
