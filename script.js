@@ -25,27 +25,232 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. PREMIUM WELCOME INTRO SCREEN (#071a33 / #0a192f)
   // ==========================================================================
   const introScreen = document.getElementById('intro-screen');
+  const introCanvas = document.getElementById('intro-canvas');
+  const welcomeTag = document.getElementById('intro-welcome-tag');
+  const typedTextEl = document.getElementById('intro-typed-text');
+  const cursorEl = document.getElementById('intro-cursor');
+  const subtextEl = document.getElementById('intro-subtext');
+  const progressWrapper = document.getElementById('intro-progress-wrapper');
+  const progressLine = document.getElementById('intro-progress-line');
+  const percentText = document.getElementById('intro-percent-text');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Background Interactive Particles on Intro Canvas
+  if (introCanvas) {
+    const ctx = introCanvas.getContext('2d');
+    let width = (introCanvas.width = window.innerWidth);
+    let height = (introCanvas.height = window.innerHeight);
+    const mouse = { x: -1000, y: -1000, active: false };
+
+    const handleMouseMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.active = true;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.active = false;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
+
+    const resizeCanvas = () => {
+      width = introCanvas.width = window.innerWidth;
+      height = introCanvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', resizeCanvas);
+
+    const isMobile = window.innerWidth <= 480 || ('ontouchstart' in window);
+    const particleCount = isMobile ? 18 : Math.min(Math.floor(window.innerWidth / 18), 45);
+    const particles = [];
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: Math.random() * 1.5 + 1,
+        alpha: Math.random() * 0.45 + 0.35
+      });
+    }
+
+    let animId = null;
+
+    function renderIntroParticles() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Soft Blue Radial Glow around Cursor
+      if (mouse.active && !isMobile) {
+        const glowGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 140);
+        glowGrad.addColorStop(0, 'rgba(56, 189, 248, 0.14)');
+        glowGrad.addColorStop(0.5, 'rgba(37, 99, 235, 0.05)');
+        glowGrad.addColorStop(1, 'rgba(7, 26, 51, 0)');
+        ctx.fillStyle = glowGrad;
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, 140, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        // Smooth Mouse Interaction (React very slightly to cursor)
+        if (mouse.active && !isMobile) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.hypot(dx, dy);
+          const maxDist = 130;
+
+          if (dist < maxDist) {
+            const force = (maxDist - dist) / maxDist;
+            const angle = Math.atan2(dy, dx);
+            p.x += Math.cos(angle) * force * 2.2;
+            p.y += Math.sin(angle) * force * 2.2;
+          }
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(56, 189, 248, ${p.alpha})`;
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = '#38bdf8';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 90) {
+            const lineAlpha = (1 - dist / 90) * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(59, 130, 246, ${lineAlpha})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+
+      animId = requestAnimationFrame(renderIntroParticles);
+    }
+
+    renderIntroParticles();
+
+    if (introScreen) {
+      introScreen.addEventListener('transitionend', () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseleave', handleMouseLeave);
+        window.removeEventListener('resize', resizeCanvas);
+        if (animId) cancelAnimationFrame(animId);
+      }, { once: true });
+    }
+  }
+
+  // Welcome Intro Animation Sequence Execution
   if (introScreen) {
     document.body.style.overflow = 'hidden';
 
-    // Sequence Duration:
-    // 0.25s: "Welcome" tag appears
-    // 0.45s: "Welcome to Trisa Barai's Portfolio" reveals
-    // 0.60s - 2.4s: Thin electric blue loading line fills
-    // 0.95s: Subtitle reveals
-    // 2.6s: Smooth fade out (or 0.6s on prefers-reduced-motion)
-    const introDuration = prefersReducedMotion ? 600 : 2600;
-
-    setTimeout(() => {
-      introScreen.classList.add('hide');
-      document.body.style.overflow = '';
+    if (prefersReducedMotion) {
+      if (welcomeTag) welcomeTag.classList.add('visible');
+      if (typedTextEl) typedTextEl.innerHTML = `Welcome to <span class="intro-phrase-name">Trisa Barai's</span> Portfolio`;
+      if (subtextEl) subtextEl.classList.add('visible');
+      if (progressWrapper) progressWrapper.classList.add('visible');
+      if (progressLine) progressLine.style.width = '100%';
+      if (percentText) percentText.textContent = '100%';
 
       setTimeout(() => {
-        introScreen.style.display = 'none';
-      }, prefersReducedMotion ? 300 : 850);
-    }, introDuration);
+        introScreen.classList.add('hide');
+        document.body.style.overflow = '';
+        setTimeout(() => { introScreen.style.display = 'none'; }, 400);
+      }, 700);
+    } else {
+      // Initialize typed text element to empty
+      if (typedTextEl) typedTextEl.innerHTML = '';
+      if (percentText) percentText.textContent = '0%';
+      if (progressLine) progressLine.style.width = '0%';
+
+      // STEP 1: Show "WELCOME" Pill Tag with smooth fade-in (150ms)
+      setTimeout(() => {
+        if (welcomeTag) welcomeTag.classList.add('visible');
+      }, 150);
+
+      // STEP 2: Show sentence ONE LETTER AT A TIME (W -> We -> Wel -> Welc...) (550ms)
+      const fullText = "Welcome to Trisa Barai's Portfolio";
+      const nameStart = "Welcome to ".length;
+      const nameEnd = "Welcome to Trisa Barai's".length;
+      let charIdx = 0;
+
+      setTimeout(() => {
+        const typeInterval = setInterval(() => {
+          if (charIdx <= fullText.length) {
+            let formattedHtml = '';
+            if (charIdx <= nameStart) {
+              formattedHtml = fullText.slice(0, charIdx);
+            } else if (charIdx <= nameEnd) {
+              const prefix = fullText.slice(0, nameStart);
+              const namePart = fullText.slice(nameStart, charIdx);
+              formattedHtml = `${prefix}<span class="intro-phrase-name">${namePart}</span>`;
+            } else {
+              const prefix = fullText.slice(0, nameStart);
+              const namePart = fullText.slice(nameStart, nameEnd);
+              const suffix = fullText.slice(nameEnd, charIdx);
+              formattedHtml = `${prefix}<span class="intro-phrase-name">${namePart}</span>${suffix}`;
+            }
+
+            if (typedTextEl) typedTextEl.innerHTML = formattedHtml;
+            charIdx++;
+          } else {
+            clearInterval(typeInterval);
+            if (cursorEl) cursorEl.style.display = 'none';
+
+            // STEP 3: Show Subtitle ("Computer Science Student • Software Developer • AI Enthusiast") with smooth fade-in
+            setTimeout(() => {
+              if (subtextEl) subtextEl.classList.add('visible');
+
+              // STEP 4: Show thin electric-blue loading line & count 0% -> 10% -> ... -> 100%
+              setTimeout(() => {
+                if (progressWrapper) progressWrapper.classList.add('visible');
+
+                let progress = 0;
+                const progressInterval = setInterval(() => {
+                  progress += 2;
+                  if (progress > 100) progress = 100;
+
+                  const currentVal = Math.round(progress);
+                  if (progressLine) progressLine.style.width = `${currentVal}%`;
+                  if (percentText) percentText.textContent = `${currentVal}%`;
+
+                  if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    if (progressLine) progressLine.style.width = '100%';
+                    if (percentText) percentText.textContent = '100%';
+
+                    // STEP 5: Display "100%" clearly, wait exactly 0.5 second (500ms), then smoothly fade out
+                    setTimeout(() => {
+                      introScreen.classList.add('hide');
+                      document.body.style.overflow = '';
+
+                      setTimeout(() => {
+                        introScreen.style.display = 'none';
+                      }, 850);
+                    }, 500);
+                  }
+                }, 28); // Smooth percentage progression 0% to 100%
+              }, 350);
+            }, 350);
+          }
+        }, 50); // Distinct 50ms per-character letter-by-letter reveal
+      }, 550);
+    }
   }
 
 
@@ -481,16 +686,20 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'status':
         outputHtml = `
           <div class="term-status-response">
-            <div><span class="status-key">Portfolio:</span> <span class="status-val online">ONLINE [200 OK]</span></div>
-            <div><span class="status-key">AI Demo:</span> <span class="status-val online">ONLINE</span></div>
-            <div><span class="status-key">Projects:</span> <span class="status-val">01 Flagship System</span></div>
-            <div><span class="status-key">Contact:</span> <span class="status-val available">AVAILABLE FOR OPPORTUNITIES</span></div>
+            <div class="term-status-row"><span class="status-key">Portfolio:</span> <span class="status-val online">ONLINE [200 OK]</span></div>
+            <div class="term-status-row"><span class="status-key">AI Demo:</span> <span class="status-val online">ONLINE</span></div>
+            <div class="term-status-row"><span class="status-key">Projects:</span> <span class="status-val">01 Flagship System</span></div>
+            <div class="term-status-row"><span class="status-key">Contact:</span> <span class="status-val available">AVAILABLE FOR OPPORTUNITIES</span></div>
           </div>`;
         break;
       case 'contact':
         outputHtml = `
-          <div>📧 Email: <span class="term-highlight">baraitrisa@gmail.com</span> | 📞 Phone: <span class="term-highlight">+91 8653024020</span></div>
-          <div>💼 LinkedIn: <span class="term-muted">linkedin.com/in/TrisaBarai</span> | 🐙 GitHub: <span class="term-muted">github.com/TrisaBarai</span></div>`;
+          <div class="term-contact-response">
+            <div>📧 Email: <span class="term-highlight">baraitrisa@gmail.com</span></div>
+            <div>📞 Phone: <span class="term-highlight">+91 8653024020</span></div>
+            <div>💼 LinkedIn: <span class="term-muted">linkedin.com/in/TrisaBarai</span></div>
+            <div>🐙 GitHub: <span class="term-muted">github.com/TrisaBarai</span></div>
+          </div>`;
         break;
       case 'education':
         outputHtml = `<div>🎓 <strong>B.Tech in Computer Science &amp; Engineering</strong> (Expected Graduation: 2026)</div>`;
